@@ -39,13 +39,13 @@ const Login = () => {
                 mode="contained"
                 style={styles.button}
             >
-                Open
+                Log In
             </Button>
             <View>
                 <Card>
                     <Text>Register is here</Text>
                     <Button style={styles.button} icon="camera" mode="outlined" onPress={() => {}}>
-                        Cadastrar
+                        Sign In
                     </Button>
                 </Card>
             </View>
