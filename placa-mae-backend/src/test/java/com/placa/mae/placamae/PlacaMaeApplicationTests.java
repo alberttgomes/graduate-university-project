@@ -1,4 +1,4 @@
-package com.project.placamae;
+package com.placa.mae.placamae;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
