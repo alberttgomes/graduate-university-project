@@ -25,7 +25,7 @@ const Navbar = () => {
           id={showMenu ? "nav-links-mobile" : "nav-links-mobile-hide"}
         >
           <li>
-            <a href="#">Conceito</a>
+          <Link to="/">Home</Link>
           </li>
           <li>
             <a href="#features">Quem somos</a>
@@ -34,14 +34,13 @@ const Navbar = () => {
             <a href="#download">Nossas ações</a>
           </li>
           <li>
+<<<<<<< HEAD
             <Link to='/materiais'> Materiais</Link>
+=======
+            <Link to="/materiais">Materiais</Link>
+>>>>>>> 52bccab8f9275b63854c32e93069731e6332e6c1
           </li>
 
-          {/* <li>
-            <a href="#" className="btn btn-dark">
-              Get Started
-            </a>
-          </li> */}
           <li className="nav-btn">
             <Button text={"Atividades pedagógicas"} btnClass={"btn-dark"} href={"#faq"} />
           </li>

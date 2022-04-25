@@ -13,19 +13,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 1.5rem;
+  padding-top: 0.3rem;
  
-}
-
-.logo-text {
-  font-size: 40px;
-  font-weight: 300;
-  color: white;
-}
-
-.logo-text span {
-  font-weight: 600;
-  color: orangered;
 }
 
 .nav-links {
@@ -159,4 +148,9 @@ a.btn-light {
   .navbar #nav-links-mobile a:hover {
     color: orangered;
   }
+}
+
+img{
+  width: 193px;
+  margin-right: 5rem;
 }

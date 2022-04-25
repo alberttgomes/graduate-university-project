@@ -46,7 +46,13 @@ h1 span:nth-child(3) {
 }
 
 .header-right img {
-  width: 90%;
+  width: 120%;
+}
+
+.btn-denuncia{
+  margin-left:1150px;
+  margin-top: 85px;
+  position: fixed;
 }
 
 @keyframes bounce {
