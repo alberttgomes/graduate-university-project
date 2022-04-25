@@ -30,13 +30,16 @@ const Header = () => {
           </p>
           <div className="header-cta">
             <Button text={"Conheça a legislação"} btnClass={"btn-dark"} href={"#"}/>
-            <Button text={"Denuncie"} btnClass={"btn-light"} href={"#"} />
+            
           </div>
         </div>
         <div className="header-right" data-aos="fade-left">
           <img src={cyberbullying} alt="phone" />
         </div>
       </div>
+      <div class="btn-denuncia">
+          <Button text={"Denuncie"} btnClass={"btn-light"} href={"#"} />
+          </div>
     </section>
   );
 };

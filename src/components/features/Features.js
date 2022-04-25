@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "./Features.css";
-import phoneFeatures from "../../assets/phone-features.png";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
