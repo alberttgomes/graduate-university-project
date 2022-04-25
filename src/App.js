@@ -5,17 +5,20 @@ import "./App.css";
 // import Download from "./components/download/Download";
 // import Subscribe from "./components/subscribe/Subscribe";
 // import Footer from "./components/footer/Footer";
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import {Navbar} from './components'
 import Home from "./pages/Home";
+import Materiais from "./pages/Materiais";
 
 function App() {
   return (
     <>
+    <BrowserRouter>
        <Navbar />
-       <BrowserRouter>
            <Routes>
                 <Route  path="/" element={<Home/>}/>
+                <Route  path="/materiais" element={<Materiais/>}/>
+               
            </Routes>
        </BrowserRouter>
     </>
