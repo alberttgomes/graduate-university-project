@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ui-kits",
-    "slug": "ui-kits",
+    "name": "placa-mae-app",
+    "slug": "placa-mae-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

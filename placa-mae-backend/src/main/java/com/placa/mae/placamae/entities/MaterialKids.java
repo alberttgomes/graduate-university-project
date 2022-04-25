@@ -2,23 +2,41 @@ package com.placa.mae.placamae.entities;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class MaterialKids extends Material {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long kidsId;
+	@Column
 	private List<Posting> postingKids;
 
 	public MaterialKids() {
 		super();
 	}
 
-	public MaterialKids(String article, String articleBody, long id, String dataArticle) {
-		super(article, articleBody, id, dataArticle);
+	public MaterialKids(long materialId, String article, String articleBody, String dataArticle) {
+		super(materialId, article, articleBody, dataArticle);
 	}
 
-	public MaterialKids(List<Posting> postingKids) {
+	public MaterialKids(long kidsId, List<Posting> postingKids) {
 		super();
+		this.kidsId = kidsId;
 		this.postingKids = postingKids;
+	}
+
+	public long getKidsId() {
+		return kidsId;
+	}
+
+	public void setKidsId(long kidsId) {
+		this.kidsId = kidsId;
 	}
 
 	public List<Posting> getPostingKids() {

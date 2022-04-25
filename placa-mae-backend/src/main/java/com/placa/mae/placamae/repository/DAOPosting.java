@@ -1,11 +1,11 @@
 package com.placa.mae.placamae.repository;
 
-public interface DAOPosting {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-	public boolean PostingIsOk(boolean res);
+import com.placa.mae.placamae.entities.Posting;
 
-	public String PostTitle(String title);
-
-	public String[] Postfilds(String[] filds);
+@Repository
+public interface DAOPosting extends JpaRepository <Posting, Long>{
 	
 }

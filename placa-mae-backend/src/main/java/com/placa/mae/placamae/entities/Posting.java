@@ -6,10 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.placa.mae.placamae.repository.DAOPosting;
-
 @Entity
-public class Posting implements DAOPosting {
+public class Posting {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long postId;
@@ -17,40 +15,6 @@ public class Posting implements DAOPosting {
 	private String title;
 	@Column
 	private String[] filds;
-	
-	@Override
-	public boolean PostingIsOk(boolean res) {
-		boolean posting = false;
-		
-		if(title != "") {
-			posting = true;
-			return res = posting;
-		};
-		
-		for(int i = 0; i <= filds.length; i++) {
-			
-			if(filds[i] != "") {
-				posting = true;
-				return res = posting;
-			}
-			
-			else if(filds[i] == "") {
-				return res = false;
-			}
-		}
-		
-		return res;
-	}
-	
-	@Override
-	public String PostTitle(String title) {
-		return title;
-	}
-
-	@Override
-	public String[] Postfilds(String[] filds) {
-		return filds;
-	}
 
 	public Posting() {
 		super();
