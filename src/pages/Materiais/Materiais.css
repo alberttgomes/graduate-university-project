@@ -1,3 +1,9 @@
+#materiais {
+    margin-top: 0px;
+    padding-top: 50px;
+    padding-bottom: 0px;
+}
+
 .container {
     text-align: center;
 }
@@ -6,7 +12,7 @@
     width: 300px;
     height: 450px;
     background-color:#48378e;
-    margin: 10px;
+    margin: 8px;
     display: inline-block;
 }
 
@@ -23,9 +29,17 @@ h3{
     color: rgb(253, 253, 253);
     border: none transparent;
     margin-top: 300px;
+    font-family: "Poppins", sans-serif;
 }
 
 #expandir:hover {
     background-color: #1c8791;
 }
 
+.btn-denuncia{
+    position: fixed;
+	float: bottom;
+	bottom: 20px;
+	right: 15px;
+	z-index: 100;
+  }

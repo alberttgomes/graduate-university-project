@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import "./Materiais.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Button from "../../components/UI/Button/Button";
 
 const Materiais = () => {
   useEffect(() => {
@@ -29,7 +30,9 @@ return (
               <button type="button" id="expandir">Expandir</button>
           </div>
         </div>
-        
+        <div class="btn-denuncia">
+          <Button text={"Denuncie"} btnClass={"btn-light"} href={"#"} />
+        </div>
         <Footer/>
     </section>
     
