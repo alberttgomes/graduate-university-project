@@ -1,17 +1,4 @@
-<<<<<<< HEAD
 
-
-
-const Materiais = () => {
-    return(
-        <div>
-            <h1>Materiais</h1>
-        </div>
-    )
-}
-
-export default Materiais
-=======
 import {
     Footer
   } from "../../components";
@@ -51,4 +38,4 @@ return (
 
 };
 export default Materiais;
->>>>>>> 52bccab8f9275b63854c32e93069731e6332e6c1
+
