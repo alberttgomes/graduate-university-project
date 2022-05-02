@@ -17,7 +17,7 @@
 }
 
 .header h1 span {
-  display: block;
+  display: flex;
 }
 
 h1 span:nth-child(1) {
@@ -34,7 +34,7 @@ h1 span:nth-child(3) {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 65%;
+  width: 70%;
   height: 1px;
   background: var(--color-white);
 }
@@ -50,9 +50,11 @@ h1 span:nth-child(3) {
 }
 
 .btn-denuncia{
-  margin-left:1150px;
-  margin-top: 85px;
-  position: fixed;
+position: fixed;
+float: bottom;
+bottom: 20px;
+right: 15px;
+z-index: 100;
 }
 
 @keyframes bounce {
