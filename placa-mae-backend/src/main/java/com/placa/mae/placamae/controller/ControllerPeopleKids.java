@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.placa.mae.placamae.entities.PeopleKids;
+import com.placa.mae.placamae.domain.PeopleKids;
 import com.placa.mae.placamae.repository.DAOPeopleKids;
 
 @RestController
@@ -18,12 +18,12 @@ public class ControllerPeopleKids {
 	@Autowired
 	DAOPeopleKids daoPeopleKids;
 
-	@RequestMapping(value = "/adolescent", method = RequestMethod.GET)
+	@RequestMapping(value = "/kid", method = RequestMethod.GET)
 	public List<PeopleKids> Get() {
 		return daoPeopleKids.findAll();
 	}
 
-	@RequestMapping(value = "/kids", method = RequestMethod.POST)
+	@RequestMapping(value = "/kid", method = RequestMethod.POST)
 	public PeopleKids Post(@Validated @RequestBody PeopleKids kids) {
 		return daoPeopleKids.save(kids);
 	}
