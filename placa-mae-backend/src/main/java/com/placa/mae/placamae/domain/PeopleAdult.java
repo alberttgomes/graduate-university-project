@@ -1,9 +1,15 @@
 package com.placa.mae.placamae.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class PeopleAdult {
@@ -13,9 +19,10 @@ public class PeopleAdult {
 	private long adultId;
 	private String name;
 	private int age;
-//	@OneToMany(targetEntity = MaterialAdult.class, fetch = FetchType.LAZY)
-//	@JoinColumn(name="fk_material_adult")
-//	private List<MaterialAdult> materialAdult = new ArrayList<>();
+	
+	@OneToMany(targetEntity = MaterialAdult.class, fetch = FetchType.LAZY)
+	@JoinColumn(name="fk_material_adult")
+	private List<MaterialAdult> materialAdult = new ArrayList<>();
 
 	public PeopleAdult() {
 		super();

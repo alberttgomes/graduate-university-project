@@ -9,14 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PeopleService {
+public class PeopleAdultService {
     
     @Autowired
     private DAOPeopleAdult peopleAdultRepository;
 
     public PeopleAdult findById(Long id) {
         return peopleAdultRepository.findById(id).orElseThrow(
-                () -> new EntityNotFoundException("Id not found: " + id) );
+                () -> new EntityNotFoundException("Id people not found: " + id) );
     }
     
 }

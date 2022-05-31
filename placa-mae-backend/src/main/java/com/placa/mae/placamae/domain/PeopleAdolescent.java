@@ -1,9 +1,17 @@
 package com.placa.mae.placamae.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
 
 @Entity
 public class PeopleAdolescent {
@@ -14,9 +22,9 @@ public class PeopleAdolescent {
 			private String name;
 			private int age;
 
-		//	@OneToMany(targetEntity = MaterialAdolescent.class, fetch = FetchType.LAZY)
-		//	@JoinColumn(name="fk_material_adolescent")
-		//	private List<MaterialAdolescent> adolescentMaterial = new ArrayList<>();
+			@OneToMany(targetEntity = MaterialAdolescent.class, fetch = FetchType.LAZY)
+			@JoinColumn(name="fk_material_adolescent")
+			private List<MaterialAdolescent> adolescentMaterial = new ArrayList<>();
 
 			public PeopleAdolescent() {
 				super();
@@ -51,6 +59,18 @@ public class PeopleAdolescent {
 
 			public void setAge(int age) {
 				this.age = age;
+			}
+
+			public boolean equals(Object obj) {
+				if(this == obj){
+					return true;
+				}
+				if(obj instanceof PeopleAdolescent) {
+					PeopleAdolescent other = (PeopleAdolescent) obj;
+					return Objects.equals(name, other.name) && Objects.equals(age, other.age)
+									&& Objects.equals(adolescentMaterial, other.adolescentMaterial);
+				}
+				return false;
 			}
 
 }
