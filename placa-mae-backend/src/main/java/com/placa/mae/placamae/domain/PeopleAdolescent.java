@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,9 @@ public class PeopleAdolescent {
 			@Id
 			@GeneratedValue(strategy = GenerationType.AUTO)
 			private long adolescentId;
+			@Column(name = "name", length = 20, nullable = false)
 			private String name;
+			@Column(name = "age", length = 3, nullable = false)
 			private int age;
 
 			@OneToMany(targetEntity = MaterialAdolescent.class, fetch = FetchType.LAZY)
@@ -61,6 +64,7 @@ public class PeopleAdolescent {
 				this.age = age;
 			}
 
+			@Override
 			public boolean equals(Object obj) {
 				if(this == obj){
 					return true;

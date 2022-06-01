@@ -1,5 +1,8 @@
 package com.placa.mae.placamae.domain;
 
+import java.util.Objects;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,8 +13,11 @@ public class MaterialAdolescent {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long adolescentId;
+	@Column(name = "title", length = 25, nullable = false)
 	private String title;
+	@Column(name = "field", length = 255, nullable = false)
 	private String fieldText;
+	@Column(name = "field_other", length = 255)
 	private String fieldText1;
 
 	public MaterialAdolescent() {
@@ -56,6 +62,19 @@ public class MaterialAdolescent {
 
 	public void setFieldText1(String fieldText1) {
 		this.fieldText1 = fieldText1;
+	}
+
+	@Override
+	public boolean equals(Object obj){
+		if(this == obj) {
+			return true;
+		}
+		if(obj instanceof MaterialAdolescent){
+			MaterialAdolescent other = (MaterialAdolescent) obj;
+			return Objects.equals(title, other.title) && Objects.equals(fieldText, other.fieldText)
+							&& Objects.equals(fieldText1, other.fieldText);
+		}
+		return false;
 	}
 
 }

@@ -16,7 +16,7 @@ public class PeopleAdultService {
 
     public PeopleAdult findById(Long id) {
         return peopleAdultRepository.findById(id).orElseThrow(
-                () -> new EntityNotFoundException("Id people not found: " + id) );
+                () -> new EntityNotFoundException("People id not found: " + id) );
     }
     
 }

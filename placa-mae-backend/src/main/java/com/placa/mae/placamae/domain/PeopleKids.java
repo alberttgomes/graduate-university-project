@@ -2,7 +2,9 @@ package com.placa.mae.placamae.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,9 @@ public class PeopleKids {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long kisId;
+	@Column(name = "name", length = 20, nullable = false)
 	private String name;
+	@Column(name = "age", length = 3, nullable = false)
 	private int age;
 	
 	@OneToMany(targetEntity = MaterialKids.class, fetch = FetchType.LAZY)
@@ -56,5 +60,18 @@ public class PeopleKids {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(this == obj){
+			return true;
+		}
+		if(obj instanceof PeopleKids) {
+			PeopleKids other = (PeopleKids) obj;
+			return Objects.equals(name, other.name) && Objects.equals(age, other.age)
+							&& Objects.equals(materialKids, other.materialKids);
+		}
+		return false;
 	}
 }

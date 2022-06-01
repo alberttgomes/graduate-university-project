@@ -1,5 +1,7 @@
 package com.placa.mae.placamae.domain;
 
+import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -56,6 +58,19 @@ public class MaterialAdult {
 
 			public void setFieldText1(String fieldText1) {
 				this.fieldText1 = fieldText1;
+			}
+			
+			@Override
+			public boolean equals(Object obj){
+				if(this == obj) {
+					return true;
+				}
+				if(obj instanceof MaterialAdult){
+					MaterialAdult other = (MaterialAdult) obj;
+					return Objects.equals(title, other.title) && Objects.equals(fieldText, other.fieldText)
+									&& Objects.equals(fieldText1, other.fieldText);
+				}
+				return false;
 			}
 
 }
