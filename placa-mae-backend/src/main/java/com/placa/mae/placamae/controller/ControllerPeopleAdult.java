@@ -59,6 +59,14 @@ public class ControllerPeopleAdult {
 				peopleAdultAge.setAge(newPeopleAdult.getAge());
 				daoPeopleAdult.save((peopleAdultAge));
 
+				PeopleAdult peopleAdultEmail = peopleAdultOld.get();
+				peopleAdultEmail.setEmail(newPeopleAdult.getEmail());
+				daoPeopleAdult.save((peopleAdultEmail));
+
+				PeopleAdult peopleAdultPassword = peopleAdultOld.get();
+				peopleAdultPassword.setPassword(newPeopleAdult.getPassword());
+				daoPeopleAdult.save((peopleAdultPassword));
+
 				return new ResponseEntity<>(HttpStatus.OK);
 
 			} else {

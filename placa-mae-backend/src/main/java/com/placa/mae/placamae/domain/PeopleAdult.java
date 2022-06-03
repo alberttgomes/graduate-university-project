@@ -19,10 +19,18 @@ public class PeopleAdult {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long adultId;
+	
 	@Column(name = "name", length = 20, nullable = false)
 	private String name;
+	
 	@Column(name = "age", length = 3, nullable = false)
 	private int age;
+	
+	@Column(name = "email", length = 30, nullable = false)
+	private String email;
+	
+	@Column(name = "password", length = 15, nullable = false)
+	private String password;
 	
 	@OneToMany(targetEntity = MaterialAdult.class, fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_material_adult")
@@ -32,7 +40,7 @@ public class PeopleAdult {
 		super();
 	}
 
-	public PeopleAdult(long adultId, String name, int age) {
+	public PeopleAdult(long adultId, String name, int age, String email, String password) {
 		super();
 		this.adultId = adultId;
 		this.name = name;
@@ -63,6 +71,25 @@ public class PeopleAdult {
 		this.age = age;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public List<MaterialAdult> getMaterialAdult() {
+		return materialAdult;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -72,6 +99,7 @@ public class PeopleAdult {
 		if(obj instanceof PeopleAdult) {
 			PeopleAdult other = (PeopleAdult) obj;
 			return Objects.equals(name, other.name) && Objects.equals(age, other.age)
+							&& Objects.equals(email, other.email) && Objects.equals(password, other.password)
 							&& Objects.equals(materialAdult, other.materialAdult);
 		}
 		return false;
