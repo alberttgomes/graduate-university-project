@@ -60,6 +60,8 @@ public class ControllerPeopleAdolescent {
 		peopleAdolescent.setEmail(!Objects.isNull(obj.getEmail()) ? obj.getEmail() : peopleAdolescent.getEmail());
 		peopleAdolescent.setPassword(!Objects.isNull(obj.getPassword()) ? obj.getPassword() : peopleAdolescent.getPassword());
 		obj = daoPeopleAdolescent.save(peopleAdolescent);
+
 		return ResponseEntity.ok().body(obj);
+		
 	}
 }

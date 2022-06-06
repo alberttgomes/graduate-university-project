@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,30 +29,30 @@ public class ControllerPeopleAdult {
 	@Autowired
 	DAOPeopleAdult daoPeopleAdult;
 
-	@RequestMapping(value = "/adult", method = RequestMethod.GET)
-	public List<PeopleAdult> Get() {
+	@RequestMapping(value = "/adults", method = RequestMethod.GET)
+	public List<PeopleAdult> get() {
 		return daoPeopleAdult.findAll();
 	}
 
-	@RequestMapping(value = "adult/{id}")
+	@RequestMapping(value = "adults/{id}")
 	public ResponseEntity<PeopleAdult> findById(@PathVariable Long id){
 		PeopleAdult obj = peopleAdultService.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 
-	@DeleteMapping(value = "/adult/{id}")
+	@DeleteMapping(value = "/adults/{id}")
 	public ResponseEntity<Void> deleteById(@PathVariable long id){
 		daoPeopleAdult.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
 
-	@RequestMapping(value = "/adult", method = RequestMethod.POST, produces = "application/json")
-	public PeopleAdult Post(@Validated @RequestBody PeopleAdult adult) {
+	@RequestMapping(value = "/adults", method = RequestMethod.POST, produces = "application/json")
+	public PeopleAdult post(@Validated @RequestBody PeopleAdult adult) {
 		return daoPeopleAdult.save(adult);
 	}
 
-	@RequestMapping(value = "/adult/adultId", method = RequestMethod.PUT)
-	public ResponseEntity<PeopleAdult>Put(@PathVariable(value = "adultId") long adultId,
+	@RequestMapping(value = "/adults/adultId", method = RequestMethod.PUT)
+	public ResponseEntity<PeopleAdult>put(@PathVariable(value = "adultId") long adultId,
 			@Valid @RequestBody PeopleAdult newPeopleAdult)
 	{
 			Optional<PeopleAdult> peopleAdultOld = daoPeopleAdult.findById(adultId);
