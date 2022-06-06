@@ -24,20 +24,43 @@ public class ControllerPeopleKids {
 	@Autowired
 	PeopleKidService daoPeopleKidService;
 
-	@RequestMapping(value = "/kid", method = RequestMethod.GET)
+	@RequestMapping(value = "/kids", method = RequestMethod.GET)
 	public List<PeopleKids> Get() {
 		return daoPeopleKids.findAll();
 	}
 
-	@RequestMapping(value = "kid/{id}")
+	@RequestMapping(value = "kids/{id}")
 	public ResponseEntity<PeopleKids> findById(@PathVariable Long id){
 		PeopleKids obj = daoPeopleKidService.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 
-	@RequestMapping(value = "/kid", method = RequestMethod.POST)
+
+
+	@RequestMapping(value = "/kids", method = RequestMethod.POST)
 	public PeopleKids Post(@Validated @RequestBody PeopleKids kids) {
 		return daoPeopleKids.save(kids);
 	}
 
-}
+    }
+
+	@DeleteMapping( value = "/kids/{id}")
+	public ResponseEntity<Void> deleteById(@PathVariable long id){
+		daoPeopleKids.deleteById(id);
+		return ResponseEntity.noContent().build();
+	}
+
+	@PutMapping(value = "/kids/kidsId")
+	public ResponseEntity<PeopleAdult>update(@PathVariable(value = "kidsId") long kidsId, @Valid @RequestBody Peoplekids newPeopleKids) {
+
+		Optional<PeopleKids> optionalObj  = daoPeopleKids.findById(id);
+		PeopleKids peopleKids = optionalObj.get();
+
+		peopleKids.setName(!Objects.isNull(obj.getName()) ? obj.getName() : peopleKids.getName());
+		peopleKids.setAge(!Objects.isNull(obj.getAge()) ? obj.getAge() : peopleKids.getAge());
+		peopleKids.setEmail(!Objects.isNull(obj.getEmail()) ? obj.getEmail() : peopleKids.getEmail());
+		peopleKids.setPassword(!Objects.isNull(obj.getPassword()) ? obj.getPassword() : peopleKids.getPassword());
+		obj = daoPeopleKids.save(peopleKids);
+		return ResponseEntity.ok().body(obj);
+
+    }

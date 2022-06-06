@@ -39,6 +39,12 @@ public class ControllerPeopleAdult {
 		return ResponseEntity.ok().body(obj);
 	}
 
+	@DeleteMapping(value = "/adult/{id}")
+	public ResponseEntity<Void> deleteById(@PathVariable long id){
+		daoPeopleAdult.deleteById(id);
+		return ResponseEntity.noContent().build();
+	}
+
 	@RequestMapping(value = "/adult", method = RequestMethod.POST, produces = "application/json")
 	public PeopleAdult Post(@Validated @RequestBody PeopleAdult adult) {
 		return daoPeopleAdult.save(adult);
