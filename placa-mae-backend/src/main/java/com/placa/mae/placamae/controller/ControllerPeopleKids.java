@@ -55,9 +55,8 @@ public class ControllerPeopleKids {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PutMapping(value = "/kids/kidsId")
-	public ResponseEntity<PeopleKids> put(@PathVariable Long kidsId, @Valid @RequestBody PeopleKids newPeopleKids) {
-
+	@PutMapping(value = "/kids/{kidsId}")
+	public ResponseEntity<PeopleKids> put(@PathVariable Long kidsId, @RequestBody PeopleKids newPeopleKids) {
 		Optional<PeopleKids> optionalObj  = daoPeopleKids.findById(kidsId);
 		PeopleKids peopleKids = optionalObj.get();
 

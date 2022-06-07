@@ -11,7 +11,7 @@ public class CorsConfigurationAdolescents implements WebMvcConfigurer {
    
     @Override
     public void addCorsMappings(CorsRegistry adolescents) {
-        adolescents.addMapping("/adolescents").allowedOrigins("http://localhost:").allowedMethods(
+        adolescents.addMapping("/adolescents").allowedOrigins("http://localhost:19006").allowedMethods(
             "GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT"
         );
     }
