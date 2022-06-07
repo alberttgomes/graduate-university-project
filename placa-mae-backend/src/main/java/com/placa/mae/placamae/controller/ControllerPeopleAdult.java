@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,7 @@ import com.placa.mae.placamae.domain.PeopleAdult;
 import com.placa.mae.placamae.repository.DAOPeopleAdult;
 import com.placa.mae.placamae.services.PeopleAdultService;
 
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 public class ControllerPeopleAdult {
 

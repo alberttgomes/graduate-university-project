@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,6 +22,7 @@ import com.placa.mae.placamae.domain.PeopleKids;
 import com.placa.mae.placamae.repository.DAOPeopleKids;
 import com.placa.mae.placamae.services.PeopleKidService;
 
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
 public class ControllerPeopleKids {
 
@@ -42,7 +44,6 @@ public class ControllerPeopleKids {
 	}
 
 
-
 	@RequestMapping(value = "/kids", method = RequestMethod.POST)
 	public PeopleKids post(@Validated @RequestBody PeopleKids kids) {
 		return daoPeopleKids.save(kids);
@@ -53,7 +54,7 @@ public class ControllerPeopleKids {
 		daoPeopleKids.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
-
+	
 	@PutMapping(value = "/kids/kidsId")
 	public ResponseEntity<PeopleKids> put(@PathVariable Long kidsId, @Valid @RequestBody PeopleKids newPeopleKids) {
 
