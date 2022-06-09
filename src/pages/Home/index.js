@@ -15,7 +15,7 @@ const Home = () =>{
         <Header />
       </header>
       <Subscribe />
-      <Footer />
+      
     </>
     )
 }

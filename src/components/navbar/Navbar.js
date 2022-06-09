@@ -31,7 +31,7 @@ const Navbar = () => {
           <Link to="/quemsomos">Quem Somos</Link>
           </li>
           <li>
-            <a href="#download">Nossas ações</a>
+            <Link to="#download">Nossas ações</Link>
           </li>
           <li>
 
