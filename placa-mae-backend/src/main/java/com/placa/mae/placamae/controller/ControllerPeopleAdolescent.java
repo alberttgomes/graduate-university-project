@@ -23,8 +23,8 @@ import com.placa.mae.placamae.services.PeopleAdolescentService;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
+@RequestMapping("adolescents/auth")
 public class ControllerPeopleAdolescent {
-	
 	@Autowired
 	DAOPeopleAdolescent daoPeopleAdolescent;
 
@@ -32,7 +32,7 @@ public class ControllerPeopleAdolescent {
 	private PeopleAdolescentService peopleAdolescentService;
 
 	public void PeopleAdolescentService (PeopleAdolescentService peopleAdolescentService) {
-
+		this.peopleAdolescentService = peopleAdolescentService;
 	}
 	
 	@RequestMapping(value = "/adolescents", method = RequestMethod.GET)
