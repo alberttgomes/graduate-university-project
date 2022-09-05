@@ -4,19 +4,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.placa.mae.placamae.domain.PeopleKids;
 import com.placa.mae.placamae.repository.DAOPeopleKids;
@@ -32,19 +23,18 @@ public class ControllerPeopleKids {
 	@Autowired
 	PeopleKidService daoPeopleKidService;
 
-	@RequestMapping(value = "/kids", method = RequestMethod.GET)
+	@GetMapping(value = "/kids")
 	public List<PeopleKids> get() {
 		return daoPeopleKids.findAll();
 	}
 
-	@RequestMapping(value = "kids/{id}")
+	@GetMapping(value = "kids/{id}")
 	public ResponseEntity<PeopleKids> findById(@PathVariable Long id){
 		PeopleKids obj = daoPeopleKidService.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 
-
-	@RequestMapping(value = "/kids", method = RequestMethod.POST)
+	@PostMapping(value = "/kids")
 	public PeopleKids post(@Validated @RequestBody PeopleKids kids) {
 		return daoPeopleKids.save(kids);
 	}

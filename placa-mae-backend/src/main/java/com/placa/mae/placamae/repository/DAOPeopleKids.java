@@ -5,7 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.placa.mae.placamae.domain.PeopleKids;
 
+import java.util.Optional;
+
 @Repository
 public interface DAOPeopleKids extends JpaRepository <PeopleKids, Long> {
-
+    Optional<PeopleKids> findByEmail(String email);
+    Boolean existsByEmail(String email);
 }

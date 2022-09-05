@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import com.placa.mae.placamae.services.PeopleAdultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -29,6 +30,10 @@ public class ControllerPeopleAdolescent {
 
 	@Autowired
 	private PeopleAdolescentService peopleAdolescentService;
+
+	public void PeopleAdolescentService (PeopleAdolescentService peopleAdolescentService) {
+
+	}
 	
 	@RequestMapping(value = "/adolescents", method = RequestMethod.GET)
 	public List<PeopleAdolescent> get(){
