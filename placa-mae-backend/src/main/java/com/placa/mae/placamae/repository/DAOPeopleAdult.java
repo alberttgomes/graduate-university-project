@@ -1,5 +1,6 @@
 package com.placa.mae.placamae.repository;
 
+import com.placa.mae.placamae.domain.PeopleAdolescent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,5 +11,7 @@ import java.util.Optional;
 @Repository
 public interface DAOPeopleAdult extends JpaRepository <PeopleAdult, Long>{
     Optional<PeopleAdult> findByEmail(String email);
+    Optional<PeopleAdult> findByUsernameOrEmail(String username, String email);
     Boolean existsByEmail(String email);
+
 }

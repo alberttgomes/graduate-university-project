@@ -11,7 +11,6 @@ import javax.persistence.*;
 		@UniqueConstraint(columnNames = {"email"})
 })
 public class PeopleKids {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long kisId;

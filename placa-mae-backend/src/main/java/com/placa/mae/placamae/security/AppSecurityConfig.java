@@ -18,7 +18,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     private PeopleAdolescentService userDetailsService;
 
     @Bean
-    private PasswordEncoder passwordEncoder() {
+    protected PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
