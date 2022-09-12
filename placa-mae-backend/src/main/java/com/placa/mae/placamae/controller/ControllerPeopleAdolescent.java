@@ -1,32 +1,30 @@
 package com.placa.mae.placamae.controller;
 
+import com.placa.mae.placamae.domain.PeopleAdolescent;
+import com.placa.mae.placamae.dto.AdolescentInsertDTO;
+import com.placa.mae.placamae.dto.PeopleAdolescentDTO;
+import com.placa.mae.placamae.repository.DAOPeopleAdolescent;
+import com.placa.mae.placamae.services.PeopleAdolescentService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import com.placa.mae.placamae.services.PeopleAdultService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.placa.mae.placamae.domain.PeopleAdolescent;
-import com.placa.mae.placamae.repository.DAOPeopleAdolescent;
-import com.placa.mae.placamae.services.PeopleAdolescentService;
-
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("adolescents/auth")
 public class ControllerPeopleAdolescent {
 	@Autowired
 	DAOPeopleAdolescent daoPeopleAdolescent;
+
+	@Autowired
+	private ModelMapper modelMapper;
 
 	@Autowired
 	private PeopleAdolescentService peopleAdolescentService;
@@ -36,19 +34,23 @@ public class ControllerPeopleAdolescent {
 	}
 	
 	@RequestMapping(value = "/adolescents", method = RequestMethod.GET)
-	public List<PeopleAdolescent> get(){
+	public List<PeopleAdolescent> get() {
 		return daoPeopleAdolescent.findAll();
 	}
 
 	@RequestMapping(value = "adolescents/{id}")
-	public ResponseEntity<PeopleAdolescent> findById(@PathVariable Long id){
+	public ResponseEntity<PeopleAdolescent> findById(@PathVariable Long id) {
 		PeopleAdolescent obj = peopleAdolescentService.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@RequestMapping(value = "/adolescents", method = RequestMethod.POST)
-	public PeopleAdolescent post(@Validated @RequestBody PeopleAdolescent adolescent) {
-		return daoPeopleAdolescent.save(adolescent);
+	@PostMapping(value = "/adolescents")
+	public ResponseEntity<PeopleAdolescentDTO> create(@Validated @RequestBody AdolescentInsertDTO useForm,
+														UriComponentsBuilder uriBuilder) {
+		PeopleAdolescent adolescentSave = modelMapper.map(useForm, PeopleAdolescent.class);
+		peopleAdolescentService.createAdolescent(adolescentSave);
+		URI uri = uriBuilder.path("adolescent/{id}").buildAndExpand(adolescentSave.getAdolescentId()).toUri();
+		return ResponseEntity.created(uri).body(new PeopleAdolescentDTO(adolescentSave));
 	}
 	
 	@DeleteMapping(value="adolescents/{id}")
@@ -58,7 +60,7 @@ public class ControllerPeopleAdolescent {
 	}
 
 	@PutMapping(value="adolescents/{id}")
-	public ResponseEntity<PeopleAdolescent> update(@PathVariable Long id, @RequestBody PeopleAdolescent obj){
+	public ResponseEntity<PeopleAdolescent> update(@PathVariable Long id, @RequestBody PeopleAdolescent obj) {
 		Optional<PeopleAdolescent> optionalObj  = daoPeopleAdolescent.findById(id);
 		PeopleAdolescent peopleAdolescent = optionalObj.get();
 		

@@ -12,7 +12,6 @@ import java.util.List;
 
 public class AdolescentInsertDTO implements Serializable {
     private static final long serialVersionUID = 1l;
-
     @NotBlank(message = "field mandatory")
     @Email(message = "format incorrect email")
     private String email;

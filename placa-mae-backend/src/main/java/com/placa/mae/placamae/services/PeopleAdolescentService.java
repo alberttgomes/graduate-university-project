@@ -12,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -31,6 +32,28 @@ public class PeopleAdolescentService implements UserDetailsService {
              return peopleAdolescentRepository.findById(id).orElseThrow(
                  () -> new EntityNotFoundException("People id not found " + id)
              );
+        }
+
+        public PeopleAdolescent createAdolescent (PeopleAdolescent adolescent) {
+            boolean verifyExists = verifyPeopleExists(adolescent.getUsername());;
+
+            if (!verifyExists) {
+                adolescent.setPassword(new BCryptPasswordEncoder().encode(adolescent.getPassword()));
+            }
+            return peopleAdolescentRepository.save(adolescent);
+        }
+
+        public boolean verifyPeopleExists (String emailOrUsername) throws UsernameNotFoundException {
+             if (emailOrUsername.equals("")) {
+                 throw new UsernameNotFoundException(
+                         "user not found with username or email: " + emailOrUsername);
+             }
+             try {
+                 peopleAdolescentRepository.findByUsernameOrEmail(emailOrUsername, emailOrUsername);
+                 return true;
+             } catch (Exception e) {
+                 return false;
+             }
         }
 
         @Override
