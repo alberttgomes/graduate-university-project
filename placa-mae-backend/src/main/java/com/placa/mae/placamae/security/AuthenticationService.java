@@ -26,7 +26,7 @@ public class AuthenticationService implements UserDetailsService {
         if (adolescent.isPresent()) {
             System.out.println("Try authenticated the user " + adolescent.get().getUsername());
 
-            return  adolescent.get();
+            return (UserDetails) adolescent.get();
         }
 
         throw  new UsernameNotFoundException("Data invalid");

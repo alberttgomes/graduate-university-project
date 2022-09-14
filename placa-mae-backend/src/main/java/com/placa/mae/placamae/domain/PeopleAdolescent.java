@@ -35,7 +35,7 @@ public class PeopleAdolescent implements UserDetails {
 		private String username;
 
 		@OneToMany(targetEntity = MaterialAdolescent.class, fetch = FetchType.LAZY)
-		@JoinTable(name="fk_material_adolescent")
+		@JoinTable(name="fk_material_adolescent", joinColumns = @JoinColumn(name ="adolescentId", referencedColumnName = "adolescentId"))
 		private List<MaterialAdolescent> adolescentMaterial = new ArrayList<>();
 
 		public PeopleAdolescent() {
