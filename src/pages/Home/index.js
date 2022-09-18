@@ -1,6 +1,5 @@
 import {
-    
-    Subscribe,
+    Denuncia,
     Footer
   } from "../../components";
   import Header from "./header/Header";
@@ -14,7 +13,6 @@ const Home = () =>{
     
         <Header />
       </header>
-      <Subscribe />
       
     </>
     )

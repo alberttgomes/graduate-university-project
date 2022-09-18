@@ -1,14 +1,14 @@
 a {
   font-size: 16px;
   font-weight: 300;
-  color: #fff;
+  color: #8861F8;
   text-decoration: none;
   margin-right: 1rem;
   transition: all 0.3s;
 }
 a:hover,
 #nav-links-mobile a:hover {
-  color: #24a4b0;
+  color: #6147d4;
 }
 a.btn {
   border-radius: 5px;
@@ -17,9 +17,13 @@ a.btn {
   cursor: pointer;
 }
 
+a.btn-verMais {
+  background-color: #382C70;
+  color: var(--color-white);
+}
+
 a.btn-dark {
-  background: transparent;
-  border: 2px solid #fff;
+  background: transparent
 }
 a.btn-light {
   background: orangered;

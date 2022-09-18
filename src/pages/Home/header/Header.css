@@ -11,7 +11,7 @@
   font-size: 4rem;
   line-height: 1.4;
   text-transform: uppercase;
-  color: var(--color-white);
+  color: #8861F8;
   position: relative;
   padding-bottom: 2rem;
 }
@@ -36,12 +36,12 @@ h1 span:nth-child(3) {
   bottom: 0;
   width: 70%;
   height: 1px;
-  background: var(--color-white);
+  background: #8861F8
 }
 
 .header-left p {
   margin: 3rem 0;
-  color: var(--color-white);
+  color: #8861F8;
   width: 70%;
 }
 
@@ -52,8 +52,6 @@ h1 span:nth-child(3) {
 .btn-denuncia{
 position: fixed;
 float: bottom;
-bottom: 20px;
-right: 15px;
 z-index: 100;
 }
 

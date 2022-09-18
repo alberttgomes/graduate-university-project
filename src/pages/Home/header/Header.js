@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Header.css";
 import Button from "../../../components/UI/Button/Button";
-
+import Denuncia from "../../../components/denuncia/Denuncia"
 import cyberbullying from "../../../assets/cyberbullying.jpg";
 
 import AOS from "aos";
@@ -38,7 +38,7 @@ const Header = () => {
         </div>
       </div>
       <div class="btn-denuncia">
-          <Button text={"Denuncie"} btnClass={"btn-light"} href={"#"} />
+          <Denuncia></Denuncia>
           </div>
     </section>
   );

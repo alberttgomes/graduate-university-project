@@ -6,7 +6,8 @@
   height: 8rem;
   width: 100%;
   
-  background: #48378e;
+  background: rgb(114,92,224);
+  background: linear-gradient(90deg, rgba(114,92,224,1) 0%, rgba(144,121,208,1) 35%);
 }
 
 .logo {
@@ -37,7 +38,7 @@
 }
 .nav-links a:hover,
 #nav-links-mobile a:hover {
-  color: #24a4b0;
+  color: #382C70;
 }
 
 
