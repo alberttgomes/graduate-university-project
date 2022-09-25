@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./Header.css";
 import Button from "../../../components/UI/Button/Button";
 import Denuncia from "../../../components/denuncia/Denuncia"
-import cyberbullying from "../../../assets/cyberbullying.jpg";
+import cyberbullying from "../../../assets/cyberbullying.png";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <section id="header">
       <div className="container header">
-        <div className="header-left" data-aos="fade-right">
+        {/* <div className="header-left" data-aos="fade-right">
           <h1>
             <span>Você sabe o que é</span>
             <span>CYBERBULLYING?</span>
@@ -32,7 +32,7 @@ const Header = () => {
             <Button text={"Conheça a legislação"} btnClass={"btn-dark"} href={"#"}/>
             
           </div>
-        </div>
+        </div>  */}
         <div className="header-right" data-aos="fade-left">
           <img src={cyberbullying} alt="phone" />
         </div>

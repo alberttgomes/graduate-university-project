@@ -6,8 +6,7 @@
   height: 8rem;
   width: 100%;
   
-  background: rgb(114,92,224);
-  background: linear-gradient(90deg, rgba(114,92,224,1) 0%, rgba(144,121,208,1) 35%);
+  background: white;
 }
 
 .logo {
@@ -31,11 +30,18 @@
 .nav-links a {
   font-size: 16px;
   font-weight: 300;
-  color: #fff;
+  color: #767272;
   text-decoration: none;
   margin-right: 1rem;
   transition: all 0.3s;
 }
+
+.nav-btn{
+  background-color: #FAE43C;
+  width: 130px;
+  height: 25px;
+}
+
 .nav-links a:hover,
 #nav-links-mobile a:hover {
   color: #382C70;
@@ -49,11 +55,12 @@
   font-weight: 500;
 }
 
-a.btn-dark {
+.btn-dark {
   background: transparent;
   border: 2px solid #fff;
 }
-a.btn-light {
+
+/* a.btn-light {
   background: #fff;
   border: 2px solid transparent;
   color: #0a1930;
@@ -70,22 +77,27 @@ a.btn-light {
   /* hide nav button on navbar */
   .nav-btn {
     display: none;
+    background-color: #FAE43C;
   }
 }
 @media screen and (max-width: 600px) {
   /* show nav button on navbar menu */
   .nav-btn {
     display: block;
+    background-color: #FAE43C;
+    width: auto;
+    height: auto;
   }
 
   .nav-links {
     display: none;
-    border: 2px solid #fff;
+    border: 2px solid #767272;
     z-index: 111;
   }
 
   .navbar .menu-icons {
     display: block;
+    background-color: #767272;
   }
 
   .navbar #nav-links-mobile,
@@ -132,7 +144,7 @@ a.btn-light {
   .navbar #nav-links-mobile-hide li {
     text-align: center;
     padding: 10px 0;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #767272;
     margin: 0 30px;
   }
 
@@ -141,7 +153,7 @@ a.btn-light {
   }
 
   .navbar #nav-links-mobile li a {
-    color: #fff;
+    color: #767272;
     text-decoration: none;
     font-size: 18px;
   }

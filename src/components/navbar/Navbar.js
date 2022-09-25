@@ -16,9 +16,7 @@ const Navbar = () => {
   };
   return (
     <nav className="navbar">
-      <div className="logo">      
-        <img src={logo} alt="logo" /> 
-      </div>
+      
       <menu className="menu">
         <ul
           className="nav-links"
@@ -28,22 +26,22 @@ const Navbar = () => {
           <Link to="/">Home</Link>
           </li>
           <li>
-          <Link to="/quemsomos">Quem Somos</Link>
-          </li>
-          <li>
-            <Link to="#download">Nossas ações</Link>
-          </li>
-          <li>
-
-
             <Link to="/materiais">Materiais</Link>
-
           </li>
-
+          <li>
+          <Link to="/quemsomos">Jogos</Link>
+          </li>
+          <li>
+            <Link to="#download">Sobre</Link>
+          </li>
+          
+          <li>
+            <Button text={"Login"} href={"#faq"} />
+          </li>
           <li className="nav-btn">
-            <Button text={"Atividades pedagógicas"} btnClass={"btn-dark"} href={"#faq"} />
+            <Button text={"Cadastre-se"} btnClass={"btn-dark"} href={"#faq"} />
           </li>
-        </ul>
+          </ul>
       </menu>
       <div className="menu-icons" onClick={toggleMenu}>
         {showMenu ? (
