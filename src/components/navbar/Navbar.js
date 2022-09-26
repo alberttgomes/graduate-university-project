@@ -39,7 +39,7 @@ const Navbar = () => {
             <Button text={"Login"} href={"#faq"} />
           </li>
           <li className="nav-btn">
-            <Button text={"Cadastre-se"} btnClass={"btn-dark"} href={"#faq"} />
+            <Button text={"Cadastre-se"} btnClass={"btn-dark"} href={"/cadastro"} />
           </li>
           </ul>
       </menu>
