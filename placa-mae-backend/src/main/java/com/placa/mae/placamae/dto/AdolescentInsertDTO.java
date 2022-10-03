@@ -11,15 +11,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdolescentInsertDTO implements Serializable {
+
     private static final long serialVersionUID = 1l;
+
     @NotBlank(message = "field mandatory")
     @Email(message = "format incorrect email")
     private String email;
+
     @NotBlank(message = "field mandatory")
     private String password;
+
     @NotBlank(message = "field mandatory")
     private String username;
+
     private List<MaterialAdolescent> materialAdolescents = new ArrayList<>();
+
     private LocalDateTime dateRegister = LocalDateTime.now();
 
     public AdolescentInsertDTO(PeopleAdolescent adolescentReturnDataBase) {

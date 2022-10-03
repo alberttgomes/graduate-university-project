@@ -17,7 +17,7 @@ import javax.persistence.*;
 		@UniqueConstraint(columnNames = {"email"}),
 		@UniqueConstraint(columnNames = {"username"})
 })
-public class PeopleAdolescent implements UserDetails {
+public class PeopleAdolescent {
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private long adolescentId;
@@ -62,14 +62,6 @@ public class PeopleAdolescent implements UserDetails {
 			this.adolescentId = adolescentId;
 		}
 
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
 		public int getAge() {
 			return age;
 		}
@@ -86,10 +78,6 @@ public class PeopleAdolescent implements UserDetails {
 			this.dateRegister = dateRegister;
 		}
 
-		public void setUsername(String username) {
-			this.username = username;
-		}
-
 		public String getEmail() {
 			return email;
 		}
@@ -98,40 +86,64 @@ public class PeopleAdolescent implements UserDetails {
 			this.email = email;
 		}
 
-		@Override
-		public Collection<? extends GrantedAuthority> getAuthorities() {
-			return (Collection<? extends GrantedAuthority>) this.adolescentMaterial;
+		public String getName() {
+			return name;
 		}
 
-		@Override
+		public void setName(String name) {
+			this.name = name;
+		}
+
 		public String getPassword() {
-			return this.password;
+			return password;
 		}
 
-		@Override
 		public String getUsername() {
-			return this.username;
+			return username;
 		}
 
-		@Override
-		public boolean isAccountNonExpired() {
-			return true;
+		public void setUsername(String username) {
+			this.username = username;
 		}
 
-		@Override
-		public boolean isAccountNonLocked() {
-			return true;
+		public void setAdolescentMaterial(List<MaterialAdolescent> adolescentMaterial) {
+			this.adolescentMaterial = adolescentMaterial;
 		}
 
-		@Override
-		public boolean isCredentialsNonExpired() {
-			return true;
-		}
-
-		@Override
-		public boolean isEnabled() {
-			return true;
-		}
+	//		@Override
+//		public Collection<? extends GrantedAuthority> getAuthorities() {
+//			return (Collection<? extends GrantedAuthority>) this.adolescentMaterial;
+//		}
+//
+//		@Override
+//		public String getPassword() {
+//			return this.password;
+//		}
+//
+//		@Override
+//		public String getUsername() {
+//			return this.username;
+//		}
+//
+//		@Override
+//		public boolean isAccountNonExpired() {
+//			return true;
+//		}
+//
+//		@Override
+//		public boolean isAccountNonLocked() {
+//			return true;
+//		}
+//
+//		@Override
+//		public boolean isCredentialsNonExpired() {
+//			return true;
+//		}
+//
+//		@Override
+//		public boolean isEnabled() {
+//			return true;
+//		}
 
 		public void setPassword(String password) {
 					this.password = password;

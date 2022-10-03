@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("adolescent/auth")
 public class AuthenticationControllerAdolescent {
+
     @Autowired
     private AuthenticationManager authManager;
+
     @Autowired
     private TokenService tokenService;
 

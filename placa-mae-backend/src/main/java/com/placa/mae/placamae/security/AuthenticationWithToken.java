@@ -39,9 +39,9 @@ public class AuthenticationWithToken extends OncePerRequestFilter {
     private void authenticationClient (String token) {
         Long idAdolescent = tokenService.getIdAdolescent(token);
         PeopleAdolescent adolescent = daoPeopleAdolescent.findById(idAdolescent).get();
-        UsernamePasswordAuthenticationToken authenticationToken
-                = new UsernamePasswordAuthenticationToken(adolescent, null, adolescent.getAuthorities());
-        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+        //UsernamePasswordAuthenticationToken authenticationToken
+               // = new UsernamePasswordAuthenticationToken(adolescent, null, adolescent.getAuthorities());
+        //SecurityContextHolder.getContext().setAuthentication(authenticationToken);
     }
 
     private String recoveryToken(HttpServletRequest request) {

@@ -10,10 +10,15 @@ public class PeopleAdolescentDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long adolescentId;
+
     private int age;
+
     private String username;
+
     private String password;
+
     private LocalDateTime dateRegister;
+
     private String email;
 
     public PeopleAdolescentDTO (PeopleAdolescent adolescentReturnDataBase) {

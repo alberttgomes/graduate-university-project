@@ -8,7 +8,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "kids", uniqueConstraints = {
-		@UniqueConstraint(columnNames = {"email"})
+		@UniqueConstraint(columnNames = {"email"}),
+		@UniqueConstraint(columnNames = {"username"})
 })
 public class PeopleKids {
 	@Id
@@ -26,6 +27,9 @@ public class PeopleKids {
 	
 	@Column(name = "password", length = 15, nullable = false)
 	private String password;
+
+	@Column(name = "username", length = 15, nullable = false)
+	private String username;
 	
 	@OneToMany(targetEntity = MaterialKids.class, fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_material_kids")
@@ -35,10 +39,14 @@ public class PeopleKids {
 		super();
 	}
 
-	public PeopleKids(long kisId, String name, int age, String email, String password) {
+	public PeopleKids(long kisId, String name, int age, String email, String password, String username) {
+		super();
+		this.age = age;
+		this.email = email;
 		this.kisId = kisId;
 		this.name = name;
-		this.age = age;
+		this.password = password;
+		this.username = username;
 	}
 
 	public long getKisId() {
@@ -79,6 +87,14 @@ public class PeopleKids {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public List<MaterialKids> getMaterialKids() {
