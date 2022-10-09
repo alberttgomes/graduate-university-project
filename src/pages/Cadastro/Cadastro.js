@@ -15,6 +15,9 @@ const Cadastro = () => {
                     <input type="text" placeholder="Data de nascimento"></input>
                     <input type="text" placeholder="Senha"></input>
                 </div>
+                <div className="cadastrar">
+                    <Button text={"Cadastrar"} btnClass={"btn-verMais"}/>
+                </div>
             </div>
 
             <div className="btn-denuncia">

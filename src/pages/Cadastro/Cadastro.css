@@ -10,7 +10,7 @@
     height: 436px;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
     border-radius: 23px;
     align-items: center;
     justify-content: center;
@@ -21,7 +21,7 @@
     color: #382C70;
     font-size: 30px;
     text-align: center;
-    padding-top:15px;
+    padding-top:10px;
 }
 
 input {
