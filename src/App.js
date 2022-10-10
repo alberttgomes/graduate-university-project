@@ -7,6 +7,7 @@ import QuemSomos from "./pages/QuemSomos/index";
 import VerMateriais from "./pages/verMateriais";
 import  Footer   from "./components/footer/Footer";
 import Cadastro from "./pages/Cadastro/Cadastro";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
                 <Route  path="/materiais/paisresponsaveis" element={<VerMateriais/>}/>
                 <Route  path="/quemsomos" element={<QuemSomos/>}/>
                 <Route  path="/cadastro" element={<Cadastro/>}/>
+                <Route  path="/login" element={<Login/>}/>
            </Routes>
         
            </BrowserRouter>

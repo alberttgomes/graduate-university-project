@@ -36,7 +36,7 @@ const Navbar = () => {
           </li>
           
           <li>
-            <Button text={"Login"} href={"#faq"} />
+            <Button text={"Login"} href={"/login"} />
           </li>
           <li className="nav-btn">
             <Button text={"Cadastre-se"} btnClass={"btn-dark"} href={"/cadastro"} />
