@@ -49,7 +49,9 @@ public class PeopleAdolescentService implements UserDetailsService {
                          "user not found with username or email: " + emailOrUsername);
              }
              try {
-                 peopleAdolescentRepository.findByUsernameOrEmail(emailOrUsername, emailOrUsername);
+                 peopleAdolescentRepository.findByUsernameOrEmail
+                         (emailOrUsername, emailOrUsername);
+
                  return true;
              } catch (Exception e) {
                  return false;
