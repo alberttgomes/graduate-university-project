@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
 import "./Header.css";
 import Button from "../../../components/UI/Button/Button";
 import Denuncia from "../../../components/denuncia/Denuncia"
 import cyberbullying from "../../../assets/cyberbullying.png";
+
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -14,8 +18,10 @@ const Header = () => {
     });
   }, []);
   return (
-    <section id="header">
-      <div className="container header">
+    
+    <section id="header" >
+      <div className="container header" >
+    
         {/* <div className="header-left" data-aos="fade-right">
           <h1>
             <span>Você sabe o que é</span>
@@ -34,12 +40,23 @@ const Header = () => {
           </div>
         </div>  */}
         <div className="header-right" data-aos="fade-left">
-          <img src={cyberbullying} alt="phone" />
+          
+          <Carousel showArrows={false} showStatus={false} showThumbs={false}>
+                <div>
+                  <img src={cyberbullying} alt="phone" />
+                </div>
+                <div>
+                  <img src={cyberbullying} alt="phone" />
+                </div>
+                <div>
+                  <img src={cyberbullying} alt="phone" />
+                </div>
+            </Carousel>
         </div>
       </div>
       <div class="btn-denuncia">
           <Denuncia></Denuncia>
-          </div>
+      </div>
     </section>
   );
 };
