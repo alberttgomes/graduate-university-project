@@ -1,9 +1,10 @@
 import React from 'react';
 import image from '../../assets/denuncia.png';
 import './Denuncia.css';
+import Button from '../UI/Button/Button'
 
 const Denuncia = () => {
-    return (<img className='denuncia' src={image} alt="Italian Trulli"/>
+    return (<Button text={"Denúncia"} btnClass={"btn-light"}/>
     )
 }
 <Denuncia></Denuncia>

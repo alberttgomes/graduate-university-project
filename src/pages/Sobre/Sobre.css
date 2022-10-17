@@ -1,0 +1,9 @@
+.sobre {
+    font-size: 15px;
+}
+
+.header-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
