@@ -2,11 +2,16 @@
     margin-top: 0px;
     padding-top: 50px;
     padding-bottom: 0px;
+    height: 100%;
+    background-image: url("../../assets/image-material.png");
+    background-size: cover;
+    position: static;
+    background-repeat:no-repeat; 
 }
+
 
 .container {
     text-align: center;
-  
 }
 
 .box {
@@ -49,3 +54,4 @@ h3{
     padding: 10px;
     margin: 10px;
   }
+

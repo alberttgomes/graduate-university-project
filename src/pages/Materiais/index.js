@@ -6,6 +6,7 @@ import Button from "../../components/UI/Button/Button";
 import { Link } from "react-router-dom";
 import Denuncia from "../../components/denuncia/Denuncia"
 
+
 const Materiais = () => {
   useEffect(() => {
     AOS.init({
@@ -16,7 +17,7 @@ const Materiais = () => {
 
 
 return (
-    <section id="materiais">
+    <section id="materiais" >
    
         <div className="container">
           <div className="box">

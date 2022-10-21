@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 
 const Sobre = () => {
   return (
-    <section id="header">
+    <section id="header" class="header1 ">
       <div className="container header">
         <div className="header-left" data-aos="fade-right">
           <h1>

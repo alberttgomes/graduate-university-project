@@ -8,6 +8,7 @@ import Denuncia from "../../../components/denuncia/Denuncia"
 import cyberbullying from "../../../assets/cyberbullying.png";
 
 
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -40,8 +41,8 @@ const Header = () => {
           </div>
         </div>  */}
         <div className="header-right" data-aos="fade-left">
-          
-          <Carousel showArrows={false} showStatus={false} showThumbs={false}>
+
+          <Carousel  showArrows={false} showStatus={false} showThumbs={false} ind>
                 <div>
                   <img src={cyberbullying} alt="phone" />
                 </div>
