@@ -37,3 +37,7 @@ section#footer {
   align-items: center;
   margin-bottom: 5px;
 }
+
+.footer-box p{
+  margin: 10px;
+}

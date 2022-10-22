@@ -5,7 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import "./Header.css";
 import Button from "../../../components/UI/Button/Button";
 import Denuncia from "../../../components/denuncia/Denuncia";
-import cyberbullying from "../../../assets/cyberbullying.png";
+import cyberbullying from "../../../assets/cyberbullying.svg";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -37,21 +37,22 @@ const Header = () => {
           </div>
         </div>  */}
         <div className="header-right" data-aos="fade-left">
-          <div className="carrossel">
+          <div className="carrossel" style={{width: 600, paddin: 30}}>
             <Carousel
               showArrows={false}
               showStatus={false}
               showThumbs={false}
+              touches={true}
               ind
             >
               <div>
-                <img className="imagem" src={cyberbullying} alt="phone" />
+                <img src={cyberbullying} alt="phone" />
               </div>
               <div>
-                <img className="imagem" src={cyberbullying} alt="phone" />
+                <img src={cyberbullying} alt="phone" />
               </div>
               <div>
-                <img className="imagem" src={cyberbullying} alt="phone" />
+                <img src={cyberbullying} alt="phone" />
               </div>
             </Carousel>
           </div>
