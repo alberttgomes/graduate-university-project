@@ -40,7 +40,6 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-box">
-          <img src={logo} alt="logo" />
           <p className="u-text-small">&copy; Copyright 2021. PlacaMãe.com</p>
         </div>
       </div>

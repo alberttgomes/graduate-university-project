@@ -45,10 +45,6 @@ h1 span:nth-child(3) {
   width: 70%;
 }
 
-.header-right img {
-  height: 30%;
-}
-
 .btn-denuncia{
 position: fixed;
 float: bottom;
@@ -94,8 +90,8 @@ z-index: 100;
     transform: translateX(-50%);
   }
 
-  .carrossel{
-    height: 20px;
+  .imagem {
+    width: 50px;
+    height: 50px;
   }
-
 }

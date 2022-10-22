@@ -4,6 +4,7 @@ import { RiCloseLine } from "react-icons/ri";
 import Button from "../UI/Button/Button";
 import "../UI/Button/Button.css";
 import { Link } from "react-router-dom";
+import Lua from "../../assets/lua.svg";
 
 import "./Navbar.css";
 
@@ -16,36 +17,37 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <menu className="menu">
-          <div className='div1Nav'>
-             <ul className="nav-links" id={showMenu ? "nav-links-mobile" : "nav-links-mobile-hide"} >
-                    <li >
-                      <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                      <Link to="/materiais">Materiais</Link>
-                    </li>
-                    <li>
-                      <Link to="/quemsomos">Jogos</Link>
-                    </li>
-                    <li>
-                      <Link to="/sobre">Sobre</Link>
-                    </li>
-             </ul>
-          </div>
-          <div className="div2Nav">
-             <u className="nav-links">
-                <li>
-                  <Button text={"Login"} href={"/login"} />
-                </li>
-                <li className="nav-btn">
-                  <Button
-                    text={"Cadastre-se"}
-                    btnClass={"btn-dark"}
-                    href={"/cadastro"}
-                  />
-                </li>
-             </u>
-          </div>
+        <ul
+          className="nav-links"
+          id={showMenu ? "nav-links-mobile" : "nav-links-mobile-hide"}
+        >
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/materiais">Materiais</Link>
+          </li>
+          <li>
+            <Link to="/quemsomos">Jogos</Link>
+          </li>
+          <li>
+            <Link to="/sobre">Sobre</Link>
+          </li>
+
+          <li>
+            <Button text={"Login"} href={"/login"} />
+          </li>
+          <li className="nav-btn">
+            <Button
+              text={"Cadastre-se"}
+              btnClass={"btn-dark"}
+              href={"/cadastro"}
+            />
+          </li>
+          <li>
+            <img className="lua" src={Lua}></img>
+          </li>
+        </ul>
       </menu>
       <div className="menu-icons" onClick={toggleMenu}>
         {showMenu ? (

@@ -45,13 +45,13 @@ const Header = () => {
               ind
             >
               <div>
-                <img src={cyberbullying} alt="phone" />
+                <img className="imagem" src={cyberbullying} alt="phone" />
               </div>
               <div>
-                <img src={cyberbullying} alt="phone" />
+                <img className="imagem" src={cyberbullying} alt="phone" />
               </div>
               <div>
-                <img src={cyberbullying} alt="phone" />
+                <img className="imagem" src={cyberbullying} alt="phone" />
               </div>
             </Carousel>
           </div>
