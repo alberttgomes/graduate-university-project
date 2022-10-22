@@ -4,6 +4,7 @@ import { RiCloseLine } from "react-icons/ri";
 import Button from "../UI/Button/Button";
 import "../UI/Button/Button.css";
 import { Link } from "react-router-dom";
+import Lua from "../../assets/lua.svg";
 
 import "./Navbar.css";
 
@@ -42,6 +43,9 @@ const Navbar = () => {
               btnClass={"btn-dark"}
               href={"/cadastro"}
             />
+          </li>
+          <li>
+            <img className="lua" src={Lua}></img>
           </li>
         </ul>
       </menu>
