@@ -1,0 +1,23 @@
+
+.cont{
+  height: 100vh ;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #48378e;
+  justify-content: space-around;
+  background-image: url("../../assets/image-jogo.png"); 
+  background-repeat: no-repeat;  
+  background-size: 100% 100%;
+}
+
+
+@keyframes bounce {
+    0% {
+      transform: translateY(-25%);
+    }
+    100% {
+      transform: translateY(25%);
+    }
+  }
+  
