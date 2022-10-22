@@ -4,7 +4,7 @@
     padding-bottom: 0px;
     height: 100%;
     background-image: url("../../assets/image-material.png");
-    background-size: cover;
+    background-size: 100% 100%;
     position: static;
     background-repeat:no-repeat; 
 }

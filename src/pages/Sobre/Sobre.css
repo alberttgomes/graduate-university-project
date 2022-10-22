@@ -5,10 +5,9 @@
     margin-top: 0px;
     padding-top: 50px;
     padding-bottom: 0px;
-    height: 100%;
+    height: 70vh ;
     background-image: url("../../assets/image-sobre.png");
-    background-size: cover;
-    position: static;
+    background-size: 100% 100%;
     background-repeat:no-repeat; 
 }
 
@@ -16,4 +15,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media screen and (max-width: 500px){
+    .header1{
+        height: 100%;
+    }
 }

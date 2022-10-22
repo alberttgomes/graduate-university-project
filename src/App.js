@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components";
 import Home from "./pages/Home";
 import Materiais from "./pages/Materiais";
-import QuemSomos from "./pages/QuemSomos/index";
+import QuemSomos from "./pages/Jogos/index";
 import VerMateriais from "./pages/verMateriais";
 import Footer from "./components/footer/Footer";
 import Cadastro from "./pages/Cadastro/Cadastro";
