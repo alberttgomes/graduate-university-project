@@ -22,7 +22,7 @@ const Footer = () => {
             <a href="#">&bull; Messenger</a>
           </div>
   </div> */}
-      <div className="footer-box"> 
+        <div className="footer-box">
           <h4>Fale conosco</h4>
           <div className="footer-contact u-text-small">
             <p>

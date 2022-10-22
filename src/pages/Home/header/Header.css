@@ -46,7 +46,7 @@ h1 span:nth-child(3) {
 }
 
 .header-right img {
-  width: 80%;
+  height: 30%;
 }
 
 .btn-denuncia{
@@ -93,7 +93,9 @@ z-index: 100;
     left: 50%;
     transform: translateX(-50%);
   }
-  .header-right img {
-    width: 90%;
+
+  .carrossel{
+    height: 20px;
   }
+
 }

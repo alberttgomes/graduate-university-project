@@ -9,14 +9,6 @@
   background: white;
 }
 
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 0.3rem;
- 
-}
-
 .nav-links {
   display: flex;
   color: #fff;
