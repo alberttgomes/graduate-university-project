@@ -3,8 +3,7 @@
   align-items: center;
   justify-content: center;
   height: 8rem;
-  width: 40%;
-  margin-left: 40rem;
+  width: 100%;
   background: white;
   position: absolute;
   z-index: 2;
@@ -34,8 +33,7 @@
 
 .nav-links a {
   font-size: 16px;
-  font-weight: 300;
-  color: #767272;
+  color: #737276;
   text-decoration: none;
   margin-right: 1rem;
   transition: all 0.3s;
@@ -49,7 +47,7 @@
 
 .nav-links a:hover,
 #nav-links-mobile a:hover {
-  color: #382C70;
+  color: #7d16e4;
 }
 
 

@@ -3,7 +3,6 @@ import { AiOutlineBars } from "react-icons/ai";
 import { RiCloseLine } from "react-icons/ri";
 import Button from "../UI/Button/Button";
 import "../UI/Button/Button.css";
-import { Link } from "react-router-dom";
 import Lua from "../../assets/lua.svg";
 
 import "./Navbar.css";
