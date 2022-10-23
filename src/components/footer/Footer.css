@@ -1,5 +1,6 @@
 section#footer {
   background: var(--dark-purple);
+  height: 250px;
   color: #fff;
 }
 
@@ -38,6 +39,6 @@ section#footer {
   margin-bottom: 5px;
 }
 
-.footer-box p{
-  margin: 10px;
+.footer-box h5{
+  color: white 
 }

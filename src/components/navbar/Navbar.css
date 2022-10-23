@@ -1,24 +1,10 @@
 .navbar {
   display: flex;
- 
   align-items: center;
   justify-content: center;
   height: 8rem;
   width: 100%;
-  
   background: white;
-}
-
-.div1Nav{
-    border : 1px solid red;  
-}
-
-.div2Nav{
-  display: flex;
-   border : 1px solid blue;
-  
-   justify-self: flex-end;
-  
 }
 
 .nav-links {
@@ -28,12 +14,10 @@
 .menu{
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  border : 1px solid orange;
   width: 100vw;
-  justify-content: flex-end;
   overflow: hidden;
-  
+  align-items: center;
+  justify-content: center;
   
 }
 

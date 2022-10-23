@@ -1,5 +1,5 @@
 #header {
-  position: relative;
+  position: absolute;
 }
 .header {
   display: flex;

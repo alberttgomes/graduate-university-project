@@ -5,10 +5,8 @@ import Home from "./pages/Home";
 import Materiais from "./pages/Materiais";
 import QuemSomos from "./pages/Jogos/index";
 import VerMateriais from "./pages/verMateriais";
-import Footer from "./components/footer/Footer";
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Login from "./pages/Login/Login";
-
 import Sobre from "./pages/Sobre/Sobre";
 
 function App() {
@@ -32,7 +30,6 @@ function App() {
           <Route path="/sobre" element={<Sobre />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
     </>
   );
 }

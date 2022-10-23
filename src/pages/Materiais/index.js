@@ -3,7 +3,6 @@ import "./Materiais.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Button from "../../components/UI/Button/Button";
-import { Link } from "react-router-dom";
 import Denuncia from "../../components/denuncia/Denuncia";
 
 const Materiais = () => {
