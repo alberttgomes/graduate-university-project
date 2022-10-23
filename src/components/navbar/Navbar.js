@@ -22,16 +22,16 @@ const Navbar = () => {
           id={showMenu ? "nav-links-mobile" : "nav-links-mobile-hide"}
         >
           <li>
-            <Link to="/">Home</Link>
+            <Button text={"Home"} href={"/"} /> 
           </li>
           <li>
-            <Link to="/materiais">Materiais</Link>
+            <Button text={"Materiais"} href={"/materiais"} />
           </li>
           <li>
-            <Link to="/quemsomos">Jogos</Link>
+            <Button text={"Jogos"} href={"/quemsomos"} /> 
           </li>
           <li>
-            <Link to="/sobre">Sobre</Link>
+            <Button text={"Sobre"} href={"/sobre"} />
           </li>
 
           <li>

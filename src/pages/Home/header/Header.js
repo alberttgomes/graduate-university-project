@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-
+import { Navbar } from "../../../components/navbar/Navbar";
 import "./Header.css";
 import Button from "../../../components/UI/Button/Button";
 import Denuncia from "../../../components/denuncia/Denuncia";
@@ -20,8 +20,8 @@ const Header = () => {
     <section id="header">
       <div className="container header">
         <div className="header-right" data-aos="fade-left">
-          <div className="carrossel" style={{width: 600, paddin: 30}}>
-            <Carousel
+          <div className="carrossel" style={{width: 600, margin: 30}}>
+            <Carousel 
               showArrows={false}
               showStatus={false}
               showThumbs={false}

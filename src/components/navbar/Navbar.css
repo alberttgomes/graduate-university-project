@@ -3,8 +3,13 @@
   align-items: center;
   justify-content: center;
   height: 8rem;
-  width: 100%;
+  width: 40%;
+  margin-left: 40rem;
   background: white;
+  position: absolute;
+  z-index: 2;
+  overflow: hidden;
+  background: transparent;
 }
 
 .nav-links {
