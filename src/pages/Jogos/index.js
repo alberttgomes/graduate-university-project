@@ -3,11 +3,7 @@ import Denuncia from "../../components/denuncia/Denuncia";
 import Button from "../../components/UI/Button/Button";
 import { background } from "@chakra-ui/react";
 import memoria from "../../assets/jogo1.svg"
-import {
-  GiBrain,
-  FaPuzzlePiece,
-  FaChessBoard
-} from "react-icons/all"
+import { GiBrain, FaPuzzlePiece, FaChessBoard} from "react-icons/all"
 
 const Jogos = () => {
   return (
