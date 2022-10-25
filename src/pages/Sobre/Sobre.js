@@ -2,13 +2,19 @@ import React from "react";
 import "./Sobre.css";
 import Button from "../../components/UI/Button/Button";
 import Denuncia from "../../components/denuncia/Denuncia";
-import "aos/dist/aos.css";
+import Aos from 'aos';
+
 
 const Sobre = () => {
+  Aos.init();
   return (
     <section id="header" class="header1 ">
       <div className="container header">
-        <div className="header-left" data-aos="fade-right">
+        <div
+          className="header-left"
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine">
           <h1>
             <span>SOBRE</span>
           </h1>

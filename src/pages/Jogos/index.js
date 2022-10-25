@@ -4,10 +4,10 @@ import Button from "../../components/UI/Button/Button";
 import { background } from "@chakra-ui/react";
 import memoria from "../../assets/jogo1.svg"
 import {
-  FaBrain,
+  GiBrain,
   FaPuzzlePiece,
   FaChessBoard
-} from "react-icons/fa";
+} from "react-icons/all"
 
 const Jogos = () => {
   return (
@@ -21,7 +21,7 @@ const Jogos = () => {
         </div>
         <div  className="box">
           <div>
-            <FaBrain className="img1" color="#DC267F"/>
+            <GiBrain className="img1" color="#DC267F"/>
             <h3>JOGO DA MEMORIA</h3>
             <h1>lorem ipsu lorem ipsulorem ipsulorem lorem ipsulorem ipsu  lorem ipsu</h1>
           </div>
