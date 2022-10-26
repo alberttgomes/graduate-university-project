@@ -8,6 +8,7 @@ import VerMateriais from "./pages/verMateriais";
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Login from "./pages/Login/Login";
 import Sobre from "./pages/Sobre/Sobre";
+import Vlibras from "@djpfs/react-vlibras"
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
 
           <Route path="/sobre" element={<Sobre />} />
         </Routes>
+        <Vlibras/>
       </BrowserRouter>
     </>
   );

@@ -6,6 +6,7 @@ import "../UI/Button/Button.css";
 import Lua from "../../assets/lua.svg";
 
 import "./Navbar.css";
+import { style } from "@mui/system";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -44,7 +45,7 @@ const Navbar = () => {
             />
           </li>
           <li>
-            <img className="lua" src={Lua}></img>
+              <img className="lua" src={Lua}></img>
           </li>
         </ul>
       </menu>
