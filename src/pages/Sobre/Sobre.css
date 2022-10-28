@@ -1,12 +1,14 @@
 .sobre {
-    font-size: 15px;
-    margin: 0px;
+    margin: 0;
+    font-size: 13px; 
+    text-align:center;
 }
+
 .header1{
     margin-top: 0px;
     padding-top: 50px;
     padding-bottom: 0px;
-    height: 100vh ;
+    height: auto ;
     background-image: url("../../assets/image-sobre.png");
     background-size: 100% 100%;
     background-repeat:no-repeat; 
@@ -16,8 +18,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
 }
+
+.ladinho1{ 
+
+    width: 45%;
+    float: left;
+    margin-left: 5%;
+}
+
+.ladinho2{  
+    width: 45%;
+    float: right;
+    margin-left: 5%;
+}
+
 
 @media screen and (max-width: 500px){
     .header1{
