@@ -9,14 +9,13 @@ const Sobre = () => {
   Aos.init();
   return (
     <section id="header" class="header1 ">
-      <div className="container header">
+      <div>
         <div
           className="header-left"
           data-aos="fade-right"
-          data-aos-offset="300"
-          data-aos-easing="ease-in-sine">
+          data-aos-offset="300">
           <h1>
-            <span>SOBRE</span>
+            Sobre
           </h1>
             
            <div className="container">

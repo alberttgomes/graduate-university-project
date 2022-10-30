@@ -29,6 +29,7 @@ a.btn-light {
   background: #FE6100;
   border: 2px solid transparent;
   color: #fff;
+  border-radius: 15px;
 }
 
 a.btn-light:hover {

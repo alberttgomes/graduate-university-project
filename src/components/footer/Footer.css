@@ -39,6 +39,11 @@ section#footer {
   margin-bottom: 5px;
 }
 
-.footer-box h5{
+.footer-box h3{
   color: white 
+}
+
+.footer-info {
+  color: white;
+  font-size: 15px;
 }

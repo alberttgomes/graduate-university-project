@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
         <div className="footer-box">
           <h3>Contato</h3>
-          <h1>contato@placamae.org <br></br>
+          <h1 className="footer-info">contato@placamae.org <br></br>
               Rua Marques do Herval, 167/902 Box 31, <br></br>
               CEP 50020-30 
           </h1>

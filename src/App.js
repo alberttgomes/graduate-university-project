@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Navbar } from "./components";
+import { Navbar, Footer } from "./components";
 import Home from "./pages/Home";
 import Materiais from "./pages/Materiais";
 import QuemSomos from "./pages/Jogos/index";
@@ -30,6 +30,8 @@ function App() {
           <Route path="/sobre" element={<Sobre />} />
         </Routes>
         <Vlibras/>
+        
+        < Footer/>
       </BrowserRouter>
     </>
   );
