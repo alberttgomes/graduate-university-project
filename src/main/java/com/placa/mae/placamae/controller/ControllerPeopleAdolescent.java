@@ -7,6 +7,7 @@ import com.placa.mae.placamae.repository.DAOPeopleAdolescent;
 import com.placa.mae.placamae.services.PeopleAdolescentService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -45,11 +46,13 @@ public class ControllerPeopleAdolescent {
 	}
 	
 	@PostMapping(value = "/adolescents")
-	public ResponseEntity<PeopleAdolescentDTO> create(@Validated @RequestBody AdolescentInsertDTO useForm,
+	@ResponseBody
+	public ResponseEntity<PeopleAdolescentDTO> create(@Validated @RequestBody AdolescentInsertDTO postDto,
 														UriComponentsBuilder uriBuilder) {
-		PeopleAdolescent adolescentSave = modelMapper.map(useForm, PeopleAdolescent.class);
+		PeopleAdolescent adolescentSave = modelMapper.map(postDto, PeopleAdolescent.class);
 		peopleAdolescentService.createAdolescent(adolescentSave);
 		URI uri = uriBuilder.path("adolescent/{id}").buildAndExpand(adolescentSave.getAdolescentId()).toUri();
+		
 		return ResponseEntity.created(uri).body(new PeopleAdolescentDTO(adolescentSave));
 	}
 	
@@ -64,7 +67,6 @@ public class ControllerPeopleAdolescent {
 		Optional<PeopleAdolescent> optionalObj  = daoPeopleAdolescent.findById(id);
 		PeopleAdolescent peopleAdolescent = optionalObj.get();
 		
-		peopleAdolescent.setName(!Objects.isNull(obj.getName()) ? obj.getName() : peopleAdolescent.getName());
 		peopleAdolescent.setAge(!Objects.isNull(obj.getAge()) ? obj.getAge() : peopleAdolescent.getAge());
 		peopleAdolescent.setEmail(!Objects.isNull(obj.getEmail()) ? obj.getEmail() : peopleAdolescent.getEmail());
 		peopleAdolescent.setPassword(!Objects.isNull(obj.getPassword()) ? obj.getPassword() : peopleAdolescent.getPassword());

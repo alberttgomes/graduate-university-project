@@ -1,39 +1,46 @@
 package com.placa.mae.placamae.dto;
 
-import com.placa.mae.placamae.domain.MaterialAdolescent;
-import com.placa.mae.placamae.domain.PeopleAdolescent;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 
+@Data
+@Setter
+@Getter
 public class AdolescentInsertDTO implements Serializable {
-
+    
     private static final long serialVersionUID = 1l;
+    
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dateFormat = LocalDate.now();;
 
-    @NotBlank(message = "field mandatory")
-    @Email(message = "format incorrect email")
+    @NotNull(message = "The field is mandatory")
+    private int age;
+
+    @Email(message = "This field have format email.")
+    @NotNull(message = "The field is mandatory")
     private String email;
 
-    @NotBlank(message = "field mandatory")
+    @NotNull(message = "The field is mandatory")
     private String password;
 
-    @NotBlank(message = "field mandatory")
+    @NotNull(message = "The field is mandatory")
     private String username;
 
-    private List<MaterialAdolescent> materialAdolescents = new ArrayList<>();
-
-    private LocalDateTime dateRegister = LocalDateTime.now();
-
-    public AdolescentInsertDTO(PeopleAdolescent adolescentReturnDataBase) {
-            this.email = adolescentReturnDataBase.getEmail();
-            this.dateRegister = adolescentReturnDataBase.getDateRegister();
-            this.password = adolescentReturnDataBase.getPassword();
-            this.username = adolescentReturnDataBase.getUsername();
-            this.materialAdolescents = adolescentReturnDataBase.getAdolescentMaterial();
-    }
+    // public AdolescentInsertDTO(PeopleAdolescent obj) {
+    //   super();
+    //   this.age = obj.getAge();
+    //   this.email = obj.getEmail();
+    //   this.password = obj.getPassword();
+    //   this.username = obj.getUsername();
+    // }
 
 }

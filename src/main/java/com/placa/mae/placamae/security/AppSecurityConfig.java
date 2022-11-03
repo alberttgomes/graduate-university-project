@@ -21,13 +21,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private PeopleAdolescentService userDetailsService;
+
     @Autowired
     private TokenService tokenService;
+    
     @Autowired
     private DAOPeopleAdolescent daoPeopleAdolescent;
 
-    @Override
     @Bean
+    @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
