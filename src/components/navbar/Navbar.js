@@ -5,6 +5,7 @@ import Button from "../UI/Button/Button";
 import "../UI/Button/Button.css";
 import Lua from "../../assets/lua.svg";
 
+
 import "./Navbar.css";
 import { style } from "@mui/system";
 
@@ -15,7 +16,7 @@ const Navbar = () => {
     setShowMenu(!showMenu);
   };
   return (
-    <nav className="navbar">
+    <nav className="navbar" >
       <menu className="menu">
         <ul
           className="nav-links"
@@ -33,7 +34,9 @@ const Navbar = () => {
           <li>
             <Button text={"Sobre"} href={"/sobre"} />
           </li>
-
+          <li>
+            <Button text={"Quiz"} href={"/quiz"} />
+          </li>
           <li>
             <Button text={"Login"} href={"/login"} />
           </li>

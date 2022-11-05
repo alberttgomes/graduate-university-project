@@ -1,11 +1,18 @@
 import React from "react";
 import "./Login.css";
+import "../../components/navbar/Navbar.css"
 import Button from "../../components/UI/Button/Button";
 import Denuncia from "../../components/denuncia/Denuncia";
 
-const Login = () => {
+
+
+
+const Login = () =>{
+
+
   return (
-    <section className="login">
+    <section className="login"  >
+      
         <div className="containerLogin">
           <h1 id="fonte">Login</h1>
           <div className="campos">
@@ -21,6 +28,7 @@ const Login = () => {
       <div className="btn-denuncia">
         <Denuncia></Denuncia>
       </div>
+
     </section>
   );
 };

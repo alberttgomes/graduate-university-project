@@ -21,6 +21,8 @@
 
 }
 
+
+
 .containerLogin {
     
     background-color: #D9D9D9;
@@ -54,4 +56,19 @@ input {
     border: none;
     padding: 8px;
     margin: 20px;
+}
+
+
+
+.navbar2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8rem;
+    width: 100%;
+    background: white;
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+   background-color: #FFFFFF;
 }
