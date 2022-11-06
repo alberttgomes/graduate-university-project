@@ -20,8 +20,8 @@ const Header = () => {
     <section id="header">
       <div className="container header">
         <div className="header-right" data-aos="fade-left">
-          <div className="carrossel" style={{width: 500, margin: 30}}>
-            <Carousel 
+          <div className="carrossel" style={{ width: 500, margin: 30 }}>
+            <Carousel
               showArrows={false}
               showStatus={false}
               showThumbs={false}

@@ -1,7 +1,18 @@
 section#footer {
   background: var(--dark-purple);
-  height: 250px;
+  height: 190px;
   color: #fff;
+  padding: 4rem 0;
+}
+
+.carousel * {
+  box-sizing: border-box;
+  padding: 7px;
+}
+
+.carousel .control-dots .dot {
+  background: black !important;
+  margin: 0 10px !important;
 }
 
 .footer {
@@ -9,23 +20,6 @@ section#footer {
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   row-gap: 2rem;
   column-gap: 2rem;
-}
-
-/* .footer > * {
-  flex: 1;
-  justify-self: center;
-} */
-
-.footer h4 {
-  font-size: 1.6rem;
-  font-weight: 500;
-  line-height: 1.4;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.footer-box .footer-links a {
-  font-size: 1.2rem;
 }
 
 .footer-links {
@@ -36,14 +30,21 @@ section#footer {
 .footer-contact p {
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
 }
 
-.footer-box h3{
+h3{
   color: white 
 }
 
-.footer-info {
+#footer h3{
   color: white;
-  font-size: 15px;
+}
+
+.footer-box {
+  padding: auto;
+}
+
+.contato{
+  color: white;
+  font-size: 12px;
 }

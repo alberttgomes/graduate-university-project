@@ -22,17 +22,13 @@ import QuizPag10 from "./pages/Quiz/quizPag10";
 import QuizPag11 from "./pages/Quiz/quizPag11";
 import QuizPag12 from "./pages/Quiz/quizPag12";
 
-import Vlibras from "@djpfs/react-vlibras"
-
-
-
-
+import Vlibras from "@djpfs/react-vlibras";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      <Navbar />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/materiais" element={<Materiais />} />
@@ -45,7 +41,7 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           <Route path="/quiz1" element={<QuizPag1 />} />
-          
+
           <Route path="/quiz2" element={<QuizPag2 />} />
           <Route path="/quiz3" element={<QuizPag3 />} />
           <Route path="/quiz4" element={<QuizPag4 />} />
@@ -61,9 +57,9 @@ function App() {
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/quiz" element={<QuizPag2 />} />
         </Routes>
-        <Vlibras/>
-        
-        < Footer/>
+        <Vlibras />
+
+        <Footer />
       </BrowserRouter>
     </>
   );
