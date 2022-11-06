@@ -29,7 +29,7 @@ const QuizPag1  = () =>{
                         <input type="radio" name="perg1" class="rad"/>
                     </div>
                     <div Class="inp">
-                        <label for="perg1" class="lab">d) É uma violência praticada contra Alyne através da Internet chamada de cyberbullying e que pode gerar consequências judiciais, além de danos psicológicos nela.</label>
+                        <label for="perg1" class="lab">d) É uma violência praticada contra Alyne através da Internet chamada de cyberbullying e que pode gerar consequências judiciais, além de danos psicológicos nela..</label>
                         <input type="radio" name="perg1" class="rad"/>
                     </div>
 
