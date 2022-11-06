@@ -3,6 +3,9 @@ package com.placa.mae.placamae.domain;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,42 +20,41 @@ import javax.persistence.*;
 		@UniqueConstraint(columnNames = {"email"}),
 		@UniqueConstraint(columnNames = {"username"})
 })
-public class PeopleAdolescent implements UserDetails{
+@NoArgsConstructor
+@AllArgsConstructor
+public class PeopleAdolescent implements UserDetails {
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private long adolescentId;
-		@Column(name = "age", length = 3, nullable = false)
+		@Column(name = "age", length = 3)
 		private int age;
 		@Column(name = "date_register")
 		private LocalDateTime dateRegister;
-		@Column(name = "email", length = 30, nullable = false)
+		@Column(name = "email", length = 50)
 		private String email;
-		@Column(name = "name", length = 20, nullable = false)
-		private String name;
-		@Column(name = "password", length = 15, nullable = false)
+		@Column(name = "password")
 		private String password;
-		@Column(name = "username", length = 15, nullable = false)
+		@Column(name = "username", length = 15)
 		private String username;
 
 		@OneToMany(targetEntity = MaterialAdolescent.class, fetch = FetchType.LAZY)
 		@JoinTable(name="fk_material_adolescent", joinColumns = @JoinColumn(name ="adolescentId", referencedColumnName = "adolescentId"))
-		private Collection<MaterialAdolescent> adolescentMaterial = new ArrayList<>();
+		private List<MaterialAdolescent> adolescentMaterial = new ArrayList<>();
 
-		public PeopleAdolescent() {
-			super();
-		}
+		// public PeopleAdolescent() {
+		// 	super();
+		// }
 
-		public PeopleAdolescent(long adolescentId, int age, LocalDateTime dateRegister, String email, String name, String password, String username, List<MaterialAdolescent> adolescentMaterial) {
-			super();
-			this.adolescentId = adolescentId;
-			this.age = age;
-			this.dateRegister = dateRegister;
-			this.email = email;
-			this.name = name;
-			this.password = password;
-			this.username = username;
-			this.adolescentMaterial = adolescentMaterial;
-		}
+		// public PeopleAdolescent(long adolescentId, int age, LocalDateTime dateRegister, String email, String password, String username, List<MaterialAdolescent> adolescentMaterial) {
+		// 	super();
+		// 	this.adolescentId = adolescentId;
+		// 	this.age = age;
+		// 	this.dateRegister = dateRegister;
+		// 	this.email = email;
+		// 	this.password = password;
+		// 	this.username = username;
+		// 	this.adolescentMaterial = adolescentMaterial;
+		// }
 
 		public long getAdolescentId() {
 			return adolescentId;
@@ -151,10 +153,10 @@ public class PeopleAdolescent implements UserDetails{
 			}
 			if(obj instanceof PeopleAdolescent) {
 				PeopleAdolescent other = (PeopleAdolescent) obj;
-				return Objects.equals(name, other.name) && Objects.equals(age, other.age)
-								&& Objects.equals(email, other.email) && Objects.equals(password, other.password)
-								&& Objects.equals(adolescentMaterial, other.adolescentMaterial)
-								&& Objects.equals(username, other.username);
+				return	Objects.equals(age, other.age)
+						&& Objects.equals(email, other.email) && Objects.equals(password, other.password)
+						&& Objects.equals(adolescentMaterial, other.adolescentMaterial)
+						&& Objects.equals(username, other.username);
 			}
 			return false;
 		}
