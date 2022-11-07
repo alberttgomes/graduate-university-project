@@ -6,16 +6,25 @@ import "./Header.css";
 import Button from "../../../components/UI/Button/Button";
 import Denuncia from "../../../components/denuncia/Denuncia";
 import cyberbullying from "../../../assets/cyberbullying.svg";
-
+import placamaeIG from './../../../imagens/placamaeIg.png';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Header = () => {
+  
   useEffect(() => {
     AOS.init({
       duration: 1000,
     });
   }, []);
+
+  const data = {
+    item: {
+      dumb: {placamaeIG},
+      id: 1,
+      url:"https://www.instagram.com/p/CcF9VxrMCaJ/"
+    }
+  }
   return (
     <section id="header">
       <div className="container header">
@@ -29,7 +38,7 @@ const Header = () => {
               ind
             >
               <div>
-                <img src={cyberbullying} alt="phone" />
+                <img src={data.dumb} alt="phone" />
               </div>
               <div>
                 <img src={cyberbullying} alt="phone" />

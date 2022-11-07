@@ -1,8 +1,16 @@
 import React, { useCallback, useContext, useState } from "react";
 import "./Cadastro.css";
-import Button from "../../components/UI/Button/Button";
 import Denuncia from "../../components/denuncia/Denuncia";
-import AuthContext from "../../contexts/userContext";
+import { Button } from "@mui/material";
+import TextField from '@mui/material/TextField';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { AuthContext } from "../../contexts/userContext";
+import axios from "axios";
 
 const Cadastro = () => {
   const {result, setResult} = useContext(AuthContext);
@@ -11,7 +19,9 @@ const Cadastro = () => {
   const AGE_ADOLESCENTS_BASE = 17;
   const AGE_ADULTS_BASE = 18;
 
-  const [checkSenha, setCheckSenha] = useState("");
+  const theme = createTheme();
+
+  const [checkPassword, setCheckPassword] = useState("");
 
   const [userSignUP, setUserSignUP] = useState({
       age: '',
@@ -38,10 +48,15 @@ const Cadastro = () => {
     else {
         console.log('Por favor, digite um email válido.')
     }
+    
+    const header = {
+        "Authorization": "Bearer Authorization: Bearer ",
+        "Content-Type": "application/json"
+    }
 
-    if (checkEmail && checkSenha.equals(userSignUP.password)) {
+    if (checkEmail && checkPassword == userSignUP.password) {
         if(ageValue <= AGE_KIDS_BASE) {
-            fetch.post('https://localhost:8080/kids', userSignUP)
+            axios.post('http://localhost:8080/kids', userSignUP, header)
                 .then(() => {
                     setResult({user: userSignUP, registered: true})
                 })
@@ -50,7 +65,7 @@ const Cadastro = () => {
                 });
         } 
         else if (ageValue > AGE_KIDS_BASE && ageValue <= AGE_ADOLESCENTS_BASE) {
-            fetch.post('https://localhost:8080/adolescents', userSignUP)
+            axios.post('http://localhost:8080/adolescents', userSignUP, header)
                 .then(() => {
                     setResult({user: userSignUP, registered: true})
                 })
@@ -59,7 +74,7 @@ const Cadastro = () => {
                 });
         }
         else if (ageValue >= AGE_ADULTS_BASE) {
-            fetch.post('https://localhost:8080/adults', userSignUP)
+            axios.post('http://localhost:8080/adults', userSignUP, header)
                 .then(() => {
                     setResult({user: userSignUP, registered: true})
                 })
@@ -67,74 +82,164 @@ const Cadastro = () => {
                     console.log(`An error current ${error}`)
                 });
         } else {
-            console.log('Ops')
+            console.log('An error happened')
         }
+    } 
+    else {
+        console.log('Senha ou Email formato inválido')
     }
   };
 
-  return (
-    <section className="cadastro">
-      <div className="containerCadastro">
-        <h1 id="fonte">Cadastre-se</h1>
-        <div className="campos">
-          <input 
-            type="numeric" 
-            placeholder="Idade"
-            value={userSignUP.age}
-            onChange={(event) => {
-              setUserSignUP({...userSignUP, age: event.target.value});
-            }}
-          >
-          </input>
-          <input 
-              type="text" 
-              placeholder="Nome de usuário"
-              value={userSignUP.username}
-              onChange={(event) => {
-                setUserSignUP({...userSignUP, username: event.target.value});
-              }}
-          >
-          </input>
-          <input 
-              type="text" 
-              placeholder="E-mail"
-              value={userSignUP.email}
-              onChange={(event) => {
-                setUserSignUP({...userSignUP, email: event.target.value});
-              }}
-          >
-          </input>
-          <input 
-              type="text" 
-              placeholder="Senha"
-              value={userSignUP.password}
-              onChange={(event) => {
-                setUserSignUP({...userSignUP, password: event.target.value});
-              }}
-          >
-          </input>
-          <input 
-              value={checkSenha} 
-              placeholder="Confirme senha"
-              onChange={(event) => {
-                setCheckSenha(event.target.value)
-              }}
-          >
-          </input>
-        </div>
-        <div className="cadastrar">
-          <Button 
-              text={"Cadastrar"} 
-              btnClass={"btn-verMais"} 
-              onClick={handleSave}
-          />
-        </div>
-      </div>
+  const Copyright = (props) => {
+    return(
+        <Typography
+            variant="body2"
+            color="text.secondary"
+            align="center"
+            {...props}
+        >
+           {'Copyright @ '}
+           <Link
+              color="text.secondary"
+              href="https://placamae.org/"
+           >
+              PlacaMae.ORG        
+           </Link> {''}
+           {new Date().getFullYear()}
+           {'.'}
+        </Typography>
+    );
+  }
 
-      <div className="btn-denuncia">
-        <Denuncia></Denuncia>
-      </div>
-    </section>
+  return (
+        <ThemeProvider theme={theme}>
+            <div>
+                <Container
+                    component='main' maxWidth='xs'
+                >
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <h1 className="title">Cadastre-se</h1>
+
+                        <Box
+                            component="form"
+                            noValidate
+                            sx={{
+                                mt: 3,
+                            }}
+                        >
+                            <Grid
+                                container spacing={2}
+                            >
+                                <Grid item xs={12}>
+                                    <TextField 
+                                        required
+                                        fullWidth
+                                        id="age"
+                                        type='number'
+                                        label="Idade"
+                                        name="idade"
+                                        autoComplete="Idade"
+                                        value={userSignUP.age}
+                                        onChange={(event) => {
+                                            setUserSignUP({...userSignUP, age: event.target.value});
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField 
+                                        required
+                                        fullWidth
+                                        id="username"
+                                        label="Nome de usuario"
+                                        name="Username"
+                                        autoComplete="Nome de usuario"
+                                        value={userSignUP.username}
+                                        onChange={(event) => {
+                                            setUserSignUP({...userSignUP, username: event.target.value});
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField 
+                                        required
+                                        fullWidth
+                                        id="email"
+                                        label="Email"
+                                        background="#fff"
+                                        name="Email"
+                                        autoComplete="email"
+                                        value={userSignUP.email}
+                                        onChange={(event) => {
+                                            setUserSignUP({...userSignUP, email: event.target.value});
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField 
+                                        required
+                                        fullWidth
+                                        id="password"
+                                        label="Senha"
+                                        type="password"
+                                        name="Senha"
+                                        autoComplete="Nova senha"
+                                        value={userSignUP.password}
+                                        onChange={(event) => {
+                                            setUserSignUP({...userSignUP, password: event.target.value});
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField 
+                                        required
+                                        fullWidth
+                                        id="password"
+                                        label="Confirmar Senha"
+                                        type="password"
+                                        name="Senha"
+                                        value={checkPassword}
+                                        onChange={(event) => {
+                                            setCheckPassword(event.target.value);
+                                        }}
+                                    />
+                                </Grid>
+                            </Grid>
+                            <Button
+                                fullWidth
+                                variant="contained"
+                                sx={{ 
+                                    mt: 3, mb: 2,
+                                }}
+                                onClick={handleSave}
+                            >
+                                Cadastrar
+                            </Button>
+                            <Grid
+                                container justifyContent="flex-end"
+                            >
+                                <Grid item>
+                                    <Link
+                                        href="/login" variant="body2"
+                                    >
+                                        Ja possui uma conta? Entre
+                                    </Link>
+                                </Grid>
+                            </Grid>
+                        </Box>
+                    </Box>
+                    <Copyright sx={{ mt: 5 }} />
+                    <div className="btn-denuncia">
+                        <Denuncia></Denuncia>
+                    </div>
+                </Container>
+            </div>
+        </ThemeProvider>
   );
 };
 

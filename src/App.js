@@ -10,7 +10,20 @@ import Login from "./pages/Login/Login";
 import Sobre from "./pages/Sobre/Sobre";
 import Quiz from "../src/pages/Quiz";
 
-import Vlibras from "@djpfs/react-vlibras";
+// import QuizPag1 from "./pages/Quiz/quizPag1";
+// import QuizPag2 from "./pages/Quiz/quizPag2";
+// import QuizPag3 from "./pages/Quiz/quizPag3";
+// import QuizPag4 from "./pages/Quiz/quizPag4";
+// import QuizPag5 from "./pages/Quiz/quizPag5";
+// import QuizPag6 from "./pages/Quiz/quizPag6";
+// import QuizPag7 from "./pages/Quiz/quizPag7";
+// import QuizPag8 from "./pages/Quiz/quizPag8";
+// import QuizPag9 from "./pages/Quiz/quizPag9";
+// import QuizPag10 from "./pages/Quiz/quizPag10";
+// import QuizPag11 from "./pages/Quiz/quizPag11";
+// import QuizPag12 from "./pages/Quiz/quizPag12";
+
+import Vlibras from "@djpfs/react-vlibras"
 
 function App() {
   return (

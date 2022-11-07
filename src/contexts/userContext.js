@@ -10,11 +10,10 @@ const defaultState = {
     registered: false,
 }
 
-export const AuthContext = createContext(
-    {result: defaultState, setResult: result => {console.log(result)}});
+export const AuthContext = createContext({defaultState});
 
 const AuthProvider = ({ children }) => {
-    const [result, setResult] = useState(defaultState);
+    const [result, setResult] = useState({defaultState});
 
     return(
         <AuthContext.Provider
@@ -26,4 +25,5 @@ const AuthProvider = ({ children }) => {
 }
 
 export default AuthProvider;
+
     
