@@ -8,7 +8,6 @@ import VerMateriais from "./pages/verMateriais";
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Login from "./pages/Login/Login";
 import Sobre from "./pages/Sobre/Sobre";
-
 import Quiz from "../src/pages/Quiz";
 
 import Vlibras from "@djpfs/react-vlibras";
@@ -25,10 +24,10 @@ function App() {
             path="/materiais/paisresponsaveis"
             element={<VerMateriais />}
           />
+          <Route path="/quiz" element={<Quiz />} />
           <Route path="/quemsomos" element={<QuemSomos />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/quiz" element={<Quiz />} />
           <Route path="/sobre" element={<Sobre />} />
         </Routes>
         <Vlibras />
