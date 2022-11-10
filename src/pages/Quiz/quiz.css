@@ -1,15 +1,40 @@
 
-
 .quizHeader{
     margin-top: 0px;
     padding-top: 100px;
     padding-bottom: 0px;
-    height: 100vh ;
+    height: 100% ;
     width: 100%;
     background-image: url("../../assets/quiz.png");
     background-size: 100% 100%;
     background-repeat:no-repeat; 
 
+}
+.traço {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #D9D9D9;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+
+  .traço::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5%;
+    height:25px;
+    background: #382C70;
+    cursor: pointer;
+    border-radius: 7px;
+  }
+
+.traço::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
 }
 
 #headerquiz{
@@ -85,6 +110,51 @@ label{
     width: 200px;
     border: solid 2px;
 }
+
+.imgtable{
+    padding-left: 10%;
+}
+
+.imgtable .nick{
+    color: #382C70;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.headerTable{
+    margin-top: 0px;
+    padding-top: 100px;
+    padding-bottom: 0px;
+    height:100vh;
+    width: 100%;
+    color: #382C70;
+}
+
+
+.table{
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    border-radius: 100px;
+    padding: 15px;
+}
+
+.tableMain{
+    border-radius: 40px;
+    background-color: #D9D9D9;
+}
+
+.boxTable{
+    width: 70px;
+    height: 70px;
+    background-color:#D9D9D9;
+    border-radius: 50px;
+}
+
+.titleTable{
+    color: #FFB000;
+}
+
 
 @media screen and (max-width: 605px){
     .quizHeader{

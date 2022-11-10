@@ -3,6 +3,11 @@ import { useState } from "react";
 import perguntas from "./arrayQuiz";
 import Button2 from "../../components/UI/Button/Button2";
 import "../Quiz/quiz.css";
+import { width } from "@mui/system";
+import Button from "../../components/UI/Button/Button";
+
+
+
 const Quiz = () => {
   const [pergunta, setPergunta] = useState(perguntas[0]);
   const [cont, setCont] = useState(0);
@@ -10,11 +15,17 @@ const Quiz = () => {
   const proximo = () => {
     setPergunta(perguntas[cont + 1]);
     setCont(cont + 1);
+
   };
   const voltar = () => {
     setPergunta(perguntas[cont - 1]);
     setCont(cont - 1);
   };
+
+
+
+
+
   return (
     <section className="quizHeader">
       <div className="container" id="headerquiz">
@@ -61,8 +72,17 @@ const Quiz = () => {
               onClick={proximo}
             />
           )}
+           {cont == 11 && (
+            <Button
+              text={"Finalizar"}
+              btnClass={"btn-rigth"}
+              href={"/pontuacao"}
+            />  
+          )}
         </div>
+        <input style={{width:"100%"}} class="traço"  type="range"  min={0} max={11} value={cont}  />
       </div>
+
     </section>
   );
 };
