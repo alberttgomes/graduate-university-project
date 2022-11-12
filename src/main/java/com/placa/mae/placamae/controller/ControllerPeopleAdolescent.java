@@ -1,8 +1,7 @@
 package com.placa.mae.placamae.controller;
 
 import com.placa.mae.placamae.domain.PeopleAdolescent;
-import com.placa.mae.placamae.dto.AdolescentInsertDTO;
-import com.placa.mae.placamae.dto.PeopleAdolescentDTO;
+import com.placa.mae.placamae.dto.AdolescentDTO;
 import com.placa.mae.placamae.repository.DAOPeopleAdolescent;
 import com.placa.mae.placamae.services.PeopleAdolescentService;
 import org.modelmapper.ModelMapper;
@@ -11,15 +10,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import java.net.URI;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:8080")
+
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 public class ControllerPeopleAdolescent {
 	@Autowired
 	DAOPeopleAdolescent daoPeopleAdolescent;
@@ -42,37 +37,38 @@ public class ControllerPeopleAdolescent {
 	@RequestMapping(value = "adolescents/{id}")
 	public ResponseEntity<PeopleAdolescent> findById(@PathVariable Long id) {
 		PeopleAdolescent obj = peopleAdolescentService.findById(id);
+		
 		return ResponseEntity.ok().body(obj);
 	}
 	
 	@PostMapping(value = "/adolescents")
-	@ResponseBody
-	public ResponseEntity<PeopleAdolescentDTO> create(@Validated @RequestBody AdolescentInsertDTO postDto,
-														UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<AdolescentDTO> create(@Validated @RequestBody AdolescentDTO postDto) {
+		//Convert DTO to entity
 		PeopleAdolescent adolescentSave = modelMapper.map(postDto, PeopleAdolescent.class);
 		peopleAdolescentService.createAdolescent(adolescentSave);
-		URI uri = uriBuilder.path("adolescent/{id}").buildAndExpand(adolescentSave.getAdolescentId()).toUri();
-		
-		return ResponseEntity.created(uri).body(new PeopleAdolescentDTO(adolescentSave));
+		//Convert entity to DTO
+		AdolescentDTO adolescentResponse = modelMapper.map(adolescentSave, AdolescentDTO.class);
+
+		return new ResponseEntity<AdolescentDTO>(adolescentResponse, HttpStatus.CREATED);
 	}
 	
 	@DeleteMapping(value="adolescents/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id){
 		daoPeopleAdolescent.deleteById(id);
+		
 		return ResponseEntity.noContent().build();
 	}
 
 	@PutMapping(value="adolescents/{id}")
-	public ResponseEntity<PeopleAdolescent> update(@PathVariable Long id, @RequestBody PeopleAdolescent obj) {
-		Optional<PeopleAdolescent> optionalObj  = daoPeopleAdolescent.findById(id);
-		PeopleAdolescent peopleAdolescent = optionalObj.get();
-		
-		peopleAdolescent.setAge(!Objects.isNull(obj.getAge()) ? obj.getAge() : peopleAdolescent.getAge());
-		peopleAdolescent.setEmail(!Objects.isNull(obj.getEmail()) ? obj.getEmail() : peopleAdolescent.getEmail());
-		peopleAdolescent.setPassword(!Objects.isNull(obj.getPassword()) ? obj.getPassword() : peopleAdolescent.getPassword());
-		obj = daoPeopleAdolescent.save(peopleAdolescent);
+	public ResponseEntity<AdolescentDTO> update(@PathVariable Long id, @RequestBody AdolescentDTO adolescentDTO) {
+		//Convert DTO to Entity
+		PeopleAdolescent adolescentRequest = modelMapper.map(adolescentDTO, PeopleAdolescent.class);
+		PeopleAdolescent adolescent = peopleAdolescentService.updateAdolescent(id, adolescentRequest);
 
-		return ResponseEntity.ok().body(obj);
-		
+		//Entity to DTO
+		AdolescentDTO adolescentResponse = modelMapper.map(adolescent, AdolescentDTO.class);
+
+		return ResponseEntity.ok().body(adolescentResponse);
 	}
+
 }

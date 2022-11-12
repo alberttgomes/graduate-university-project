@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Data
 @Setter
 @Getter
-public class AdolescentInsertDTO implements Serializable {
+public class AdolescentDTO implements Serializable {
     
     private static final long serialVersionUID = 1l;
     
@@ -25,7 +25,7 @@ public class AdolescentInsertDTO implements Serializable {
     @NotNull(message = "The field is mandatory")
     private int age;
 
-    @Email(message = "This field have format email.")
+    @Email(message = "This field has format email.")
     @NotNull(message = "The field is mandatory")
     private String email;
 
@@ -34,13 +34,5 @@ public class AdolescentInsertDTO implements Serializable {
 
     @NotNull(message = "The field is mandatory")
     private String username;
-
-    // public AdolescentInsertDTO(PeopleAdolescent obj) {
-    //   super();
-    //   this.age = obj.getAge();
-    //   this.email = obj.getEmail();
-    //   this.password = obj.getPassword();
-    //   this.username = obj.getUsername();
-    // }
 
 }

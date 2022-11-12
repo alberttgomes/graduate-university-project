@@ -32,7 +32,7 @@ public class PeopleAdolescent implements UserDetails {
 		private LocalDateTime dateRegister;
 		@Column(name = "email", length = 50)
 		private String email;
-		@Column(name = "password", length = 15)
+		@Column(name = "password")
 		private String password;
 		@Column(name = "username", length = 15)
 		private String username;
@@ -40,21 +40,6 @@ public class PeopleAdolescent implements UserDetails {
 		@OneToMany(targetEntity = MaterialAdolescent.class, fetch = FetchType.LAZY)
 		@JoinTable(name="fk_material_adolescent", joinColumns = @JoinColumn(name ="adolescentId", referencedColumnName = "adolescentId"))
 		private List<MaterialAdolescent> adolescentMaterial = new ArrayList<>();
-
-		// public PeopleAdolescent() {
-		// 	super();
-		// }
-
-		// public PeopleAdolescent(long adolescentId, int age, LocalDateTime dateRegister, String email, String password, String username, List<MaterialAdolescent> adolescentMaterial) {
-		// 	super();
-		// 	this.adolescentId = adolescentId;
-		// 	this.age = age;
-		// 	this.dateRegister = dateRegister;
-		// 	this.email = email;
-		// 	this.password = password;
-		// 	this.username = username;
-		// 	this.adolescentMaterial = adolescentMaterial;
-		// }
 
 		public long getAdolescentId() {
 			return adolescentId;
@@ -137,13 +122,6 @@ public class PeopleAdolescent implements UserDetails {
 		@Override
 		public Collection<? extends GrantedAuthority> getAuthorities() {
 			return (Collection<? extends GrantedAuthority>) this.adolescentMaterial;
-		}
-
-		@Override
-		public String toString() {
-			return "PeopleAdolescent{" +
-					"adolescentId=" + adolescentId +
-					'}';
 		}
 
 		@Override
