@@ -69,6 +69,7 @@ public class ControllerPeopleAdolescent {
 		AdolescentDTO adolescentResponse = modelMapper.map(adolescent, AdolescentDTO.class);
 
 		return ResponseEntity.ok().body(adolescentResponse);
+		
 	}
 
 }
