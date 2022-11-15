@@ -35,7 +35,7 @@ const Navbar = () => {
             <Button text={"Sobre"} href={"/sobre"} />
           </li>
           <li>
-            <Button text={"Quiz"} href={"/quiz"} />
+            <Button text={"Quiz"} href={"/InicioQuiz"} />
           </li>
           <li>
             <Button text={"Login"} href={"/login"} />

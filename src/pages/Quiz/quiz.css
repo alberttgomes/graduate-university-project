@@ -10,6 +10,33 @@
     background-repeat:no-repeat; 
 
 }
+
+.comecoQuiz{
+
+    background-image: url("../../assets/quiz.png");
+    background-size: 100% 100%;
+    background-repeat:no-repeat; 
+    height: 100vh;
+    width: 100%;
+}
+
+.comecoQuiz .container{
+    height: 80%;
+    background-color: #D9D9D9;
+    margin-top: 5%;
+    border-radius: 5%;
+}
+.comecoQuiz .container h1{
+    padding-top: 5%;
+    font-size: 35px;
+}
+
+.comecoQuiz .container .btnQuizIncio{
+    padding-top: 30%;
+}
+
+
+
 .traço {
     -webkit-appearance: none;
     width: 25px;

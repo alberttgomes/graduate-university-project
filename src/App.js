@@ -9,6 +9,7 @@ import Cadastro from "./pages/Cadastro/Cadastro";
 import Login from "./pages/Login/Login";
 import Sobre from "./pages/Sobre/Sobre";
 import Quiz from "../src/pages/Quiz";
+import InicioQuiz from "../src/pages/Quiz/inicioQuiz";
 import Pontuacao from "./pages/Quiz/pontuacao";
 
 // import QuizPag1 from "./pages/Quiz/quizPag1";
@@ -39,7 +40,8 @@ function App() {
             element={<VerMateriais />}
           />
           <Route path="/quiz" element={<Quiz />} />
-         
+          <Route path="/inicioQuiz" element={<InicioQuiz />} />
+
           <Route path="/quemsomos" element={<QuemSomos />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/login" element={<Login />} />
