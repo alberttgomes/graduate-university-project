@@ -4,7 +4,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -20,8 +22,10 @@ import javax.persistence.*;
 		@UniqueConstraint(columnNames = {"email"}),
 		@UniqueConstraint(columnNames = {"username"})
 })
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 public class PeopleAdolescent implements UserDetails {
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,67 +41,13 @@ public class PeopleAdolescent implements UserDetails {
 		@Column(name = "username", length = 15)
 		private String username;
 
+		@Column(name = "score_quiz")
+		private int scoreQuiz;
+
+
 		@OneToMany(targetEntity = MaterialAdolescent.class, fetch = FetchType.LAZY)
 		@JoinTable(name="fk_material_adolescent", joinColumns = @JoinColumn(name ="adolescentId", referencedColumnName = "adolescentId"))
 		private List<MaterialAdolescent> adolescentMaterial = new ArrayList<>();
-
-		public long getAdolescentId() {
-			return adolescentId;
-		}
-
-		public void setAdolescentId(long adolescentId) {
-			this.adolescentId = adolescentId;
-		}
-
-		public int getAge() {
-			return age;
-		}
-
-		public void setAge(int age) {
-			this.age = age;
-		}
-
-		public LocalDateTime getDateRegister() {
-			return dateRegister;
-		}
-
-		public void setDateRegister(LocalDateTime dateRegister) {
-			this.dateRegister = dateRegister;
-		}
-
-		public String getEmail() {
-			return email;
-		}
-
-		public void setEmail(String email) {
-			this.email = email;
-		}
-
-		@Override
-		public String getPassword() {
-			return password;
-		}
-
-		public void setPassword(String password) {
-			this.password = password;
-		}
-
-		@Override
-		public String getUsername() {
-			return username;
-		}
-
-		public void setUsername(String username) {
-			this.username = username;
-		}
-
-		public Collection<MaterialAdolescent> getAdolescentMaterial() {
-			return adolescentMaterial;
-		}
-
-		public void setAdolescentMaterial(List<MaterialAdolescent> adolescentMaterial) {
-			this.adolescentMaterial = adolescentMaterial;
-		}
 
 		@Override
 		public boolean isAccountNonExpired() {
@@ -123,7 +73,7 @@ public class PeopleAdolescent implements UserDetails {
 		public Collection<? extends GrantedAuthority> getAuthorities() {
 			return (Collection<? extends GrantedAuthority>) this.adolescentMaterial;
 		}
-
+	
 		@Override
 		public boolean equals(Object obj) {
 			if(this == obj){

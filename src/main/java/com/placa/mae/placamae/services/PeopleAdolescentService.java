@@ -30,12 +30,14 @@ public class PeopleAdolescentService implements UserDetailsService {
         this.peopleAdolescentRepository = peopleAdolescentRepository;
     }
 
+    // Found people by id 
     public PeopleAdolescent findById(Long id) {
          return peopleAdolescentRepository.findById(id).orElseThrow(
              () -> new EntityNotFoundException("People id not found " + id)
          );
     }
 
+    // Create a new people 
     public PeopleAdolescent createAdolescent (PeopleAdolescent adolescent) {
         boolean verifyExists = usernameVerify(adolescent.getUsername());
 
@@ -46,6 +48,7 @@ public class PeopleAdolescentService implements UserDetailsService {
         return peopleAdolescentRepository.save(adolescent);
     }
 
+    // Update an people existing
     public PeopleAdolescent updateAdolescent (long id, PeopleAdolescent adolescent) {
         Optional<PeopleAdolescent> optionalObj  = peopleAdolescentRepository.findById(id);
         PeopleAdolescent peopleAdolescent = optionalObj.get();
@@ -62,16 +65,14 @@ public class PeopleAdolescentService implements UserDetailsService {
     public boolean usernameVerify (String username) 
         throws UsernameNotFoundException {
         
-        if (username.equals("") || username.isEmpty()) {
+        if (username.isEmpty()) {
             throw new UsernameNotFoundException(
                   "The user name can't be empty: " + username);
         }
 
         try {
             
-            peopleAdolescentRepository.existsByUsername(username);
-
-            return true;
+            return  peopleAdolescentRepository.existsByUsername(username);
 
         } catch(Exception exception) {
 

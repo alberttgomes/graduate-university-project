@@ -65,7 +65,7 @@ public class ControllerPeopleAdolescent {
 		PeopleAdolescent adolescentRequest = modelMapper.map(adolescentDTO, PeopleAdolescent.class);
 		PeopleAdolescent adolescent = peopleAdolescentService.updateAdolescent(id, adolescentRequest);
 
-		//Entity to DTO
+		//Convert Entity to DTO
 		AdolescentDTO adolescentResponse = modelMapper.map(adolescent, AdolescentDTO.class);
 
 		return ResponseEntity.ok().body(adolescentResponse);

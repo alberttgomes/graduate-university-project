@@ -1,6 +1,5 @@
 package com.placa.mae.placamae.repository;
 
-import com.placa.mae.placamae.domain.PeopleAdolescent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
