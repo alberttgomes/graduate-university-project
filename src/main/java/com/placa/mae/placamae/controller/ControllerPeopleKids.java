@@ -4,12 +4,15 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.placa.mae.placamae.domain.PeopleKids;
+import com.placa.mae.placamae.dto.AdolescentDTO;
 import com.placa.mae.placamae.repository.DAOPeopleKids;
 import com.placa.mae.placamae.services.PeopleKidService;
 
@@ -21,7 +24,10 @@ public class ControllerPeopleKids {
 	DAOPeopleKids daoPeopleKids;
 
 	@Autowired
-	PeopleKidService daoPeopleKidService;
+	PeopleKidService peopleKidService;
+
+	@Autowired
+	ModelMapper modelMapper;
 
 	@GetMapping(value = "/kids")
 	public List<PeopleKids> get() {
@@ -30,13 +36,20 @@ public class ControllerPeopleKids {
 
 	@GetMapping(value = "kids/{id}")
 	public ResponseEntity<PeopleKids> findById(@PathVariable Long id){
-		PeopleKids obj = daoPeopleKidService.findById(id);
+		PeopleKids obj = peopleKidService.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 
 	@PostMapping(value = "/kids")
-	public PeopleKids post(@Validated @RequestBody PeopleKids kids) {
-		return daoPeopleKids.save(kids);
+	public ResponseEntity<AdolescentDTO> create(@Validated @RequestBody AdolescentDTO postDTO) throws Exception {
+		//Convert DTO to Entity
+		PeopleKids kidsSave = modelMapper.map(postDTO, PeopleKids.class);
+		peopleKidService.createKids(kidsSave);
+
+		//Convert Entity to DTO
+		AdolescentDTO kidsResponse = modelMapper.map(kidsSave, AdolescentDTO.class);
+		
+		return new ResponseEntity<AdolescentDTO>(kidsResponse, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping( value = "/kids/{id}")
@@ -46,17 +59,17 @@ public class ControllerPeopleKids {
 	}
 	
 	@PutMapping(value = "/kids/{kidsId}")
-	public ResponseEntity<PeopleKids> put(@PathVariable Long kidsId, @RequestBody PeopleKids newPeopleKids) {
-		Optional<PeopleKids> optionalObj  = daoPeopleKids.findById(kidsId);
-		PeopleKids peopleKids = optionalObj.get();
-
-		peopleKids.setName(!Objects.isNull(newPeopleKids.getName()) ? newPeopleKids.getName() : peopleKids.getName());
-		peopleKids.setAge(!Objects.isNull(newPeopleKids.getAge()) ? newPeopleKids.getAge() : peopleKids.getAge());
-		peopleKids.setEmail(!Objects.isNull(newPeopleKids.getEmail()) ? newPeopleKids.getEmail() : peopleKids.getEmail());
-		peopleKids.setPassword(!Objects.isNull(newPeopleKids.getPassword()) ? newPeopleKids.getPassword() : peopleKids.getPassword());
-		newPeopleKids = daoPeopleKids.save(peopleKids);
+	public ResponseEntity<AdolescentDTO> update(@PathVariable Long id, @RequestBody AdolescentDTO adolescentDTO) 
+		throws Exception {
 		
-		return ResponseEntity.ok().body(newPeopleKids);
+		//Convert DTO to Entity
+		PeopleKids kidsRequest = modelMapper.map(adolescentDTO, PeopleKids.class);
+		PeopleKids kids = peopleKidService.updatKids(kidsRequest, id);
+		
+		//Convert Entity to DTO
+		AdolescentDTO adolescentResponse = modelMapper.map(kids, AdolescentDTO.class);
+		
+		return ResponseEntity.ok().body(adolescentResponse);
 
     }
 
