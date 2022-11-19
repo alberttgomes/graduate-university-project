@@ -1,4 +1,5 @@
 import "./App.css";
+import React, {useContext} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar, Footer } from "./components";
 import Home from "./pages/Home";
@@ -11,27 +12,21 @@ import Sobre from "./pages/Sobre/Sobre";
 import Quiz from "../src/pages/Quiz";
 import InicioQuiz from "../src/pages/Quiz/inicioQuiz";
 import Pontuacao from "./pages/Quiz/pontuacao";
-
-// import QuizPag1 from "./pages/Quiz/quizPag1";
-// import QuizPag2 from "./pages/Quiz/quizPag2";
-// import QuizPag3 from "./pages/Quiz/quizPag3";
-// import QuizPag4 from "./pages/Quiz/quizPag4";
-// import QuizPag5 from "./pages/Quiz/quizPag5";
-// import QuizPag6 from "./pages/Quiz/quizPag6";
-// import QuizPag7 from "./pages/Quiz/quizPag7";
-// import QuizPag8 from "./pages/Quiz/quizPag8";
-// import QuizPag9 from "./pages/Quiz/quizPag9";
-// import QuizPag10 from "./pages/Quiz/quizPag10";
-// import QuizPag11 from "./pages/Quiz/quizPag11";
-// import QuizPag12 from "./pages/Quiz/quizPag12";
+import Warning from "./components/warningPolitica/PoliticaWarning";
+import { AuthContext } from './contexts/userContext';
 
 import Vlibras from "@djpfs/react-vlibras"
 
 function App() {
+  const {result, setResult} = useContext(AuthContext);
+  
   return (
     <>
       <BrowserRouter>
+        {/* Menu princiapal do Site */}
         <Navbar />
+        
+        {/* Rotas do Site */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/materiais" element={<Materiais />} />
@@ -48,9 +43,16 @@ function App() {
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/pontuacao" element={<Pontuacao />} />
         </Routes>
+        
+        {/* API para o VLibras acessbilidade */}
         <Vlibras />
-
+        
+        {/* Aviso de potilica de dados e privacidade */}
+        <Warning />
+        
+        {/* Rodapé do Site */}
         <Footer />
+      
       </BrowserRouter>
     </>
   );
