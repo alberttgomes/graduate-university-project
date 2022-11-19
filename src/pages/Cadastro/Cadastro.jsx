@@ -68,6 +68,8 @@ const Cadastro = () => {
             axios.post('http://localhost:8080/adolescents', userSignUP, header)
                 .then(() => {
                     setResult({user: userSignUP, registered: true})
+
+                    return window.location('/home');
                 })
                 .catch((error) => {
                     console.log(`An error current ${error}`)
@@ -122,6 +124,10 @@ const Cadastro = () => {
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
+                            textTransform: 'capitalize',
+                            mt: 1,
+                            mb:10,
+                            mx: "auto" 
                         }}
                     >
                         <h1 className="title">Cadastre-se</h1>
@@ -130,7 +136,10 @@ const Cadastro = () => {
                             component="form"
                             noValidate
                             sx={{
-                                mt: 3,
+                                mt: 6,
+                                mx: "auto",
+                                
+                                fontWeight: 'bold' 
                             }}
                         >
                             <Grid
@@ -214,7 +223,9 @@ const Cadastro = () => {
                                 fullWidth
                                 variant="contained"
                                 sx={{ 
-                                    mt: 3, mb: 2,
+                                    mt: 2, mb: 1,
+                                    fontSize: 14,
+                                    fontWeight: 'bold',
                                 }}
                                 onClick={handleSave}
                             >
@@ -225,6 +236,9 @@ const Cadastro = () => {
                             >
                                 <Grid item>
                                     <Link
+                                        sx={{
+                                          fontSize: 14,
+                                        }}
                                         href="/login" variant="body2"
                                     >
                                         Ja possui uma conta? Entre
@@ -233,10 +247,12 @@ const Cadastro = () => {
                             </Grid>
                         </Box>
                     </Box>
-                    <Copyright sx={{ mt: 5 }} />
+                    <Copyright sx={{ mt: 3, mb: 3 }} />
+                    
                     <div className="btn-denuncia">
                         <Denuncia></Denuncia>
                     </div>
+                    
                 </Container>
             </div>
         </ThemeProvider>
