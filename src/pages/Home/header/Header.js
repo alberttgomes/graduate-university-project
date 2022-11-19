@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { Navbar } from "../../../components/navbar/Navbar";
 import "./Header.css";
-import Button from "../../../components/UI/Button/Button";
 import Denuncia from "../../../components/denuncia/Denuncia";
 import cyberbullying from "../../../assets/cyberbullying.svg";
-import placamaeIG from './../../../imagens/placamaeIg.png';
+import placamaeIG from "../../../assets/placamaeIg.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -20,7 +18,7 @@ const Header = () => {
 
   const data = {
     item: {
-      dumb: {placamaeIG},
+      dumb: placamaeIG,
       id: 1,
       url:"https://www.instagram.com/p/CcF9VxrMCaJ/"
     }
@@ -37,9 +35,11 @@ const Header = () => {
               touches={true}
               ind
             >
-              <div>
-                <img src={data.dumb} alt="phone" />
-              </div>
+              <a href={data.item.url} target="_blank">
+                <div>
+                  <img src={data.item.dumb} alt="instagram" />
+                </div>
+              </a>
               <div>
                 <img src={cyberbullying} alt="phone" />
               </div>
