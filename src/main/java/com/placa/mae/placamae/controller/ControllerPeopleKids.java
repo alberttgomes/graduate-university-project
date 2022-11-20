@@ -16,8 +16,8 @@ import com.placa.mae.placamae.dto.AdolescentDTO;
 import com.placa.mae.placamae.repository.DAOPeopleKids;
 import com.placa.mae.placamae.services.PeopleKidService;
 
-@CrossOrigin(origins = "http://localhost:8080")
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 public class ControllerPeopleKids {
 
 	@Autowired

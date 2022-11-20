@@ -42,7 +42,7 @@ public class ControllerPeopleAdolescent {
 	}
 	
 	@PostMapping(value = "/adolescents")
-	public ResponseEntity<AdolescentDTO> create(@Validated @RequestBody AdolescentDTO postDto) {
+	public ResponseEntity<AdolescentDTO> create(@Validated @RequestBody AdolescentDTO postDto) throws Exception {
 		//Convert DTO to entity
 		PeopleAdolescent adolescentSave = modelMapper.map(postDto, PeopleAdolescent.class);
 		peopleAdolescentService.createAdolescent(adolescentSave);
