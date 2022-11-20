@@ -1,19 +1,25 @@
 package com.placa.mae.placamae.services;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
+
+import com.placa.mae.placamae.domain.MaterialKids;
 import com.placa.mae.placamae.domain.PeopleKids;
 import com.placa.mae.placamae.repository.DAOPeopleKids;
 import com.placa.mae.placamae.services.exceptions.EntityNotFoundException;
+import com.placa.mae.placamae.services.exceptions.UsernameOrEmailAlreadyExists;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
 
 @Service
@@ -27,11 +33,11 @@ public class PeopleKidService implements UserDetailsService {
         }
 
         // Create a new people category kids
-        public PeopleKids createKids(PeopleKids kids) throws Exception {
+        public PeopleKids createKids(PeopleKids kids) throws UsernameOrEmailAlreadyExists {
              boolean verifyExists = usernameVerify(kids.getUsername());
              
-             if (verifyExists) {
-                 throw new UsernameNotFoundException("Username already exists");
+             if (!verifyExists) {
+                 throw new UsernameOrEmailAlreadyExists("Username already exists");
              }
 
              kids.setPassword(new BCryptPasswordEncoder().encode(kids.getPassword()));
@@ -86,7 +92,13 @@ public class PeopleKidService implements UserDetailsService {
                             new UsernameNotFoundException(
                                     "user not found with username or email: " + usernameOrEmail));
             return new org.springframework.security.core.userdetails.User(kids.getEmail(),
-                    kids.getPassword(), new ArrayList<>());
+                    kids.getPassword(), mapRolesToAuthorities(kids.getMaterialKids()));
+        }
+
+
+        private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<MaterialKids> collection) {
+            return collection.stream().map(material ->
+                    new SimpleGrantedAuthority(material.getTitle())).collect(Collectors.toList());
         }
 
 }
