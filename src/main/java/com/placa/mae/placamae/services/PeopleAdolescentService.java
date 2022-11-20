@@ -5,6 +5,8 @@ import javax.persistence.EntityNotFoundException;
 import com.placa.mae.placamae.domain.MaterialAdolescent;
 import com.placa.mae.placamae.domain.PeopleAdolescent;
 import com.placa.mae.placamae.repository.DAOPeopleAdolescent;
+import com.placa.mae.placamae.services.exceptions.AgeInvalid;
+import com.placa.mae.placamae.services.exceptions.UsernameOrEmailAlreadyExists;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,36 +25,42 @@ import java.util.stream.Collectors;
 
 @Service
 public class PeopleAdolescentService implements UserDetailsService {
+   
     @Autowired
     private DAOPeopleAdolescent peopleAdolescentRepository;
 
     public PeopleAdolescentService(DAOPeopleAdolescent peopleAdolescentRepository) {
         this.peopleAdolescentRepository = peopleAdolescentRepository;
     }
-
-    // Found people by id 
-    public PeopleAdolescent findById(Long id) {
-         return peopleAdolescentRepository.findById(id).orElseThrow(
-             () -> new EntityNotFoundException("People id not found " + id)
-         );
-    }
-
+    
     // Create a new people 
-    public PeopleAdolescent createAdolescent (PeopleAdolescent adolescent) {
+    public PeopleAdolescent createAdolescent (PeopleAdolescent adolescent) throws UsernameOrEmailAlreadyExists {
         boolean verifyExists = usernameVerify(adolescent.getUsername());
-
-        if (!verifyExists) {
-            adolescent.setPassword(new BCryptPasswordEncoder().encode(adolescent.getPassword()));
+        
+        //Check age equivalent
+        if (adolescent.getAge() > 13 && adolescent.getAge() <= 17) {
+            System.out.println("Age checked");
         }
-
+        else {
+            throw new AgeInvalid("Age invalid exception");
+        }
+        
+        if (verifyExists) {
+            throw new UsernameOrEmailAlreadyExists(
+                                "Username already exists");
+        }
+        
+        adolescent.setPassword(new BCryptPasswordEncoder().encode(adolescent.getPassword()));
+        
         return peopleAdolescentRepository.save(adolescent);
+    
     }
-
+    
     // Update an people existing
     public PeopleAdolescent updateAdolescent (long id, PeopleAdolescent adolescent) {
         Optional<PeopleAdolescent> optionalObj  = peopleAdolescentRepository.findById(id);
         PeopleAdolescent peopleAdolescent = optionalObj.get();
-
+        
         peopleAdolescent.setUsername(!Objects.isNull(adolescent.getUsername()) ? adolescent.getUsername() : peopleAdolescent.getUsername());
         peopleAdolescent.setAge(!Objects.isNull(adolescent.getAge()) ? adolescent.getAge() : peopleAdolescent.getAge());
         peopleAdolescent.setEmail(!Objects.isNull(adolescent.getEmail()) ? adolescent.getEmail() : peopleAdolescent.getEmail());
@@ -62,6 +70,7 @@ public class PeopleAdolescentService implements UserDetailsService {
         return ResponseEntity.ok().body(adolescent).getBody();
     }
 
+    //Verify already username exists
     public boolean usernameVerify (String username) 
         throws UsernameNotFoundException {
         
@@ -69,15 +78,22 @@ public class PeopleAdolescentService implements UserDetailsService {
             throw new UsernameNotFoundException(
                   "The user name can't be empty: " + username);
         }
-
+                
         try {
             
             return  peopleAdolescentRepository.existsByUsername(username);
 
         } catch(Exception exception) {
-
+            
             return false;
         }
+    }
+    
+    // Found people by id 
+    public PeopleAdolescent findById(Long id) {
+         return peopleAdolescentRepository.findById(id).orElseThrow(
+             () -> new EntityNotFoundException("People id not found " + id)
+         );
     }
 
     @Override
