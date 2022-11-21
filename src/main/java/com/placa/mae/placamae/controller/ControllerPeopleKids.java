@@ -37,6 +37,7 @@ public class ControllerPeopleKids {
 	@GetMapping(value = "kids/{id}")
 	public ResponseEntity<PeopleKids> findById(@PathVariable Long id){
 		PeopleKids obj = peopleKidService.findById(id);
+		
 		return ResponseEntity.ok().body(obj);
 	}
 
@@ -55,6 +56,7 @@ public class ControllerPeopleKids {
 	@DeleteMapping( value = "/kids/{id}")
 	public ResponseEntity<Void> deleteById(@PathVariable long id){
 		daoPeopleKids.deleteById(id);
+		
 		return ResponseEntity.noContent().build();
 	}
 	
