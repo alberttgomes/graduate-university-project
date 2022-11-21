@@ -10,8 +10,12 @@ import java.util.Optional;
 @Repository
 public interface DAOPeopleKids extends JpaRepository <PeopleKids, Long> {
     Boolean existsByEmail(String email);
+
     Boolean existsByUsername(String username);
+
     Optional<PeopleKids> findByEmail(String email);
+    
     Optional<PeopleKids> findByUsername(String username);
+    
     Optional<PeopleKids> findByUsernameOrEmail(String username, String email);
 }

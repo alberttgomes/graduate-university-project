@@ -28,19 +28,17 @@ public class PeopleKids implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long kisId;
-	
 	@Column(name = "age", length = 3, nullable = false)
 	private int age;
-	
 	@Column(name = "email", length = 30, nullable = false)
 	private String email;
-	
 	@Column(name = "password", length = 15, nullable = false)
 	private String password;
-
 	@Column(name = "username", length = 15, nullable = false)
 	private String username;
-	
+	@Column(name = "score_quiz")
+	private int scoreQuiz;
+
 	@OneToMany(targetEntity = MaterialKids.class, fetch = FetchType.LAZY)
 	@JoinColumn(name="fk_material_kids")
 	private List<MaterialKids> materialKids = new ArrayList<>();

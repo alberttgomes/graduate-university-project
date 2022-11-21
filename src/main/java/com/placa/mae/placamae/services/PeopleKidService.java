@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import com.placa.mae.placamae.domain.MaterialKids;
 import com.placa.mae.placamae.domain.PeopleKids;
 import com.placa.mae.placamae.repository.DAOPeopleKids;
+import com.placa.mae.placamae.services.exceptions.AgeInvalid;
 import com.placa.mae.placamae.services.exceptions.EntityNotFoundException;
 import com.placa.mae.placamae.services.exceptions.UsernameOrEmailAlreadyExists;
 
@@ -36,6 +37,14 @@ public class PeopleKidService implements UserDetailsService {
         public PeopleKids createKids(PeopleKids kids) throws UsernameOrEmailAlreadyExists {
              boolean verifyExists = usernameVerify(kids.getUsername());
              
+             // Check age equivalent
+             if (kids.getAge() <= 13) {
+                System.out.println("Age checked");
+             }
+             else {
+                throw new AgeInvalid("Age to category invalid exception");
+             }
+
              if (!verifyExists) {
                  throw new UsernameOrEmailAlreadyExists("Username already exists");
              }
@@ -45,7 +54,7 @@ public class PeopleKidService implements UserDetailsService {
              return peopleKidRepository.save(kids);
         }
         
-        //Update existing people category kids
+        // Update existing people category kids
         public PeopleKids updatKids(PeopleKids kids, long id) throws Exception {
              Optional<PeopleKids> optionalObj = peopleKidRepository.findById(id);
              PeopleKids peopleKids = optionalObj.get();
@@ -60,7 +69,7 @@ public class PeopleKidService implements UserDetailsService {
 
         }
         
-        //Find people by id
+        // Find people by id
         public PeopleKids findById(Long id) {
             return peopleKidRepository.findById(id).orElseThrow(
                     () -> new EntityNotFoundException("People id not found: " + id) );
