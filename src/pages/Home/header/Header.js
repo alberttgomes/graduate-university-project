@@ -35,14 +35,15 @@ const Header = () => {
               touches={true}
               ind
             >
+              <div>
+                <img src={cyberbullying} alt="phone" />
+              </div>
               <a href={data.item.url} target="_blank">
                 <div>
                   <img src={data.item.dumb} alt="instagram" />
                 </div>
               </a>
-              <div>
-                <img src={cyberbullying} alt="phone" />
-              </div>
+              
               <div>
                 <img src={cyberbullying} alt="phone" />
               </div>
