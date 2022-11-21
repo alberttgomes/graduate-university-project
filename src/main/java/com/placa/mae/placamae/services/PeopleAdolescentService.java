@@ -37,12 +37,12 @@ public class PeopleAdolescentService implements UserDetailsService {
     public PeopleAdolescent createAdolescent (PeopleAdolescent adolescent) throws UsernameOrEmailAlreadyExists {
         boolean verifyExists = usernameVerify(adolescent.getUsername());
         
-        //Check age equivalent
-        if (adolescent.getAge() > 13 && adolescent.getAge() <= 17) {
+        // Check age equivalent
+        if (adolescent.getAge() > 13 && adolescent.getAge() <= 18) {
             System.out.println("Age checked");
         }
         else {
-            throw new AgeInvalid("Age invalid exception");
+            throw new AgeInvalid("Age to category invalid exception");
         }
         
         if (verifyExists) {
@@ -56,7 +56,7 @@ public class PeopleAdolescentService implements UserDetailsService {
     
     }
     
-    // Update an people existing
+    // Update existing people category adolescent
     public PeopleAdolescent updateAdolescent (long id, PeopleAdolescent adolescent) {
         Optional<PeopleAdolescent> optionalObj  = peopleAdolescentRepository.findById(id);
         PeopleAdolescent peopleAdolescent = optionalObj.get();
@@ -70,7 +70,7 @@ public class PeopleAdolescentService implements UserDetailsService {
         return ResponseEntity.ok().body(adolescent).getBody();
     }
 
-    //Verify already username exists
+    // Verify already username
     public boolean usernameVerify (String username) 
         throws UsernameNotFoundException {
         
@@ -87,10 +87,11 @@ public class PeopleAdolescentService implements UserDetailsService {
             
             return false;
         }
+        
     }
     
     // Found people by id 
-    public PeopleAdolescent findById(Long id) {
+    public PeopleAdolescent findById(Long id) throws Exception {
          return peopleAdolescentRepository.findById(id).orElseThrow(
              () -> new EntityNotFoundException("People id not found " + id)
          );

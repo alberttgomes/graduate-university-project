@@ -40,14 +40,18 @@ public class PeopleAdolescent implements UserDetails {
 		private String password;
 		@Column(name = "username", length = 15)
 		private String username;
-
 		@Column(name = "score_quiz")
 		private int scoreQuiz;
 
-
+		
 		@OneToMany(targetEntity = MaterialAdolescent.class, fetch = FetchType.LAZY)
 		@JoinTable(name="fk_material_adolescent", joinColumns = @JoinColumn(name ="adolescentId", referencedColumnName = "adolescentId"))
 		private List<MaterialAdolescent> adolescentMaterial = new ArrayList<>();
+		
+		@Override
+		public Collection<? extends GrantedAuthority> getAuthorities() {
+			return (Collection<? extends GrantedAuthority>) this.adolescentMaterial;
+		}
 
 		@Override
 		public boolean isAccountNonExpired() {
@@ -66,14 +70,13 @@ public class PeopleAdolescent implements UserDetails {
 
 		@Override
 		public boolean isEnabled() {
+			if(!username.isEmpty()){
+				return true;
+			}
+	
 			return false;
 		}
 
-		@Override
-		public Collection<? extends GrantedAuthority> getAuthorities() {
-			return (Collection<? extends GrantedAuthority>) this.adolescentMaterial;
-		}
-	
 		@Override
 		public boolean equals(Object obj) {
 			if(this == obj){

@@ -35,9 +35,9 @@ public class ControllerPeopleAdolescent {
 	}
 
 	@RequestMapping(value = "adolescents/{id}")
-	public ResponseEntity<PeopleAdolescent> findById(@PathVariable Long id) {
+	public ResponseEntity<PeopleAdolescent> findById(@PathVariable Long id) throws Exception {
 		PeopleAdolescent obj = peopleAdolescentService.findById(id);
-		
+
 		return ResponseEntity.ok().body(obj);
 	}
 	
@@ -46,10 +46,12 @@ public class ControllerPeopleAdolescent {
 		//Convert DTO to entity
 		PeopleAdolescent adolescentSave = modelMapper.map(postDto, PeopleAdolescent.class);
 		peopleAdolescentService.createAdolescent(adolescentSave);
+		
 		//Convert entity to DTO
 		AdolescentDTO adolescentResponse = modelMapper.map(adolescentSave, AdolescentDTO.class);
 
 		return new ResponseEntity<AdolescentDTO>(adolescentResponse, HttpStatus.CREATED);
+	
 	}
 	
 	@DeleteMapping(value="adolescents/{id}")

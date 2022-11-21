@@ -9,6 +9,9 @@ import java.util.Optional;
 
 @Repository
 public interface DAOPeopleAdolescent extends JpaRepository <PeopleAdolescent, Long> {
+    Boolean existsByEmail(String email);
+
+    Boolean existsByUsername(String username);
     
     Optional<PeopleAdolescent> findByEmail(String email);
     
@@ -16,8 +19,4 @@ public interface DAOPeopleAdolescent extends JpaRepository <PeopleAdolescent, Lo
     
     Optional<PeopleAdolescent> findByUsernameOrEmail(String username, String email);
     
-    Boolean existsByEmail(String email);
-
-    Boolean existsByUsername(String username);
-
 }
