@@ -9,8 +9,15 @@ import java.util.Optional;
 
 @Repository
 public interface DAOPeopleAdult extends JpaRepository <PeopleAdult, Long>{
-    Optional<PeopleAdult> findByEmail(String email);
-    Optional<PeopleAdult> findByUsernameOrEmail(String username, String email);
     Boolean existsByEmail(String email);
+
+    Boolean existsByUsername(String username);
+    
+    Optional<PeopleAdult> findByEmail(String email);
+
+    Optional<PeopleAdult> findByUsername(String usernameOrEmail);
+    
+    Optional<PeopleAdult> findByUsernameOrEmail(String username, String email);
+    
 
 }
