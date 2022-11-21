@@ -23,17 +23,16 @@ public class SwaggerPlacaMaeConfig {
     String version = "1.0";
     String terms = "Terms of Service";
     String email = "test@placamae.br";
-    //String license = "";
-    // String licenseUrl = "";
-
 
     @Bean
     public Docket api() {
-        return  new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.placa.mae.placamae"))
-                .paths(PathSelectors.ant("adolescents/**"))
-                .build();
+        return new Docket(DocumentationType.SWAGGER_2)
+            .select()
+            .apis(RequestHandlerSelectors.basePackage("com.placa.mae.placamae"))
+            .paths(PathSelectors.ant("adolescents/**"))
+            .paths(PathSelectors.ant("adults/**"))
+            .paths(PathSelectors.ant("kids/**"))
+            .build();
     }
 
     @Primary
@@ -41,7 +40,9 @@ public class SwaggerPlacaMaeConfig {
     public LinkDiscoverers discoverers() {
         List<LinkDiscoverer> plugins = new ArrayList<>();
         plugins.add(new CollectionJsonLinkDiscoverer());
+       
         return new LinkDiscoverers(SimplePluginRegistry.create(plugins));
+    
     }
 
 }
