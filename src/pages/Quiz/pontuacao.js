@@ -24,7 +24,7 @@ const Pontuacao = () =>{
                     <td><h2 style={{fontSize:"40px"}}>1</h2></td>
                     <td class="imgtable">
                         <td className="boxTable"></td>
-                        <td className="nick" >JARARACA DOCE</td>
+                        <td className="nick" >Maria Lurdes</td>
                     </td>
                     <td>10</td>
                     <td>1</td>

@@ -9,7 +9,7 @@ const InicioQuiz =() =>{
 
                 <div Class="btnQuizIncio">        
                     <Button
-                    text={"Começe"}
+                    text={"Começar"}
                     btnClass={"btn-rigth"}
                     href={"/Quiz"} >
                     </Button> 
