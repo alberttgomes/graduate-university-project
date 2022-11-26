@@ -4,6 +4,8 @@ import "../Quiz/quiz.css";
 import Button from "../../components/UI/Button/Button";
 import { color } from "@chakra-ui/react";
 import { padding } from "@mui/system";
+import {store} from "./Storage/store"
+
 
 const Pontuacao = () =>{
     return(
@@ -26,9 +28,9 @@ const Pontuacao = () =>{
                         <td className="boxTable"></td>
                         <td className="nick" >Maria Lurdes</td>
                     </td>
-                    <td>10</td>
-                    <td>1</td>
-                    <td>90%</td>
+                    <td>{store.getState().Pontuacao}</td>
+                    <td>{12 - store.getState().Pontuacao}</td>
+                    <td>{store.getState().Pontuacao}</td>
                     <td>
                         <Button
                         text={">"}

@@ -147,16 +147,6 @@ const perguntas = [
     letraD: "d) plateia ativa.",
     Ansower: "Letra E"
   },
-  {
-    caso: "Perguntas avulsas:",
-    titulo:
-      "12) Quais são os personagens de um caso de Bullying e/ou Cyberbullying?",
-    letraA: "a) Vítima",
-    letraB: "b) praticante.",
-    letraC: "c) plateia passiva.",
-    letraD: "d) plateia ativa.",
-    Ansower: "Letra E"
-  },
 
 ];
 
