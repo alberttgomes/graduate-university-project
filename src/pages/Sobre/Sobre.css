@@ -1,36 +1,36 @@
 .sobre {
     margin: 0;
-    font-size: 13px; 
-    text-align:center;
+    font-size: 13px;
+    text-align: center;
     color: black !important;
     font-weight: bold;
 }
 
-.header1{
+.header1 {
     margin-top: 0px;
     padding-top: 50px;
     padding-bottom: 0px;
-    height: auto ;
+    height: auto;
     background-image: url("../../assets/image-sobre.png");
     background-size: 100% 100%;
-    background-repeat:no-repeat; 
+    background-repeat: no-repeat;
 }
 
-.header-left{
+.header-left {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 5%;
 }
 
-.ladinho1{ 
+.ladinho1 {
 
     width: 45%;
     float: left;
     margin-left: 10%;
 }
 
-.ladinho2{  
+.ladinho2 {
     width: 45%;
     float: right;
 }
@@ -41,9 +41,12 @@ h1 {
 }
 
 
-@media screen and (max-width: 500px){
-    .header1{
+@media screen and (max-width: 500px) {
+    .header1 {
         height: 100%;
     }
 }
 
+html:not(.no-js) [data-aos^=fade][data-aos^=fade].aos-animate {
+    padding: 10px;
+}

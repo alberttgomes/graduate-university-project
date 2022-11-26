@@ -4,11 +4,10 @@ import Button from "../../components/UI/Button/Button";
 import Denuncia from "../../components/denuncia/Denuncia";
 import Aos from 'aos';
 
-
 const Sobre = () => {
   Aos.init();
   return (
-    <section id="header" class="header1 ">
+    <section class="header1">
       <div>
         <div
           className="header-left"

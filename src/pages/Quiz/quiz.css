@@ -1,38 +1,38 @@
-
-.quizHeader{
+.quizHeader {
     margin-top: 0px;
     padding-top: 100px;
     padding-bottom: 0px;
-    height: 100% ;
+    height: 100%;
     width: 100%;
     background-image: url("../../assets/quiz.png");
     background-size: 100% 100%;
-    background-repeat:no-repeat; 
+    background-repeat: no-repeat;
 
 }
 
-.comecoQuiz{
+.comecoQuiz {
 
     background-image: url("../../assets/quiz.png");
     background-size: 100% 100%;
-    background-repeat:no-repeat; 
+    background-repeat: no-repeat;
     height: 100vh;
     width: 100%;
 }
 
-.comecoQuiz .container{
+.comecoQuiz .container {
     height: 80%;
     background-color: #D9D9D9;
     margin-top: 5%;
     border-radius: 5%;
 }
-.comecoQuiz .container h1{
-    padding-top: 5%;
+
+.comecoQuiz .container h1 {
+    padding-top: 10%;
     font-size: 35px;
 }
 
-.comecoQuiz .container .btnQuizIncio{
-    padding-top: 30%;
+.comecoQuiz .container .btnQuizIncio {
+    padding-top: 10%;
 }
 
 
@@ -45,17 +45,17 @@
     outline: none;
     -webkit-transition: .2s;
     transition: opacity .2s;
-  }
+}
 
-  .traço::-webkit-slider-thumb {
+.traço::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 5%;
-    height:25px;
+    height: 25px;
     background: #382C70;
     cursor: pointer;
     border-radius: 7px;
-  }
+}
 
 .traço::-moz-range-thumb {
     width: 25px;
@@ -64,34 +64,35 @@
     cursor: pointer;
 }
 
-#headerquiz{
+#headerquiz {
     align-items: center;
     padding: 20px;
     margin-top: 1%;
-    margin-bottom: 2%;  
+    margin-bottom: 2%;
 }
 
-.letr{
+.letr {
     color: #382C70;
     padding-bottom: 2%;
     padding: 10px;
     border-style: ridge;
 }
-h1{
-    color:#382C70;
+
+h1 {
+    color: #382C70;
 }
 
-#inputs{
+#inputs {
     text-align: justify;
 }
 
 
-.inp{
+.inp {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 15px;
-    background-color: #D9D9D9   ;
+    background-color: #D9D9D9;
     border-radius: 5vh;
     border: solid 1px;
     width: 100%;
@@ -100,65 +101,65 @@ h1{
 
 
 
-.inp .lab{
+.inp .lab {
     width: 90%;
     padding: 10px;
     font-size: 12px
 }
 
 
-.inp .rad{
-    width:10%;
+.inp .rad {
+    width: 10%;
     width: 25px;
     height: 25px;
 }
 
-label{
+label {
     font-size: 1.5vh;
 }
 
-.headerbutton{
+.headerbutton {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 40px;
 }
 
-.btn-left{
+.btn-left {
     color: #F3E8E8;
     background-color: #382C70;
     width: 200px;
     border: solid 2px;
 }
 
-.btn-rigth{
+.btn-rigth {
     color: #F3E8E8;
     background-color: #382C70;
     width: 200px;
     border: solid 2px;
 }
 
-.imgtable{
+.imgtable {
     padding-left: 10%;
 }
 
-.imgtable .nick{
+.imgtable .nick {
     color: #382C70;
     font-size: 20px;
     padding: 20px;
 }
 
-.headerTable{
+.headerTable {
     margin-top: 0px;
     padding-top: 100px;
     padding-bottom: 0px;
-    height:100vh;
+    height: 100vh;
     width: 100%;
     color: #382C70;
 }
 
 
-.table{
+.table {
     width: 100%;
     height: 100%;
     font-size: 15px;
@@ -166,25 +167,25 @@ label{
     padding: 15px;
 }
 
-.tableMain{
+.tableMain {
     border-radius: 40px;
     background-color: #D9D9D9;
 }
 
-.boxTable{
+.boxTable {
     width: 70px;
     height: 70px;
-    background-color:#D9D9D9;
+    background-color: #D9D9D9;
     border-radius: 50px;
 }
 
-.titleTable{
+.titleTable {
     color: #FFB000;
 }
 
 
-@media screen and (max-width: 605px){
-    .quizHeader{
+@media screen and (max-width: 605px) {
+    .quizHeader {
         height: 100%;
     }
 }
