@@ -47,7 +47,7 @@ function App() {
         {/* API para o VLibras acessbilidade */}
         <Vlibras />
         
-        {/* Aviso de potilica de dados e privacidade */}
+        {/* Aviso de politica de dados e privacidade */}
         <Warning />
         
         {/* Rodapé do Site */}
