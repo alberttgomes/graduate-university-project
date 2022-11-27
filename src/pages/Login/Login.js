@@ -23,14 +23,12 @@ const Login = () =>{
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-
-
-const header = {
+  const header = {
     "Authorization": "Bearer Authorization: Bearer ",
     "Content-Type": "application/json"
-}
+  }
 
-  const { setAuth } = useContext(AuthContext);
+  const {result, setResult} = useContext(AuthContext);
   const theme = createTheme();
 
   const handleSubmit = async (e) => {

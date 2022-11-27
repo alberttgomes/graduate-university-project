@@ -1,5 +1,3 @@
-
-
 const perguntas = [
   {
     caso: "Caso 01: Carla, adolescente de 14 anos, conseguiu tirar uma foto de Alyne, colega de sala, sem que ela soubesse. Além disso, Carla utilizou aplicativos de edição de fotos e fez algumas alterações na imagem para divulgar no grupo de Whatsapp de seus colegas mais próximos. Colocou figuras e fez alterações que Alyne não autorizou e que também a ridicularizavam. Assim que a foto foi postada no grupo, quase todos se divertiram bastante, cada um colocou um apelido em razão das características que foram montadas na foto. Porém, um desses componentes do grupo não concordou com a atitude de Carla e nem com as “brincadeiras” dos demais colegas. Assim, ele procurou Alyne, que estava sendo ridicularizada, para informar sobre o ocorrido. ",

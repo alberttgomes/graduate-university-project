@@ -1,4 +1,3 @@
-
 import {createStore,persist} from 'easy-peasy';
 import {form} from './object';
 
