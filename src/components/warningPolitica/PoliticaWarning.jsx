@@ -18,7 +18,7 @@ const Warning = () => {
         fontSize: '0.875rem',
         fontWeight: '700',
         float: 'bottom',
-        position: 'absolute',
+        position: 'fixed',
         mt: -12,
         zIndex: 'modal',
         width: '100%',
