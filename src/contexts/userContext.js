@@ -8,6 +8,7 @@ const defaultState = {
         username:''
     },
     registered: false,
+    scoreQuiz: null,
 }
 
 export const AuthContext = createContext({defaultState});
