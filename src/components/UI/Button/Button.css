@@ -6,10 +6,12 @@ a {
   margin-right: 1rem;
   transition: all 0.3s;
 }
+
 a:hover,
 #nav-links-mobile a:hover {
-  color: #6147d4;
+  color: #a594ee;
 }
+
 a.btn {
   border-radius: 5px;
   padding: 5px 8px;
@@ -25,6 +27,7 @@ a.btn-verMais {
 a.btn-dark {
   background: transparent
 }
+
 a.btn-light {
   background: #FE6100;
   border: 2px solid transparent;
