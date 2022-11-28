@@ -15,6 +15,7 @@
   display: flex;
   color: #fff;
 }
+
 .menu{
   display: flex;
   flex-direction: row;
@@ -37,6 +38,12 @@
   text-decoration: none;
   margin-right: 1rem;
   transition: all 0.3s;
+  font-weight: bold;
+}
+
+.buttonLogin {
+  margin-right: 10px;
+  align-items: center;
 }
 
 .nav-btn{

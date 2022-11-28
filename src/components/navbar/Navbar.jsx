@@ -149,6 +149,18 @@ const Navbar = () => {
                   </ItemMenu> : null  
                 },
                 {result?.registered === false
+                    ? <div className="buttonLogin">
+                        <ItemMenu>
+                          <Link
+                              to="/login"
+                          >
+                              Entrar
+                          </Link> 
+                        </ItemMenu>
+                      </div>
+                    : null  
+                }
+                {result?.registered === false
                     ? <div>
                         <Button
                           className="nav-links"
