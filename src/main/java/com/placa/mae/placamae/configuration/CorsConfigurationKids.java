@@ -11,7 +11,7 @@ public class CorsConfigurationKids implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry kids) {
-        kids.addMapping("/kids").allowedOrigins("http://localhost:19006").allowedMethods(
+        kids.addMapping("/kids").allowedOrigins("http://localhost:3000").allowedMethods(
             "GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT"
         );
     }

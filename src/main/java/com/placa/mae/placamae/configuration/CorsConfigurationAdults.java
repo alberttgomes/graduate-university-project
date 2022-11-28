@@ -12,7 +12,7 @@ public class CorsConfigurationAdults implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry adults) {
-        adults.addMapping("/adults").allowedOrigins("http://localhost:19006").allowedMethods(
+        adults.addMapping("/adults").allowedOrigins("http://localhost:3000").allowedMethods(
             "GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT"
         );
     }
