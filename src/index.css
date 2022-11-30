@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 
 :root {
   --font-family: "Poppins", sans-serif;
@@ -24,7 +25,7 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 
 section {
@@ -48,6 +49,7 @@ section {
 .u-text-dark {
   color: var(--dark-text);
 }
+
 .u-text-light {
   color: var(--dark-text);
 }
@@ -66,7 +68,6 @@ section {
   font-size: 2.5rem;
   font-weight: 300;
   line-height: 1.4;
-  text-transform: uppercase;
   color: var(--dark-text);
   margin: 1.5rem 0;
 }

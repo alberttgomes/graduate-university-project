@@ -16,14 +16,14 @@
   color: #fff;
 }
 
-.menu{
+.menu {
   display: flex;
   flex-direction: row;
   width: 100vw;
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  
+
 }
 
 .nav-links li {
@@ -38,7 +38,7 @@
   text-decoration: none;
   margin-right: 1rem;
   transition: all 0.3s;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .buttonLogin {
@@ -46,7 +46,7 @@
   align-items: center;
 }
 
-.nav-btn{
+.nav-btn {
   background-color: #FAE43C;
   width: 130px;
   height: 25px;
@@ -84,13 +84,16 @@
 
 /* Media Queries */
 @media screen and (max-width: 769px) {
+
   /* hide nav button on navbar */
   .nav-btn {
     display: none;
     background-color: #FAE43C;
   }
 }
+
 @media screen and (max-width: 600px) {
+
   /* show nav button on navbar menu */
   .nav-btn {
     display: block;
@@ -132,10 +135,12 @@
     left: -100%;
     animation: slide-out 0.5s ease-in-out;
   }
+
   @keyframes slide-out {
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-100%);
     }
@@ -145,6 +150,7 @@
     0% {
       transform: translateX(-100%);
     }
+
     100% {
       transform: translateX(0);
     }
@@ -173,8 +179,13 @@
   }
 }
 
-.lua{
+.lua {
   width: 20px;
   height: 14px;
   margin: 2px;
+}
+
+.css-1ldmmrg-MuiButtonBase-root-MuiButton-root {
+  font-family: Poppins, sans-serif !important;
+  text-transform: none !important;
 }
