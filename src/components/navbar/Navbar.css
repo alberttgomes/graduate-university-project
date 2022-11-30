@@ -19,7 +19,6 @@
 .menu {
   display: flex;
   flex-direction: row;
-  width: 100vw;
   overflow: hidden;
   align-items: center;
   justify-content: center;

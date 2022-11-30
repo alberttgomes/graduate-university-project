@@ -1,5 +1,5 @@
 import "./App.css";
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar, Footer } from "./components";
 import Home from "./pages/Home";
@@ -18,14 +18,14 @@ import { AuthContext } from './contexts/userContext';
 import Vlibras from "@djpfs/react-vlibras"
 
 function App() {
-  const {result, setResult} = useContext(AuthContext);
-  
+  const { result, setResult } = useContext(AuthContext);
+
   return (
     <>
       <BrowserRouter>
         {/* Menu princiapal do Site */}
         <Navbar />
-        
+
         {/* Rotas do Site */}
         <Routes>
           <Route path="/" element={<Home />} />
@@ -43,20 +43,20 @@ function App() {
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/pontuacao" element={<Pontuacao />} />
         </Routes>
-        
+
         {/* API para o VLibras acessbilidade */}
         <div className="libras">
           <Vlibras />
         </div>
-        
+
         {/* Aviso de politica de dados e privacidade */}
-        {result?.registered === false?
+        {result?.registered === false ?
           <Warning /> : null
         }
-        
+
         {/* Rodapé do Site */}
         <Footer />
-      
+
       </BrowserRouter>
     </>
   );
