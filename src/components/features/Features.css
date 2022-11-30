@@ -7,7 +7,6 @@
   font-size: 2.5rem;
   font-weight: 300;
   line-height: 1.4;
-  text-transform: uppercase;
   color: var(--dark-text);
   margin: 1.5rem 0;
 }
@@ -32,7 +31,7 @@
   }
 }
 
-section{
+section {
   justify-content: flex;
   flex-direction: column;
 }
