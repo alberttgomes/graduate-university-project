@@ -12,12 +12,12 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { AuthContext } from "../../contexts/userContext";
 import axios from "axios";
 
+export const AGE_KIDS_BASE = 13;
+export const AGE_ADOLESCENTS_BASE = 17;
+export const AGE_ADULTS_BASE = 18;
+
 const Cadastro = () => {
   const {result, setResult} = useContext(AuthContext);
-
-  const AGE_KIDS_BASE = 13;
-  const AGE_ADOLESCENTS_BASE = 17;
-  const AGE_ADULTS_BASE = 18;
 
   const theme = createTheme();
 

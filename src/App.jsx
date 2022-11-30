@@ -5,7 +5,7 @@ import { Navbar, Footer } from "./components";
 import Home from "./pages/Home";
 import Materiais from "./pages/Materiais";
 import Jogos from "./pages/Jogos/index";
-import VerMateriais from "./pages/verMateriais";
+import MaterialCategorizado from './pages/verMateriais/MaterialCategorizado'
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Login from "./pages/Login/Login";
 import Sobre from "./pages/Sobre/Sobre";
@@ -32,7 +32,7 @@ function App() {
           <Route path="/material" element={<Materiais />} />
           <Route
             path="/materialCategorizado"
-            element={<VerMateriais />}
+            element={<MaterialCategorizado />}
           />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/inicioQuiz" element={<InicioQuiz />} />
@@ -45,7 +45,9 @@ function App() {
         </Routes>
         
         {/* API para o VLibras acessbilidade */}
-        <Vlibras />
+        <div className="libras">
+          <Vlibras />
+        </div>
         
         {/* Aviso de politica de dados e privacidade */}
         {result?.registered === false?

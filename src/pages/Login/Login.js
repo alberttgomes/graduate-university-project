@@ -1,7 +1,8 @@
 import React from "react";
 import "./Login.css";
 import "../../components/navbar/Navbar.css"
-import Button from "../../components/UI/Button/Button";
+import Button2 from "../../components/UI/Button/Button";
+import { Button } from "@mui/material";
 import Denuncia from "../../components/denuncia/Denuncia";
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
@@ -24,27 +25,28 @@ const Login = () =>{
   const [success, setSuccess] = useState(false);
 
   const header = {
-    "Authorization": "Bearer Authorization: Bearer ",
+    "Authorization": "Bearer ",
     "Content-Type": "application/json"
-  }
+}
 
   const {result, setResult} = useContext(AuthContext);
   const theme = createTheme();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
 
+    e.preventDefault();
     try{
-      const response = await axios.post('http://localhost:8080/login/auth', JSON.stringify({ user, pwd }), header);
- 
+        const  response = await axios.post('http://localhost:8080/login/auth', JSON.stringify({ user, pwd }), header);
+        
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
+
       setResult({ user, pwd, roles, accessToken });
       setUser("");
       setPwd("");
       setSuccess(true);
 
-      console.log("Aeee poxxaaaa:", success)
+      console.log("Login efetuado!  :")
     }catch (err){
       console.log("Não pegou:", errMsg)
       if (!err?.response) {
@@ -53,12 +55,17 @@ const Login = () =>{
         setErrMsg("Missing Username or Password");
       } else if (err.response?.status === 401) {
         setErrMsg("Unauthorized");
+      } else if (err.response?.status === 403) {
+        setErrMsg("acesso negado");
       } else {
-        setErrMsg("Login Failed");
-      }
-      errRef.current.focus();
+        setErrMsg("Login Failed",);
+      } 
 
     }
+
+    
+
+
   }
 
 return (
@@ -120,6 +127,7 @@ return (
                                         value={pwd}
                                     />
                                 </Grid>
+
                             </Grid>
                             <Button
                                 fullWidth
@@ -130,7 +138,9 @@ return (
                                     fontWeight: 'bold',
                                 }}
                                 onClick={handleSubmit}
-                            ></Button>
+                            >
+                                Entrar
+                            </Button>
 
                             <Grid
                                 container justifyContent="flex-end"
