@@ -27,7 +27,7 @@ const defaultState = {
         password:'',
         username:''
     },
-    registered: false,
+    registered: true,
     scoreQuiz: 0,
 }
 

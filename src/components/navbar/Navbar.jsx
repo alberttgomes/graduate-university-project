@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useMemo } from "react";
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -24,9 +24,15 @@ const Navbar = () => {
 
   const { result, setResult } = useContext(AuthContext);
 
-  useEffect(() => {
-    console.log(result);
-  }, [result])
+  useMemo(() => {
+    
+    if(localStorage.getItem(result) !== undefined || null || "") {
+          setResult(result)
+
+          console.log("User", result);
+    }
+
+  }, [result]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -49,12 +55,12 @@ const Navbar = () => {
         <Toolbar sx={{ flexWrap: 'wrap' }}>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -83,47 +89,56 @@ const Navbar = () => {
               ))}
             </Menu>
           </Box>
-
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: {
-                xs: 'none', md: 'flex'
-              }
-            }}
-            className="menu"
+          
+          <Box 
+             sx={{ 
+                flexGrow: 1, 
+                display: { 
+                    xs: 'none', md: 'flex' 
+                } 
+             }}
+             className="menu"
           >
             {result?.registered === false
               ? <ItemMenu>
-                <Link
-                  to="/"
-                >
-                  Inicio
-                </Link>
-              </ItemMenu>
-              : <ItemMenu>
-                <Link
-                  to={`/`}
-                >
-                  Inicio
-                </Link>
-              </ItemMenu>
+                  <Link
+                    to="/"
+                  >
+                      Inicio
+                  </Link>
+                </ItemMenu>
+              : 
+                <div className="buttonCadastro">
+                    <Button
+                      className="nav-links"
+                      sx={{
+                        background: " #FAE43C",
+                        padding: "6px 0px 8px 8px"
+                      }}
+                    >
+                      <Link
+                        to="/cadastro"
+                      >
+                          Início
+                      </Link>
+                    </Button>
+                </div>
             },
             {result?.registered === false
               ? <ItemMenu>
-                <Link
-                  to="/material"
-                >
-                  Material
-                </Link>
-              </ItemMenu>
+                  <Link
+                    to="/material"
+                  >
+                    Material
+                  </Link>
+                </ItemMenu>
               : <ItemMenu>
-                <Link
-                  to="/materialCategorizado"
-                >
-                  Material
-                </Link>
-              </ItemMenu>
+                  <Link
+                    to="/materialCategorizado"
+                  >
+                    Material
+                  </Link>
+                </ItemMenu>
             },
             <ItemMenu>
               <Link
@@ -162,21 +177,21 @@ const Navbar = () => {
               : null
             }
             {result?.registered === false
-              ? <div>
-                <Button
-                  className="nav-links"
-                  sx={{
-                    background: " #FAE43C",
-                    padding: "6px 0px 8px 8px"
-                  }}
-                >
-                  <Link
-                    to="/cadastro"
-                  >
-                    Cadastre-se
-                  </Link>
-                </Button>
-              </div>
+              ? <div className="buttonCadastro">
+                    <Button
+                      className="nav-links"
+                      sx={{
+                        background: " #FAE43C",
+                        padding: "6px 0px 8px 8px"
+                      }}
+                    >
+                      <Link
+                        to="/cadastro"
+                      >
+                         Cadastre-se
+                      </Link>
+                    </Button>
+                </div>
               : null
             }
             {/* <Box
@@ -190,36 +205,36 @@ const Navbar = () => {
                     <SwitchTheme />
                 </Box> */}
           </Box>
-          {result?.registered === true ?
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Configuracoes">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="user-avatar" src="" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box> : null
+          {result?.registered === true?
+                <Box sx={{ flexGrow: 0 }}>
+                    <Tooltip title="Configuracoes">
+                      <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                        <Avatar alt="user-avatar" src="" />
+                      </IconButton>
+                    </Tooltip>
+                    <Menu
+                      sx={{ mt: '45px' }}
+                      id="menu-appbar"
+                      anchorEl={anchorElUser}
+                      anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      keepMounted
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      open={Boolean(anchorElUser)}
+                      onClose={handleCloseUserMenu}
+                    >
+                      {settings.map((setting) => (
+                        <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                          <Typography textAlign="center">{setting}</Typography>
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                </Box> : null
           }
 
         </Toolbar>

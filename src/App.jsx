@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar, Footer } from "./components";
 import Home from "./pages/Home";
@@ -19,6 +19,16 @@ import Vlibras from "@djpfs/react-vlibras"
 
 function App() {
   const { result, setResult } = useContext(AuthContext);
+  
+  useMemo(() => {
+    
+    if(localStorage.getItem(result) !== undefined || null || "") {
+          setResult(result)
+
+          console.log("User", result);
+    }
+
+  }, [result]);
 
   return (
     <>
