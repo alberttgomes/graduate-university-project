@@ -15,12 +15,12 @@ import java.time.LocalDate;
 @Data
 @Setter
 @Getter
-public class AdolescentDTO implements Serializable {
+public class PeopleDTO implements Serializable {
     
-    private static final long serialVersionUID = 1l;
+    private static final long serialVersionUID = 1;
     
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dateFormat = LocalDate.now();;
+    private LocalDate dateFormat = LocalDate.now();
 
     @NotNull(message = "The field is mandatory")
     private int age;

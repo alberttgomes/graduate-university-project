@@ -1,7 +1,7 @@
 package com.placa.mae.placamae.controller;
 
 import com.placa.mae.placamae.domain.PeopleAdolescent;
-import com.placa.mae.placamae.dto.AdolescentDTO;
+import com.placa.mae.placamae.dto.PeopleDTO;
 import com.placa.mae.placamae.repository.DAOPeopleAdolescent;
 import com.placa.mae.placamae.services.PeopleAdolescentService;
 import org.modelmapper.ModelMapper;
@@ -42,15 +42,15 @@ public class ControllerPeopleAdolescent {
 	}
 	
 	@PostMapping(value = "/adolescents")
-	public ResponseEntity<AdolescentDTO> create(@Validated @RequestBody AdolescentDTO postDto) throws Exception {
+	public ResponseEntity<PeopleDTO> create(@Validated @RequestBody PeopleDTO postDto) throws Exception {
 		//Convert DTO to entity
 		PeopleAdolescent adolescentSave = modelMapper.map(postDto, PeopleAdolescent.class);
 		peopleAdolescentService.createAdolescent(adolescentSave);
 		
 		//Convert entity to DTO
-		AdolescentDTO adolescentResponse = modelMapper.map(adolescentSave, AdolescentDTO.class);
+		PeopleDTO adolescentResponse = modelMapper.map(adolescentSave, PeopleDTO.class);
 
-		return new ResponseEntity<AdolescentDTO>(adolescentResponse, HttpStatus.CREATED);
+		return new ResponseEntity<PeopleDTO>(adolescentResponse, HttpStatus.CREATED);
 	
 	}
 	
@@ -62,13 +62,13 @@ public class ControllerPeopleAdolescent {
 	}
 
 	@PutMapping(value="adolescents/{id}")
-	public ResponseEntity<AdolescentDTO> update(@PathVariable Long id, @RequestBody AdolescentDTO adolescentDTO) {
+	public ResponseEntity<PeopleDTO> update(@PathVariable Long id, @RequestBody PeopleDTO peopleDTO) {
 		//Convert DTO to Entity
-		PeopleAdolescent adolescentRequest = modelMapper.map(adolescentDTO, PeopleAdolescent.class);
+		PeopleAdolescent adolescentRequest = modelMapper.map(peopleDTO, PeopleAdolescent.class);
 		PeopleAdolescent adolescent = peopleAdolescentService.updateAdolescent(id, adolescentRequest);
 
 		//Convert Entity to DTO
-		AdolescentDTO adolescentResponse = modelMapper.map(adolescent, AdolescentDTO.class);
+		PeopleDTO adolescentResponse = modelMapper.map(adolescent, PeopleDTO.class);
 
 		return ResponseEntity.ok().body(adolescentResponse);
 		

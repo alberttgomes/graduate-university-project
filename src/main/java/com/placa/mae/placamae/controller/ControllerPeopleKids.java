@@ -1,8 +1,6 @@
 package com.placa.mae.placamae.controller;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.placa.mae.placamae.domain.PeopleKids;
-import com.placa.mae.placamae.dto.AdolescentDTO;
+import com.placa.mae.placamae.dto.PeopleDTO;
 import com.placa.mae.placamae.repository.DAOPeopleKids;
 import com.placa.mae.placamae.services.PeopleKidService;
 
@@ -42,15 +40,15 @@ public class ControllerPeopleKids {
 	}
 
 	@PostMapping(value = "/kids")
-	public ResponseEntity<AdolescentDTO> create(@Validated @RequestBody AdolescentDTO postDTO) throws Exception {
+	public ResponseEntity<PeopleDTO> create(@Validated @RequestBody PeopleDTO postDTO) throws Exception {
 		//Convert DTO to Entity
 		PeopleKids kidsSave = modelMapper.map(postDTO, PeopleKids.class);
 		peopleKidService.createKids(kidsSave);
 
 		//Convert Entity to DTO
-		AdolescentDTO kidsResponse = modelMapper.map(kidsSave, AdolescentDTO.class);
+		PeopleDTO kidsResponse = modelMapper.map(kidsSave, PeopleDTO.class);
 		
-		return new ResponseEntity<AdolescentDTO>(kidsResponse, HttpStatus.CREATED);
+		return new ResponseEntity<PeopleDTO>(kidsResponse, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping( value = "/kids/{id}")
@@ -61,15 +59,15 @@ public class ControllerPeopleKids {
 	}
 	
 	@PutMapping(value = "/kids/{kidsId}")
-	public ResponseEntity<AdolescentDTO> update(@PathVariable Long id, @RequestBody AdolescentDTO adolescentDTO) 
+	public ResponseEntity<PeopleDTO> update(@PathVariable Long id, @RequestBody PeopleDTO peopleDTO)
 		throws Exception {
 		
 		//Convert DTO to Entity
-		PeopleKids kidsRequest = modelMapper.map(adolescentDTO, PeopleKids.class);
+		PeopleKids kidsRequest = modelMapper.map(peopleDTO, PeopleKids.class);
 		PeopleKids kids = peopleKidService.updatKids(kidsRequest, id);
 		
 		//Convert Entity to DTO
-		AdolescentDTO adolescentResponse = modelMapper.map(kids, AdolescentDTO.class);
+		PeopleDTO adolescentResponse = modelMapper.map(kids, PeopleDTO.class);
 		
 		return ResponseEntity.ok().body(adolescentResponse);
 

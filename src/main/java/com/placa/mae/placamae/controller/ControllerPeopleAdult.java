@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.placa.mae.placamae.domain.PeopleAdult;
-import com.placa.mae.placamae.dto.AdolescentDTO;
+import com.placa.mae.placamae.dto.PeopleDTO;
 import com.placa.mae.placamae.repository.DAOPeopleAdult;
 import com.placa.mae.placamae.services.PeopleAdultService;
 
@@ -57,26 +57,26 @@ public class ControllerPeopleAdult {
 	}
 
 	@PostMapping(value = "/adults")
-	public ResponseEntity<AdolescentDTO> create(@Validated @RequestBody AdolescentDTO postDto) throws Exception {
+	public ResponseEntity<PeopleDTO> create(@Validated @RequestBody PeopleDTO postDto) throws Exception {
 		//Convert DTO to entity
 		PeopleAdult adolescentSave = modelMapper.map(postDto, PeopleAdult.class);
 		peopleAdultService.createAdult(adolescentSave);
 		
 		//Convert entity to DTO
-		AdolescentDTO adolescentResponse = modelMapper.map(adolescentSave, AdolescentDTO.class);
+		PeopleDTO adolescentResponse = modelMapper.map(adolescentSave, PeopleDTO.class);
 
-		return new ResponseEntity<AdolescentDTO>(adolescentResponse, HttpStatus.CREATED);
+		return new ResponseEntity<PeopleDTO>(adolescentResponse, HttpStatus.CREATED);
 
 	}
 
 	@PutMapping(value="adult/{id}")
-	public ResponseEntity<AdolescentDTO> update(@PathVariable Long id, @RequestBody AdolescentDTO adolescentDTO) {
+	public ResponseEntity<PeopleDTO> update(@PathVariable Long id, @RequestBody PeopleDTO peopleDTO) {
 		//Convert DTO to Entity
-		PeopleAdult adultRequest = modelMapper.map(adolescentDTO, PeopleAdult.class);
+		PeopleAdult adultRequest = modelMapper.map(peopleDTO, PeopleAdult.class);
 		PeopleAdult adult = peopleAdultService.updateAdult(id, adultRequest);
 
 		//Convert Entity to DTO
-		AdolescentDTO adolescentResponse = modelMapper.map(adult, AdolescentDTO.class);
+		PeopleDTO adolescentResponse = modelMapper.map(adult, PeopleDTO.class);
 
 		return ResponseEntity.ok().body(adolescentResponse);
 		
