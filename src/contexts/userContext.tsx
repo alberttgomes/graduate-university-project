@@ -14,7 +14,7 @@ interface IPropsContext {
         age: string,
         email: string,
         password: string,
-        username: string 
+        username: string
     },
     registered: boolean,
     scoreQuiz: number
@@ -22,29 +22,29 @@ interface IPropsContext {
 
 const defaultState = {
     user: {
-        age:'',
-        email:'',
-        password:'',
-        username:''
+        age: '',
+        email: '',
+        password: '',
+        username: ''
     },
-    registered: true,
+    registered: false,
     scoreQuiz: 0,
 }
 
 export const AuthContext = createContext<IPropsTypes>(
-    {result: defaultState, setResult: result => {console.log(result)}});
+    { result: defaultState, setResult: result => { console.log(result) } });
 
-const AuthProvider: FC<IpropsChildren>= ({ children }) => {
+const AuthProvider: FC<IpropsChildren> = ({ children }) => {
     const [result, setResult] = useState<IPropsContext>(defaultState);
 
-    return(
+    return (
         <AuthContext.Provider
-            value={{result, setResult}}
+            value={{ result, setResult }}
         >
             {children}
         </AuthContext.Provider>
     );
-    
+
 }
 
 export default AuthProvider;
