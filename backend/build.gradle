@@ -4,6 +4,8 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.0'
 }
 
+apply plugin: 'java'
+
 group = 'com.placa.mae.org'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
@@ -19,6 +21,9 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.modelmapper:modelmapper:2.1.1'
+	implementation 'javax.persistence:javax.persistence-api:2.2'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
