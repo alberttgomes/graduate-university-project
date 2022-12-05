@@ -39,6 +39,8 @@ public class PeopleAdolescentService implements UserDetailsService {
         
         // Check age equivalent
         if (adolescent.getAge() > 13 && adolescent.getAge() <= 18) {
+            
+            
             System.out.println("Age checked");
         }
         else {
