@@ -50,7 +50,7 @@ const Cadastro = () => {
     }
     
     const header = {
-        "Authorization": "Bearer Authorization: Bearer ",
+        "Authorization": "Bearer ",
         "Content-Type": "application/json"
     }
 
@@ -59,29 +59,42 @@ const Cadastro = () => {
             axios.post('http://localhost:8080/kids', userSignUP, header)
                 .then(() => {
                     setResult({user: userSignUP, registered: true})
+
+                    localStorage.setItem(result);
+
+                    window.location.reload(true);
+
                 })
                 .catch((error) => {
-                    console.log(`An error current ${error}`)
+                    console.log(`An error current in request API ${error}`)
                 });
         } 
         else if (ageValue > AGE_KIDS_BASE && ageValue <= AGE_ADOLESCENTS_BASE) {
             axios.post('http://localhost:8080/adolescents', userSignUP, header)
                 .then(() => {
                     setResult({user: userSignUP, registered: true})
+                    
+                    localStorage.setItem(result);
 
-                    return window.location('/home');
+                    window.location.reload(true);
+
                 })
                 .catch((error) => {
-                    console.log(`An error current ${error}`)
+                    console.log(`An error current in request API ${error}`)
                 });
         }
         else if (ageValue >= AGE_ADULTS_BASE) {
             axios.post('http://localhost:8080/adults', userSignUP, header)
                 .then(() => {
                     setResult({user: userSignUP, registered: true})
+
+                    localStorage.setItem(result);
+
+                    window.location.reload(true);
+
                 })
                 .catch((error) => {
-                    console.log(`An error current ${error}`)
+                    console.log(`An error current in request API ${error}`)
                 });
         } else {
             console.log('An error happened')
