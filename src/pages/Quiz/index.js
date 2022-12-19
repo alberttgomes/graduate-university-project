@@ -24,7 +24,6 @@ const Quiz = () => {
   }, []);
 
 
-
   var A ,B,C,D = "";
 
   if(cont == 0){
@@ -85,6 +84,7 @@ const Quiz = () => {
 
   };
 
+  console.log("resultado", resp)
 
 
 

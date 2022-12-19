@@ -1,7 +1,8 @@
 import React from "react";
 import "./Login.css";
 import "../../components/navbar/Navbar.css";
-import Button from "../../components/UI/Button/Button";
+import Button2 from "../../components/UI/Button/Button";
+import { Button } from "@mui/material";
 import Denuncia from "../../components/denuncia/Denuncia";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
@@ -12,6 +13,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { AuthContext } from "../../contexts/userContext";
 import { useRef, useState, useEffect, useContext } from "react";
+import { useStoreState } from "easy-peasy";
 import axios from "axios";
 
 const Login = () => {
@@ -20,9 +22,10 @@ const Login = () => {
   const [pwd, setPwd] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
+  const light = useStoreState((state) => state.light);
 
   const header = {
-    Authorization: "Bearer Authorization: Bearer ",
+    Authorization: "Bearer ",
     "Content-Type": "application/json",
   };
 
@@ -31,7 +34,6 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post(
         "http://localhost:8080/login/auth",
@@ -41,12 +43,13 @@ const Login = () => {
 
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
+
       setResult({ user, pwd, roles, accessToken });
       setUser("");
       setPwd("");
       setSuccess(true);
 
-      console.log("Aeee poxxaaaa:", success);
+      console.log("Login efetuado!  :");
     } catch (err) {
       console.log("Não pegou:", errMsg);
       if (!err?.response) {
@@ -55,17 +58,21 @@ const Login = () => {
         setErrMsg("Missing Username or Password");
       } else if (err.response?.status === 401) {
         setErrMsg("Unauthorized");
+      } else if (err.response?.status === 403) {
+        setErrMsg("acesso negado");
       } else {
         setErrMsg("Login Failed");
       }
-      errRef.current.focus();
     }
   };
 
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <div className="login">
+        <div
+          className="login"
+          style={{ backgroundColor: `${light ? "white" : "#040017"}` }}
+        >
           <Container component="main" maxWidth="xs">
             <Box
               sx={{
@@ -128,7 +135,9 @@ const Login = () => {
                     fontWeight: "bold",
                   }}
                   onClick={handleSubmit}
-                ></Button>
+                >
+                  Entrar
+                </Button>
 
                 <Grid container justifyContent="flex-end">
                   <Grid item>
