@@ -1,10 +1,12 @@
 import React from "react";
 import "./Footer.css";
 import { FaGlobe, FaInstagram } from "react-icons/fa";
+import { useStoreState } from "easy-peasy";
 
 const Footer = () => {
+  const light = useStoreState((state) => state.light);
   return (
-    <section id="footer">
+    <section id="footer" style={{ background: light ? "#9079D0" : "#382C70" }}>
       <div className="container footer">
         <div className="footer-box">
           <h3>Social</h3>

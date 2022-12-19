@@ -14,11 +14,18 @@ import MenuItem from '@mui/material/MenuItem';
 import { ItemMenu } from './ItemMenu';
 import { AuthContext } from '../../contexts/userContext';
 import "./Navbar.css";
+ 
+import { useStoreActions, useStoreState } from "easy-peasy";
+import { Switch } from "@mui/material";
 
 const pages = ['Home', 'Material', 'Sobre', 'Jogos', 'Quiz'];
 const settings = ['Perfil', 'Conta', 'Dashboard', 'Sair'];
 
+
 const Navbar = () => {
+  
+  const setTema = useStoreActions(actions => actions.setTema)
+  const light = useStoreState(state => state.light)
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -103,6 +110,7 @@ const Navbar = () => {
               ? <ItemMenu>
                   <Link
                     to="/"
+                    style ={{color : light ? '#737276' : 'white'}}
                   >
                       Inicio
                   </Link>
@@ -118,16 +126,19 @@ const Navbar = () => {
                     >
                       <Link
                         to="/cadastro"
+                        style ={{color : light ? '#737276' : 'white'}}
                       >
                           Início
                       </Link>
                     </Button>
                 </div>
-            },
+            }
             {result?.registered === false
               ? <ItemMenu>
                   <Link
                     to="/material"
+                    style ={{color : light ? '#737276' : 'white'}}
+                    
                   >
                     Material
                   </Link>
@@ -135,14 +146,16 @@ const Navbar = () => {
               : <ItemMenu>
                   <Link
                     to="/materialCategorizado"
+                    style ={{color : light ? '#737276' : 'white'}}
                   >
                     Material
                   </Link>
                 </ItemMenu>
-            },
+            }
             <ItemMenu>
               <Link
                 to="/sobre"
+                style ={{color : light ? '#737276' : 'white'}}
               >
                 Sobre
               </Link>
@@ -150,6 +163,7 @@ const Navbar = () => {
             <ItemMenu>
               <Link
                 to="/jogos"
+                style ={{color : light ? '#737276' : 'white'}}
               >
                 Jogos
               </Link>
@@ -158,17 +172,19 @@ const Navbar = () => {
               <ItemMenu>
                 <Link
                   to="/quiz"
+                  style ={{color : light ? '#737276' : 'white'}}
                 >
                   Quiz
                 </Link>
 
               </ItemMenu> : null
-            },
+            }
             {result?.registered === false
               ? <div className="buttonLogin">
                 <ItemMenu>
                   <Link
                     to="/login"
+                    style ={{color : light ? '#737276' : 'white'}}
                   >
                     Entrar
                   </Link>
@@ -187,6 +203,8 @@ const Navbar = () => {
                     >
                       <Link
                         to="/cadastro"
+                        
+                        
                       >
                          Cadastre-se
                       </Link>
@@ -204,6 +222,8 @@ const Navbar = () => {
                 >
                     <SwitchTheme />
                 </Box> */}
+                <Switch onChange={() =>setTema()}/> 
+            
           </Box>
           {result?.registered === true?
                 <Box sx={{ flexGrow: 0 }}>
@@ -233,6 +253,7 @@ const Navbar = () => {
                           <Typography textAlign="center">{setting}</Typography>
                         </MenuItem>
                       ))}
+                      
                     </Menu>
                 </Box> : null
           }

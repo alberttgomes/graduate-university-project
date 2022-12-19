@@ -11,12 +11,14 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { AuthContext } from "../../contexts/userContext";
 import axios from "axios";
+import { useStoreState } from "easy-peasy";
 
 export const AGE_KIDS_BASE = 13;
 export const AGE_ADOLESCENTS_BASE = 17;
 export const AGE_ADULTS_BASE = 18;
 
 const Cadastro = () => {
+    const light = useStoreState(state => state.light)
   const {result, setResult} = useContext(AuthContext);
 
   const theme = createTheme();
@@ -128,7 +130,7 @@ const Cadastro = () => {
 
   return (
         <ThemeProvider theme={theme}>
-            <div>
+            <div style={{backgroundColor :  `${light ? 'white' : '#040017'}`}}>
                 <Container
                     component='main' maxWidth='xs'
                 >
@@ -171,6 +173,7 @@ const Cadastro = () => {
                                         onChange={(event) => {
                                             setUserSignUP({...userSignUP, age: event.target.value});
                                         }}
+                                   
                                     />
                                 </Grid>
                                 <Grid item xs={12}>

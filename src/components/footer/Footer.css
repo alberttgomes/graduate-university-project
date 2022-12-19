@@ -1,5 +1,5 @@
 section#footer {
-  background: var(--dark-purple);
+ 
   height: 190px;
   color: #fff;
   padding: 4rem 0;
@@ -13,6 +13,7 @@ section#footer {
 .carousel .control-dots .dot {
   background: black !important;
   margin: 0 10px !important;
+  
 }
 
 .footer {

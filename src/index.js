@@ -1,17 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom";
+
+import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import {StoreProvider} from 'easy-peasy';
-import {store} from './pages/Quiz/Storage/store'
+import { StoreProvider } from "easy-peasy";
+import { store } from "./Storage/store";
 
+const container = document.getElementById("root");
 
+const root = createRoot(container);
 
-ReactDOM.render(
-  <React.StrictMode>
-    <StoreProvider store={store}>
+root.render(
+  <StoreProvider store={store}>
     <App />
-    </StoreProvider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </StoreProvider>
 );

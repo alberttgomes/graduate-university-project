@@ -6,12 +6,14 @@ import Denuncia from "../../../components/denuncia/Denuncia";
 import cyberbullying from "../../../assets/cyberbullying.svg";
 import placamaeIG from "../../../assets/placamaeIg.png";
 import placamaeIG1 from "../../../assets/brinquedodesucata.png";
-import placamaeIG2 from "../../../assets/gamesacessibilidade.png"
+import placamaeIG2 from "../../../assets/gamesacessibilidade.png";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useStoreState } from "easy-peasy";
 
 const Header = () => {
-  
+  const light = useStoreState((state) => state.light);
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -19,33 +21,36 @@ const Header = () => {
   }, []);
 
   const data = {
-    item:{
+    item: {
       dumb: placamaeIG2,
       id: 2,
-      url:"https://www.instagram.com/p/CbxXJPWtepN/"
+      url: "https://www.instagram.com/p/CbxXJPWtepN/",
     },
-    item1:{
+    item1: {
       dumb: placamaeIG,
       id: 1,
-      url:"https://www.instagram.com/p/CcF9VxrMCaJ/"
+      url: "https://www.instagram.com/p/CcF9VxrMCaJ/",
     },
-    item2:{
+    item2: {
       dumb: placamaeIG1,
       id: 2,
-      url:"https://www.instagram.com/p/Cgo7IB2sW8e/"
+      url: "https://www.instagram.com/p/Cgo7IB2sW8e/",
     },
-  }
+  };
   return (
     <section id="header">
       <div className="container header">
         <div className="header-right" data-aos="fade-left">
           <div className="carrossel" style={{ width: 500, margin: 30 }}>
             <Carousel
-              showArrows={false}
+              showArrows={!light}
               showStatus={false}
               showThumbs={false}
-              touches={true}
-              ind
+              touches={light}
+              style={{
+                background: light ? "black" : "white",
+                margin: "0 10px",
+              }}
             >
               <a href={data.item.url} target="_blank">
                 <div>
@@ -66,7 +71,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div class="btn-denuncia">
+      <div className="btn-denuncia">
         <Denuncia></Denuncia>
       </div>
     </section>

@@ -14,6 +14,7 @@ import InicioQuiz from "./pages/Quiz/inicioQuiz";
 import Pontuacao from "./pages/Quiz/pontuacao";
 import Warning from "./components/warningPolitica/PoliticaWarning";
 import { AuthContext } from './contexts/userContext';
+import QuebraCabeca from "./pages/QuebraCabeca";
 
 import Vlibras from "@djpfs/react-vlibras"
 
@@ -48,6 +49,7 @@ function App() {
           <Route path="/inicioQuiz" element={<InicioQuiz />} />
 
           <Route path="/jogos" element={<Jogos />} />
+          <Route path="/quebracabeca" element={<QuebraCabeca />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/login" element={<Login />} />
           <Route path="/sobre" element={<Sobre />} />
