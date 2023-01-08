@@ -57,13 +57,13 @@ public class ControllerPeopleAdult {
     @PostMapping(value = "/adults")
     public ResponseEntity<SignUpDTO> create(@Validated @RequestBody SignUpDTO postDto) throws Exception {
         //Convert DTO to entity
-        PeopleAdult adolescentSave = modelMapper.map(postDto, PeopleAdult.class);
-        adultService.createAdult(adolescentSave);
+        PeopleAdult adultSave = modelMapper.map(postDto, PeopleAdult.class);
+        adultService.createAdult(adultSave);
 
         //Convert entity to DTO
-        SignUpDTO adolescentResponse = modelMapper.map(adolescentSave, SignUpDTO.class);
+        SignUpDTO adultResponse = modelMapper.map(adultSave, SignUpDTO.class);
 
-        return new ResponseEntity<SignUpDTO>(adolescentResponse, HttpStatus.CREATED);
+        return new ResponseEntity<SignUpDTO>(adultResponse, HttpStatus.CREATED);
 
     }
 

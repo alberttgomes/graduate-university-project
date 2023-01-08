@@ -30,7 +30,7 @@ public class PeopleAdultService {
         boolean verifyExists = usernameVerify(adult.getUsername());
 
         // Check age equivalent
-        if (adult.getAge() > 17) {
+        if (adult.getAge() >= 17) {
             System.out.println("Age checked");
         }
         else {
