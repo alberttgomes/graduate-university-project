@@ -1,0 +1,47 @@
+a {
+  font-size: 16px;
+  font-weight: 300;
+  color: #8861F8;
+  text-decoration: none;
+  margin-right: 1rem;
+  transition: all 0.3s;
+}
+
+a:hover,
+#nav-links-mobile a:hover {
+  color: #a594ee;
+}
+
+a.btn {
+  border-radius: 5px;
+  padding: 5px 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+a.btn-verMais {
+  background-color: #382C70;
+  color: var(--color-white);
+}
+
+a.btn-dark {
+  background: transparent
+}
+
+a.btn-light {
+  background: #FE6100;
+  border: 2px solid transparent;
+  color: #fff;
+  border-radius: 15px;
+}
+
+a.btn-light:hover {
+  background: rgb(240, 69, 7);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  a.btn {
+    display: inline;
+  }
+}

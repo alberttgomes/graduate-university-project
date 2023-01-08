@@ -1,0 +1,74 @@
+#materiais {
+    margin-top: 0px;
+    padding-bottom: 0px;
+    height: 100vh ;
+    width: 100%;
+    background-image: url("../../assets/image-material.png");
+    background-size: 100% 100%;
+    background-repeat:no-repeat;    
+}
+
+#materiaisEscuro {
+    margin-top: 0px;
+    padding-top: 100px;
+    padding-bottom: 0px;
+    height: 100vh ;
+    width: 100%;
+    /* background-image: url("../../assets/materialEscuro.png"); */
+    background-size: 100% 100%;
+    background-repeat:no-repeat;   
+}
+
+
+@media screen and (max-width :  987px){
+    #materiais{
+      height: 100%;
+    }
+  }
+
+.container {
+    text-align: center;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    background-color:#48378e;
+    margin: 8px;
+    display: inline-block;
+}
+
+h3{
+    color: white;
+    padding: 15px;
+    font-size:18px;
+}
+
+#expandir {
+    background-color: #24a4b0;
+    width: 85px;
+    height: 40px;
+    color: rgb(253, 253, 253);
+    border: none transparent;
+    margin-top: 300px;
+    font-family: "Poppins", sans-serif;
+}
+
+#expandir:hover {
+    background-color: #1c8791;
+}
+
+.btn-denuncia{
+    position: fixed;
+	float: bottom;
+	bottom: 20px;
+	right: 15px;
+	z-index: 100;
+  }
+
+  .verMais {
+    padding: 10px;
+    margin: 10px;
+  }
+
+

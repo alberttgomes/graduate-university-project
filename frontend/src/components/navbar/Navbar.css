@@ -1,0 +1,190 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8rem;
+  width: 100%;
+  background: white;
+  position: absolute;
+  z-index: 2;
+  overflow: hidden;
+  background: transparent;
+}
+
+.nav-links {
+  display: flex;
+  color: #fff;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.nav-links li {
+  margin-left: 5px;
+  list-style: none;
+  text-decoration: none;
+}
+
+.nav-links a {
+  font-size: 16px;
+  color: #737276;
+  text-decoration: none;
+  margin-right: 1rem;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.buttonLogin {
+  margin-right: 10px;
+  align-items: center;
+}
+
+.nav-btn {
+  background-color: #FAE43C;
+  width: 130px;
+  height: 25px;
+}
+
+.nav-links a:hover,
+#nav-links-mobile a:hover {
+  color: #7d16e4;
+}
+
+
+/* a.btn {
+  border-radius: 5px;
+  padding: 5px 8px;
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+.btn-dark {
+  background: transparent;
+  border: 2px solid #fff;
+}
+
+/* a.btn-light {
+  background: #fff;
+  border: 2px solid transparent;
+  color: #0a1930;
+} */
+
+.navbar .menu-icons {
+  background: transparent;
+  border: none;
+  display: none;
+}
+
+/* Media Queries */
+@media screen and (max-width: 769px) {
+
+  /* hide nav button on navbar */
+  .nav-btn {
+    display: none;
+    background-color: #FAE43C;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  /* show nav button on navbar menu */
+  .nav-btn {
+    display: block;
+    background-color: #FAE43C;
+    width: auto;
+    height: auto;
+  }
+
+  .nav-links {
+    display: none;
+    border: 2px solid #767272;
+    z-index: 111;
+  }
+
+  .navbar .menu-icons {
+    display: block;
+    background-color: #767272;
+  }
+
+  .navbar #nav-links-mobile,
+  .navbar #nav-links-mobile-hide {
+    display: block;
+    position: absolute;
+    list-style: none;
+    background: #0a1930;
+    left: 0;
+    top: 80px;
+    width: 100%;
+    transition: all 0.3s;
+    border-top: 1px solid #fff;
+    padding-bottom: 5px;
+  }
+
+  .navbar #nav-links-mobile {
+    animation: slide-in 0.5s ease-in-out;
+  }
+
+  .navbar #nav-links-mobile-hide {
+    left: -100%;
+    animation: slide-out 0.5s ease-in-out;
+  }
+
+  @keyframes slide-out {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slide-in {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .navbar #nav-links-mobile li,
+  .navbar #nav-links-mobile-hide li {
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #767272;
+    margin: 0 30px;
+  }
+
+  .navbar #nav-links-mobile li:last-child {
+    border-bottom: none;
+  }
+
+  .navbar #nav-links-mobile li a {
+    color: #767272;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .navbar #nav-links-mobile a:hover {
+    color: orangered;
+  }
+}
+
+.lua {
+  width: 20px;
+  height: 14px;
+  margin: 2px;
+}
+
+.css-1ldmmrg-MuiButtonBase-root-MuiButton-root {
+  font-family: Poppins, sans-serif !important;
+  text-transform: none !important;
+}

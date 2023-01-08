@@ -1,0 +1,50 @@
+section#footer {
+  background: var(--dark-purple);
+  height: 190px;
+  color: #fff;
+  padding: 4rem 0;
+}
+
+.carousel * {
+  box-sizing: border-box;
+  padding: 7px;
+}
+
+.carousel .control-dots .dot {
+  background: black !important;
+  margin: 0 10px !important;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  row-gap: 2rem;
+  column-gap: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-contact p {
+  display: flex;
+  align-items: center;
+}
+
+h3{
+  color: white 
+}
+
+#footer h3{
+  color: white;
+}
+
+.footer-box {
+  padding: auto;
+}
+
+.contato{
+  color: white;
+  font-size: 12px;
+}

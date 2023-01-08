@@ -1,0 +1,37 @@
+.title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--dark-text);
+  margin: 1.5rem 0;
+}
+
+.title p {
+  width: 50%;
+  min-width: 40rem;
+  margin: 0 auto;
+  color: var(--dark-text);
+}
+
+.features-content {
+  display: flex;
+  justify-content: center;
+  /* padding: 3rem 0; */
+}
+
+
+@media screen and (max-width: 600px) {
+  .features-content {
+    flex-direction: column;
+  }
+}
+
+section {
+  justify-content: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,31 @@
+.card{
+    
+    flex-direction: column;
+    border : 1px solid black;
+    border-radius: 5px;
+    width: 400px;
+    overflow: hidden;
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background-color: rgb(136, 97, 209);
+}
+
+.cardImg{
+    width: 100%;
+    height: 150px;
+  
+}
+
+.card > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.card > div > button {
+    background-color: white;
+    border-radius: 5px;
+    width: 110px;
+    border-width: 1px;
+}
