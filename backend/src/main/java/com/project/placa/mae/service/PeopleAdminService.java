@@ -9,59 +9,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.project.placa.mae.exception.InvalidAge;
+import com.project.placa.mae.exception.PermissionException;
 import com.project.placa.mae.exception.UsernameNotFoundException;
 import com.project.placa.mae.exception.UsernameOrEmailAlreadyExists;
-import com.project.placa.mae.model.PeopleKid;
-import com.project.placa.mae.repository.DAOPeopleKid;
+import com.project.placa.mae.model.PeopleAdmin;
+import com.project.placa.mae.repository.DAOPeopleAdmin;
 
 @Service
 public class PeopleAdminService {
     @Autowired
-    private DAOPeopleKid peopleKidRepository;
+    private DAOPeopleAdmin peopleAdminRepository;
 
-    public void PeopleKidService(DAOPeopleKid peopleKidRepository) {
-        this.peopleKidRepository = peopleKidRepository;
+    public void PeopleKidService(DAOPeopleAdmin peopleAdminRepository) {
+        this.peopleAdminRepository = peopleAdminRepository;
     }
 
-    // Create a new people category kids
-    public PeopleKid createKids(PeopleKid kids) throws UsernameOrEmailAlreadyExists {
+    // Create a new people category admin
+    public PeopleAdmin createKids(PeopleAdmin kids) throws UsernameOrEmailAlreadyExists {
         boolean verifyExists = usernameVerify(kids.getUsername());
-
-        // Check age equivalent
-        if (kids.getAge() <= 13) {
-            System.out.println("Age checked");
-        }
-        else {
-            throw new InvalidAge("Age to category invalid exception");
-        }
 
         if (!verifyExists) {
             throw new UsernameOrEmailAlreadyExists("Username already exists");
         }
 
 
-        return peopleKidRepository.save(kids);
+        return peopleAdminRepository.save(kids);
     }
 
-    // Update existing people category kids
-    public PeopleKid updatKids(PeopleKid kids, long id) throws Exception {
-        Optional<PeopleKid> optionalObj = peopleKidRepository.findById(id);
-        PeopleKid peopleKids = optionalObj.get();
+    // Update existing people category admin
+    public PeopleAdmin updatKids(PeopleAdmin admin, long id) throws Exception {
+        Optional<PeopleAdmin> optionalObj = peopleAdminRepository.findById(id);
+        PeopleAdmin peopleAdmin = optionalObj.get();
 
-        peopleKids.setAge(!Objects.isNull(kids.getAge()) ? kids.getAge() : peopleKids.getAge());
-        peopleKids.setEmail(!Objects.isNull(kids.getEmail()) ? kids.getEmail() : peopleKids.getEmail());
-        peopleKids.setPassword(!Objects.isNull(kids.getPassword()) ? kids.getPassword() : peopleKids.getPassword());
-        peopleKids.setUsername(!Objects.isNull(kids.getUsername()) ? kids.getUsername() : peopleKids.getUsername());
-        kids = peopleKidRepository.save(peopleKids);
+        peopleAdmin.setEmail(!Objects.isNull(admin.getEmail()) ? admin.getEmail() : peopleAdmin.getEmail());
+        peopleAdmin.setPassword(!Objects.isNull(admin.getPassword()) ? admin.getPassword() : peopleAdmin.getPassword());
+        peopleAdmin.setUsername(!Objects.isNull(admin.getUsername()) ? admin.getUsername() : peopleAdmin.getUsername());
+        admin = peopleAdminRepository.save(peopleAdmin);
 
-        return ResponseEntity.ok().body(kids).getBody();
+        return ResponseEntity.ok().body(admin).getBody();
 
     }
 
     // Find people by id
-    public PeopleKid findById(Long id) {
-        return peopleKidRepository.findById(id).orElseThrow(
+    public PeopleAdmin findById(Long id) {
+        return peopleAdminRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("People id not found: " + id) );
     }
 
@@ -76,11 +67,29 @@ public class PeopleAdminService {
 
         try {
 
-            return  peopleKidRepository.existsByUsername(username);
+            return  peopleAdminRepository.existsByUsername(username);
 
         } catch(Exception exception) {
 
             return false;
         }
     }
+    
+    /*
+     * Users admin can create posts related to category specified by ages of the user.
+     */
+    public void postArticle(long peopleAdminID) throws PermissionException {
+        
+        PeopleAdmin admin = findById(peopleAdminID);
+
+        if (admin == null) {
+            throw new PermissionException("User permission denied");
+        }
+        else {
+
+        }
+
+
+    }
+
 }
