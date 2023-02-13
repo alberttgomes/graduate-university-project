@@ -1,0 +1,31 @@
+#
+# Issues maven project
+#
+FROM maven:3.8.3-openjdk-11 as BUILD
+
+# Download all the needed dependencies
+COPY pom.xml /project/
+RUN mvn dependency:go-offline
+
+# Copy project and build it
+COPY . /project/
+RUN mvn clean install
+
+
+#
+# Runnable image project
+#
+FROM java:openjdk-11-jdk
+
+ENV PROFILES=docker
+
+COPY --from=BUILD /project/target/backend.jar /opt/placamae/
+
+CMD ["java", \
+    "-Xdebug", \
+    "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005", \
+    "-jar", \
+    "-Dspring.profiles.active=${PROFILES}", \
+    "backend.jar"]
+
+EXPOSE 8080 5005
